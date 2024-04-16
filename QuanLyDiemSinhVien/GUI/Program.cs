@@ -22,7 +22,9 @@ namespace GUI
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormKhoa());
+
+            Application.Run(new FormDangNhap());
+
         }
     }
 }
