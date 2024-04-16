@@ -1,0 +1,15 @@
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DAO.dll.config
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DAO.dll
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DAO.pdb
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DTO.dll
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\EntityFramework.dll
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DTO.pdb
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\DTO.dll.config
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\EntityFramework.xml
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\obj\Debug\DAO.csproj.CopyComplete
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\obj\Debug\DAO.dll
+D:\DoAnC#\QuanLyDiemSinhVien\QuanLyDiemSinhVien\DAO\obj\Debug\DAO.pdb
