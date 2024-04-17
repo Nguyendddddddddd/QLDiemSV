@@ -24,10 +24,12 @@ namespace DTO
         public string MaGV { get; set; }
         public string HoLot { get; set; }
         public string Ten { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public Nullable<bool> GioiTinh { get; set; }
         public string HocHam { get; set; }
         public string HocVi { get; set; }
-        public string MaKhoa { get; set; }
         public string ChuyenMon { get; set; }
+        public string MaKhoa { get; set; }
         public string TenDangNhap { get; set; }
     
         public virtual Khoa Khoa { get; set; }

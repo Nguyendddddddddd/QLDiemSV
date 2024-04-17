@@ -12,21 +12,18 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class HocPhan
+    public partial class Quyen
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HocPhan()
+        public Quyen()
         {
-            this.LopTinChis = new HashSet<LopTinChi>();
+            this.TaiKhoangs = new HashSet<TaiKhoang>();
         }
     
-        public string MaHP { get; set; }
-        public int SoTinChi { get; set; }
-        public string TenHocPhan { get; set; }
-        public string MoTa { get; set; }
-        public bool ISDelete { get; set; }
+        public string MaQuyen { get; set; }
+        public string TenQuyen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopTinChi> LopTinChis { get; set; }
+        public virtual ICollection<TaiKhoang> TaiKhoangs { get; set; }
     }
 }

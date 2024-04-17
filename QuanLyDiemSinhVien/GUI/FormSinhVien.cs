@@ -31,7 +31,7 @@ namespace GUI
             sv.HoLot = txtHoLot.Text;
             sv.Ten = txtTen.Text;
             sv.DiaChi = txtDiaChi.Text;
-            sv.GioiTinh = rdoNam.Checked ? "Nam" : "Nữ";
+            sv.GioiTinh = rdoNam.Checked;
             sv.NgaySinh = dtpNgaySinh.Value;
             bool kq = SinhVienBUS.insert(sv);
             MessageBox.Show(kq ? "Thêm thành công" : "Thêm không thành công");

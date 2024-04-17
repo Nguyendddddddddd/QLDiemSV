@@ -21,14 +21,11 @@ namespace DTO
         }
     
         public string MaLop { get; set; }
-        public int SoLuong { get; set; }
+        public string TenLop { get; set; }
         public string MaNganh { get; set; }
-        public string MaDaoTao { get; set; }
-        public int KhoaHoc { get; set; }
-        public string MaGiV { get; set; }
+        public string MaGV { get; set; }
     
         public virtual GiangVien GiangVien { get; set; }
-        public virtual HinhThucDaoTao HinhThucDaoTao { get; set; }
         public virtual Nganh Nganh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SinhVien> SinhViens { get; set; }

@@ -17,14 +17,16 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HinhThucDaoTao()
         {
-            this.Lops = new HashSet<Lop>();
+            this.Nganhs = new HashSet<Nganh>();
+            this.SinhViens = new HashSet<SinhVien>();
         }
     
         public string MaDaoTao { get; set; }
-        public string TenHinhThuc { get; set; }
-        public short SoNam { get; set; }
+        public string TenDaoTao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lop> Lops { get; set; }
+        public virtual ICollection<Nganh> Nganhs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SinhVien> SinhViens { get; set; }
     }
 }

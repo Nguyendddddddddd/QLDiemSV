@@ -18,11 +18,12 @@ namespace DTO
         private static QLDiemSinhVien Instance;
         public static QLDiemSinhVien getInstance()
         {
-            if(Instance == null)
-                Instance= new QLDiemSinhVien();
+            if (Instance == null)
+                Instance = new QLDiemSinhVien();
             return Instance;
         }
-        private QLDiemSinhVien()
+
+        public QLDiemSinhVien()
             : base("name=QLDiemSinhVien")
         {
         }
@@ -38,14 +39,13 @@ namespace DTO
         public virtual DbSet<GiangVien> GiangViens { get; set; }
         public virtual DbSet<HinhThucDaoTao> HinhThucDaoTaos { get; set; }
         public virtual DbSet<HocKy> HocKies { get; set; }
-        public virtual DbSet<HocPhan> HocPhans { get; set; }
         public virtual DbSet<Khoa> Khoas { get; set; }
-        public virtual DbSet<LoaiQuyen> LoaiQuyens { get; set; }
         public virtual DbSet<Lop> Lops { get; set; }
         public virtual DbSet<LopTinChi> LopTinChis { get; set; }
+        public virtual DbSet<MonHoc> MonHocs { get; set; }
         public virtual DbSet<Nganh> Nganhs { get; set; }
+        public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoang> TaiKhoangs { get; set; }
     }
 }

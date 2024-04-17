@@ -14,9 +14,9 @@ namespace DTO
     
     public partial class DiemHocKy
     {
+        public string MaHocKy { get; set; }
         public string MSSV { get; set; }
-        public string MaKy { get; set; }
-        public double Diem { get; set; }
+        public Nullable<int> Diem { get; set; }
     
         public virtual HocKy HocKy { get; set; }
         public virtual SinhVien SinhVien { get; set; }

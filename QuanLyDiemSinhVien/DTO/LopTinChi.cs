@@ -17,24 +17,22 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LopTinChi()
         {
-            this.DiemThanhPhans = new HashSet<DiemThanhPhan>();
             this.SinhViens = new HashSet<SinhVien>();
             this.GiangViens = new HashSet<GiangVien>();
         }
     
         public string MaLop { get; set; }
-        public System.DateTime NgayBD { get; set; }
-        public System.DateTime NgayKT { get; set; }
-        public string MaHP { get; set; }
-        public int SoLuongSV { get; set; }
-        public string MaKy { get; set; }
-        public int SoLuongSVToiDa { get; set; }
-        public bool isDelete { get; set; }
+        public Nullable<System.DateTime> NgayBatDau { get; set; }
+        public Nullable<System.DateTime> NgayKetThuc { get; set; }
+        public Nullable<int> SLSinhVien { get; set; }
+        public Nullable<int> SLToiDa { get; set; }
+        public string MaHocKy { get; set; }
+        public string MaMon { get; set; }
+        public string MaDiemTP { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DiemThanhPhan> DiemThanhPhans { get; set; }
+        public virtual DiemThanhPhan DiemThanhPhan { get; set; }
         public virtual HocKy HocKy { get; set; }
-        public virtual HocPhan HocPhan { get; set; }
+        public virtual MonHoc MonHoc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SinhVien> SinhViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

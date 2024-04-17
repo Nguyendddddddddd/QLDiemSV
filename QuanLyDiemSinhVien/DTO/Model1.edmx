@@ -7,187 +7,161 @@
       <Schema Namespace="QLDiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDiem">
           <Key>
+            <PropertyRef Name="MaDiemTP" />
             <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaDiem" />
           </Key>
+          <Property Name="MaDiemTP" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="MaDiem" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Diem" Type="float" Nullable="false" />
+          <Property Name="Diem" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QLDiemSinhVien.dbo.DangKy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="DangKy">
+        <EntityType Name="DangKyHoc">
           <Key>
             <PropertyRef Name="MSSV" />
             <PropertyRef Name="MaLop" />
           </Key>
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="MaLop" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaLop" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="DiemHocKy">
           <Key>
+            <PropertyRef Name="MaHocKy" />
             <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaKy" />
           </Key>
+          <Property Name="MaHocKy" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="MaKy" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Diem" Type="float" Nullable="false" />
+          <Property Name="Diem" Type="int" />
         </EntityType>
         <EntityType Name="DiemThanhPhan">
           <Key>
-            <PropertyRef Name="MaDiem" />
+            <PropertyRef Name="MaDiemTP" />
           </Key>
-          <Property Name="MaDiem" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="MaLop" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="PhanTram" Type="float" Nullable="false" />
+          <Property Name="MaDiemTP" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenDiem" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhanTram" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GiangDay">
           <Key>
-            <PropertyRef Name="MaGV" />
             <PropertyRef Name="MaLop" />
+            <PropertyRef Name="MaGV" />
           </Key>
-          <Property Name="MaGV" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="MaLop" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaLop" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaGV" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="GiangVien">
           <Key>
             <PropertyRef Name="MaGV" />
           </Key>
-          <Property Name="MaGV" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="HoLot" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="HocHam" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="HocVi" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaKhoa" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="ChuyenMon" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="255" />
+          <Property Name="MaGV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="HoLot" Type="char" MaxLength="50" />
+          <Property Name="Ten" Type="char" MaxLength="50" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="HocHam" Type="nvarchar" MaxLength="50" />
+          <Property Name="HocVi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChuyenMon" Type="nchar" MaxLength="200" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="HinhThucDaoTao">
           <Key>
             <PropertyRef Name="MaDaoTao" />
           </Key>
-          <Property Name="MaDaoTao" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenHinhThuc" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="SoNam" Type="smallint" Nullable="false" />
+          <Property Name="MaDaoTao" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenDaoTao" Type="char" MaxLength="200" />
         </EntityType>
         <EntityType Name="HocKy">
           <Key>
-            <PropertyRef Name="MaKy" />
+            <PropertyRef Name="MaHocKy" />
           </Key>
-          <Property Name="MaKy" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Ky" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NamHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HocPhan">
-          <Key>
-            <PropertyRef Name="MaHP" />
-          </Key>
-          <Property Name="MaHP" Type="char" MaxLength="6" Nullable="false" />
-          <Property Name="SoTinChi" Type="int" Nullable="false" />
-          <Property Name="TenHocPhan" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="MoTa" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="ISDelete" Type="bit" Nullable="false" />
+          <Property Name="MaHocKy" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="NamHoc" Type="nvarchar" MaxLength="200" />
+          <Property Name="TenKy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
             <PropertyRef Name="MaKhoa" />
           </Key>
-          <Property Name="MaKhoa" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenKhoa" Type="nvarchar" MaxLength="255" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LoaiQuyen">
-          <Key>
-            <PropertyRef Name="MaQuyen" />
-          </Key>
-          <Property Name="MaQuyen" Type="char" MaxLength="2" Nullable="false" />
-          <Property Name="TenQuyen" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Lop">
           <Key>
             <PropertyRef Name="MaLop" />
           </Key>
           <Property Name="MaLop" Type="char" MaxLength="7" Nullable="false" />
-          <Property Name="SoLuong" Type="int" Nullable="false" />
-          <Property Name="MaNganh" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaDaoTao" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="KhoaHoc" Type="int" Nullable="false" />
-          <Property Name="MaGiV" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="TenLop" Type="nchar" MaxLength="10" />
+          <Property Name="MaNganh" Type="char" MaxLength="10" />
+          <Property Name="MaGV" Type="char" MaxLength="10" />
         </EntityType>
         <EntityType Name="LopTinChi">
           <Key>
             <PropertyRef Name="MaLop" />
           </Key>
-          <Property Name="MaLop" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="NgayBD" Type="date" Nullable="false" />
-          <Property Name="NgayKT" Type="date" Nullable="false" />
-          <Property Name="MaHP" Type="char" MaxLength="6" Nullable="false" />
-          <Property Name="SoLuongSV" Type="int" Nullable="false" />
-          <Property Name="MaKy" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="SoLuongSVToiDa" Type="int" Nullable="false" />
-          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="MaLop" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="NgayBatDau" Type="date" />
+          <Property Name="NgayKetThuc" Type="date" />
+          <Property Name="SLSinhVien" Type="int" />
+          <Property Name="SLToiDa" Type="int" />
+          <Property Name="MaHocKy" Type="char" MaxLength="10" />
+          <Property Name="MaMon" Type="char" MaxLength="10" />
+          <Property Name="MaDiemTP" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMon" />
+          </Key>
+          <Property Name="MaMon" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenMon" Type="nvarchar" MaxLength="200" />
+          <Property Name="SoTinChi" Type="smallint" />
+          <Property Name="MoTa" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Nganh">
           <Key>
             <PropertyRef Name="MaNganh" />
           </Key>
-          <Property Name="MaNganh" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenNganh" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="MaKhoa" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaNganh" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenNganh" Type="nvarchar" MaxLength="200" />
+          <Property Name="MaDaoTao" Type="char" MaxLength="10" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenQuyen" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SinhVien">
           <Key>
             <PropertyRef Name="MSSV" />
           </Key>
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="HoLot" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="NgaySinh" Type="date" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="HoLot" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaDaoTao" Type="char" MaxLength="10" />
           <Property Name="MaLop" Type="char" MaxLength="7" />
-          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="TaiKhoang">
           <Key>
             <PropertyRef Name="TenDangNhap" />
           </Key>
-          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="MatKhau" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="MaQuyen" Type="char" MaxLength="2" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="MatKhau" Type="nvarchar(max)" />
+          <Property Name="MaQuyen" Type="char" MaxLength="10" />
         </EntityType>
-        <Association Name="FK__TaiKhoang__MaQuy__3B75D760">
-          <End Role="LoaiQuyen" Type="Self.LoaiQuyen" Multiplicity="0..1" />
-          <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiQuyen">
-              <PropertyRef Name="MaQuyen" />
-            </Principal>
-            <Dependent Role="TaiKhoang">
-              <PropertyRef Name="MaQuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ChiTietDiem_DiemThanhPhan">
           <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="1" />
           <End Role="ChiTietDiem" Type="Self.ChiTietDiem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DiemThanhPhan">
-              <PropertyRef Name="MaDiem" />
+              <PropertyRef Name="MaDiemTP" />
             </Principal>
             <Dependent Role="ChiTietDiem">
-              <PropertyRef Name="MaDiem" />
+              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -203,26 +177,26 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DangKy_LopTinChi">
+        <Association Name="FK_DangKyHoc_LopTinChi">
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="1" />
-          <End Role="DangKy" Type="Self.DangKy" Multiplicity="*" />
+          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LopTinChi">
               <PropertyRef Name="MaLop" />
             </Principal>
-            <Dependent Role="DangKy">
+            <Dependent Role="DangKyHoc">
               <PropertyRef Name="MaLop" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DangKy_SinhVien">
+        <Association Name="FK_DangKyHoc_SinhVien">
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
-          <End Role="DangKy" Type="Self.DangKy" Multiplicity="*" />
+          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SinhVien">
               <PropertyRef Name="MSSV" />
             </Principal>
-            <Dependent Role="DangKy">
+            <Dependent Role="DangKyHoc">
               <PropertyRef Name="MSSV" />
             </Dependent>
           </ReferentialConstraint>
@@ -232,10 +206,10 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <End Role="DiemHocKy" Type="Self.DiemHocKy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaHocKy" />
             </Principal>
             <Dependent Role="DiemHocKy">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaHocKy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -251,19 +225,7 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DiemThanhPhan_LopTinChi">
-          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="1" />
-          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LopTinChi">
-              <PropertyRef Name="MaLop" />
-            </Principal>
-            <Dependent Role="DiemThanhPhan">
-              <PropertyRef Name="MaLop" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GiangDay_GiangVien">
+        <Association Name="FK_GiangDay_GiangVien1">
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
           <End Role="GiangDay" Type="Self.GiangDay" Multiplicity="*" />
           <ReferentialConstraint>
@@ -288,7 +250,7 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GiangVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -312,31 +274,19 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_GiangVien">
-          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiangVien">
               <PropertyRef Name="MaGV" />
             </Principal>
             <Dependent Role="Lop">
-              <PropertyRef Name="MaGiV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Lop_HinhThucDaoTao">
-          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="1" />
-          <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HinhThucDaoTao">
-              <PropertyRef Name="MaDaoTao" />
-            </Principal>
-            <Dependent Role="Lop">
-              <PropertyRef Name="MaDaoTao" />
+              <PropertyRef Name="MaGV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_Nganh">
-          <End Role="Nganh" Type="Self.Nganh" Multiplicity="1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="0..1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nganh">
@@ -347,32 +297,56 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LopTinChi_HocKy">
-          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
+        <Association Name="FK_LopTinChi_DiemThanhPhan">
+          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="0..1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="HocKy">
-              <PropertyRef Name="MaKy" />
+            <Principal Role="DiemThanhPhan">
+              <PropertyRef Name="MaDiemTP" />
             </Principal>
             <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LopTinChi_HocPhan">
-          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="1" />
+        <Association Name="FK_LopTinChi_HocKy">
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="HocPhan">
-              <PropertyRef Name="MaHP" />
+            <Principal Role="HocKy">
+              <PropertyRef Name="MaHocKy" />
             </Principal>
             <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaHP" />
+              <PropertyRef Name="MaHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopTinChi_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nganh_HinhThucDaoTao">
+          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="0..1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhThucDaoTao">
+              <PropertyRef Name="MaDaoTao" />
+            </Principal>
+            <Dependent Role="Nganh">
+              <PropertyRef Name="MaDaoTao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nganh_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
           <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -380,6 +354,18 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Principal>
             <Dependent Role="Nganh">
               <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinhVien_HinhThucDaoTao">
+          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="0..1" />
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhThucDaoTao">
+              <PropertyRef Name="MaDaoTao" />
+            </Principal>
+            <Dependent Role="SinhVien">
+              <PropertyRef Name="MaDaoTao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -407,38 +393,35 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TaiKhoang_Quyen">
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoang">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QLDiemSinhVienModelStoreContainer">
           <EntitySet Name="ChiTietDiem" EntityType="Self.ChiTietDiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DangKyHoc" EntityType="Self.DangKyHoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiemHocKy" EntityType="Self.DiemHocKy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiemThanhPhan" EntityType="Self.DiemThanhPhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiangDay" EntityType="Self.GiangDay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GiangVien" EntityType="Self.GiangVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HinhThucDaoTao" EntityType="Self.HinhThucDaoTao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HocKy" EntityType="Self.HocKy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LoaiQuyen" EntityType="Self.LoaiQuyen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LopTinChi" EntityType="Self.LopTinChi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nganh" EntityType="Self.Nganh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoang" EntityType="Self.TaiKhoang" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DangKy" EntityType="Self.DangKy" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DangKy].[MSSV] AS [MSSV], 
-    [DangKy].[MaLop] AS [MaLop]
-    FROM [dbo].[DangKy] AS [DangKy]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="GiangDay" EntityType="Self.GiangDay" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [GiangDay].[MaGV] AS [MaGV], 
-    [GiangDay].[MaLop] AS [MaLop]
-    FROM [dbo].[GiangDay] AS [GiangDay]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__TaiKhoang__MaQuy__3B75D760" Association="Self.FK__TaiKhoang__MaQuy__3B75D760">
-            <End Role="LoaiQuyen" EntitySet="LoaiQuyen" />
-            <End Role="TaiKhoang" EntitySet="TaiKhoang" />
-          </AssociationSet>
           <AssociationSet Name="FK_ChiTietDiem_DiemThanhPhan" Association="Self.FK_ChiTietDiem_DiemThanhPhan">
             <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
             <End Role="ChiTietDiem" EntitySet="ChiTietDiem" />
@@ -447,13 +430,13 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="SinhVien" EntitySet="SinhVien" />
             <End Role="ChiTietDiem" EntitySet="ChiTietDiem" />
           </AssociationSet>
-          <AssociationSet Name="FK_DangKy_LopTinChi" Association="Self.FK_DangKy_LopTinChi">
+          <AssociationSet Name="FK_DangKyHoc_LopTinChi" Association="Self.FK_DangKyHoc_LopTinChi">
             <End Role="LopTinChi" EntitySet="LopTinChi" />
-            <End Role="DangKy" EntitySet="DangKy" />
+            <End Role="DangKyHoc" EntitySet="DangKyHoc" />
           </AssociationSet>
-          <AssociationSet Name="FK_DangKy_SinhVien" Association="Self.FK_DangKy_SinhVien">
+          <AssociationSet Name="FK_DangKyHoc_SinhVien" Association="Self.FK_DangKyHoc_SinhVien">
             <End Role="SinhVien" EntitySet="SinhVien" />
-            <End Role="DangKy" EntitySet="DangKy" />
+            <End Role="DangKyHoc" EntitySet="DangKyHoc" />
           </AssociationSet>
           <AssociationSet Name="FK_DiemHocKy_HocKy" Association="Self.FK_DiemHocKy_HocKy">
             <End Role="HocKy" EntitySet="HocKy" />
@@ -463,11 +446,7 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="SinhVien" EntitySet="SinhVien" />
             <End Role="DiemHocKy" EntitySet="DiemHocKy" />
           </AssociationSet>
-          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="Self.FK_DiemThanhPhan_LopTinChi">
-            <End Role="LopTinChi" EntitySet="LopTinChi" />
-            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GiangDay_GiangVien" Association="Self.FK_GiangDay_GiangVien">
+          <AssociationSet Name="FK_GiangDay_GiangVien1" Association="Self.FK_GiangDay_GiangVien1">
             <End Role="GiangVien" EntitySet="GiangVien" />
             <End Role="GiangDay" EntitySet="GiangDay" />
           </AssociationSet>
@@ -487,25 +466,33 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="GiangVien" EntitySet="GiangVien" />
             <End Role="Lop" EntitySet="Lop" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lop_HinhThucDaoTao" Association="Self.FK_Lop_HinhThucDaoTao">
-            <End Role="HinhThucDaoTao" EntitySet="HinhThucDaoTao" />
-            <End Role="Lop" EntitySet="Lop" />
-          </AssociationSet>
           <AssociationSet Name="FK_Lop_Nganh" Association="Self.FK_Lop_Nganh">
             <End Role="Nganh" EntitySet="Nganh" />
             <End Role="Lop" EntitySet="Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopTinChi_DiemThanhPhan" Association="Self.FK_LopTinChi_DiemThanhPhan">
+            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
+            <End Role="LopTinChi" EntitySet="LopTinChi" />
           </AssociationSet>
           <AssociationSet Name="FK_LopTinChi_HocKy" Association="Self.FK_LopTinChi_HocKy">
             <End Role="HocKy" EntitySet="HocKy" />
             <End Role="LopTinChi" EntitySet="LopTinChi" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopTinChi_HocPhan" Association="Self.FK_LopTinChi_HocPhan">
-            <End Role="HocPhan" EntitySet="HocPhan" />
+          <AssociationSet Name="FK_LopTinChi_MonHoc" Association="Self.FK_LopTinChi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
             <End Role="LopTinChi" EntitySet="LopTinChi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nganh_HinhThucDaoTao" Association="Self.FK_Nganh_HinhThucDaoTao">
+            <End Role="HinhThucDaoTao" EntitySet="HinhThucDaoTao" />
+            <End Role="Nganh" EntitySet="Nganh" />
           </AssociationSet>
           <AssociationSet Name="FK_Nganh_Khoa" Association="Self.FK_Nganh_Khoa">
             <End Role="Khoa" EntitySet="Khoa" />
             <End Role="Nganh" EntitySet="Nganh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinhVien_HinhThucDaoTao" Association="Self.FK_SinhVien_HinhThucDaoTao">
+            <End Role="HinhThucDaoTao" EntitySet="HinhThucDaoTao" />
+            <End Role="SinhVien" EntitySet="SinhVien" />
           </AssociationSet>
           <AssociationSet Name="FK_SinhVien_Lop" Association="Self.FK_SinhVien_Lop">
             <End Role="Lop" EntitySet="Lop" />
@@ -515,6 +502,10 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="TaiKhoang" EntitySet="TaiKhoang" />
             <End Role="SinhVien" EntitySet="SinhVien" />
           </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoang_Quyen" Association="Self.FK_TaiKhoang_Quyen">
+            <End Role="Quyen" EntitySet="Quyen" />
+            <End Role="TaiKhoang" EntitySet="TaiKhoang" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -523,48 +514,50 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
       <Schema Namespace="QLDiemSinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChiTietDiem">
           <Key>
+            <PropertyRef Name="MaDiemTP" />
             <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaDiem" />
           </Key>
+          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaDiem" Type="Guid" Nullable="false" />
-          <Property Name="Diem" Type="Double" Nullable="false" />
+          <Property Name="Diem" Type="Int32" />
           <NavigationProperty Name="DiemThanhPhan" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="ChiTietDiem" ToRole="DiemThanhPhan" />
           <NavigationProperty Name="SinhVien" Relationship="Self.FK_ChiTietDiem_SinhVien" FromRole="ChiTietDiem" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="DiemHocKy">
           <Key>
+            <PropertyRef Name="MaHocKy" />
             <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaKy" />
           </Key>
+          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Diem" Type="Double" Nullable="false" />
+          <Property Name="Diem" Type="Int32" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_DiemHocKy_HocKy" FromRole="DiemHocKy" ToRole="HocKy" />
           <NavigationProperty Name="SinhVien" Relationship="Self.FK_DiemHocKy_SinhVien" FromRole="DiemHocKy" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="DiemThanhPhan">
           <Key>
-            <PropertyRef Name="MaDiem" />
+            <PropertyRef Name="MaDiemTP" />
           </Key>
-          <Property Name="MaDiem" Type="Guid" Nullable="false" />
-          <Property Name="MaLop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PhanTram" Type="Double" Nullable="false" />
+          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenDiem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhanTram" Type="Int32" />
           <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="ChiTietDiem" />
-          <NavigationProperty Name="LopTinChi" Relationship="Self.FK_DiemThanhPhan_LopTinChi" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
+          <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="GiangVien">
           <Key>
             <PropertyRef Name="MaGV" />
           </Key>
-          <Property Name="MaGV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="HoLot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HocHam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HocVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ChuyenMon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenDangNhap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="HoLot" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="HocHam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HocVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChuyenMon" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_GiangVien_Khoa" FromRole="GiangVien" ToRole="Khoa" />
           <NavigationProperty Name="TaiKhoang" Relationship="Self.FK_GiangVien_TaiKhoang" FromRole="GiangVien" ToRole="TaiKhoang" />
           <NavigationProperty Name="Lops" Relationship="Self.FK_Lop_GiangVien" FromRole="GiangVien" ToRole="Lop" />
@@ -574,61 +567,39 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <Key>
             <PropertyRef Name="MaDaoTao" />
           </Key>
-          <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenHinhThuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SoNam" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Lops" Relationship="Self.FK_Lop_HinhThucDaoTao" FromRole="HinhThucDaoTao" ToRole="Lop" />
+          <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenDaoTao" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Nganhs" Relationship="Self.FK_Nganh_HinhThucDaoTao" FromRole="HinhThucDaoTao" ToRole="Nganh" />
+          <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_HinhThucDaoTao" FromRole="HinhThucDaoTao" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="HocKy">
           <Key>
-            <PropertyRef Name="MaKy" />
+            <PropertyRef Name="MaHocKy" />
           </Key>
-          <Property Name="MaKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Ky" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NamHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NamHoc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TenKy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DiemHocKies" Relationship="Self.FK_DiemHocKy_HocKy" FromRole="HocKy" ToRole="DiemHocKy" />
           <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_HocKy" FromRole="HocKy" ToRole="LopTinChi" />
-        </EntityType>
-        <EntityType Name="HocPhan">
-          <Key>
-            <PropertyRef Name="MaHP" />
-          </Key>
-          <Property Name="MaHP" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="SoTinChi" Type="Int32" Nullable="false" />
-          <Property Name="TenHocPhan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ISDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_HocPhan" FromRole="HocPhan" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
             <PropertyRef Name="MaKhoa" />
           </Key>
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenKhoa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenKhoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_Khoa" FromRole="Khoa" ToRole="GiangVien" />
           <NavigationProperty Name="Nganhs" Relationship="Self.FK_Nganh_Khoa" FromRole="Khoa" ToRole="Nganh" />
-        </EntityType>
-        <EntityType Name="LoaiQuyen">
-          <Key>
-            <PropertyRef Name="MaQuyen" />
-          </Key>
-          <Property Name="MaQuyen" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenQuyen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TaiKhoangs" Relationship="Self.FK__TaiKhoang__MaQuy__3B75D760" FromRole="LoaiQuyen" ToRole="TaiKhoang" />
         </EntityType>
         <EntityType Name="Lop">
           <Key>
             <PropertyRef Name="MaLop" />
           </Key>
           <Property Name="MaLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="SoLuong" Type="Int32" Nullable="false" />
-          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KhoaHoc" Type="Int32" Nullable="false" />
-          <Property Name="MaGiV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenLop" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="GiangVien" Relationship="Self.FK_Lop_GiangVien" FromRole="Lop" ToRole="GiangVien" />
-          <NavigationProperty Name="HinhThucDaoTao" Relationship="Self.FK_Lop_HinhThucDaoTao" FromRole="Lop" ToRole="HinhThucDaoTao" />
           <NavigationProperty Name="Nganh" Relationship="Self.FK_Lop_Nganh" FromRole="Lop" ToRole="Nganh" />
           <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_Lop" FromRole="Lop" ToRole="SinhVien" />
         </EntityType>
@@ -636,67 +607,79 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <Key>
             <PropertyRef Name="MaLop" />
           </Key>
-          <Property Name="MaLop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="NgayBD" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NgayKT" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="MaHP" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="SoLuongSV" Type="Int32" Nullable="false" />
-          <Property Name="MaKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="SoLuongSVToiDa" Type="Int32" Nullable="false" />
-          <Property Name="isDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DiemThanhPhans" Relationship="Self.FK_DiemThanhPhan_LopTinChi" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
+          <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
+          <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
+          <Property Name="SLSinhVien" Type="Int32" />
+          <Property Name="SLToiDa" Type="Int32" />
+          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DiemThanhPhan" Relationship="Self.FK_LopTinChi_DiemThanhPhan" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_LopTinChi_HocKy" FromRole="LopTinChi" ToRole="HocKy" />
-          <NavigationProperty Name="HocPhan" Relationship="Self.FK_LopTinChi_HocPhan" FromRole="LopTinChi" ToRole="HocPhan" />
-          <NavigationProperty Name="SinhViens" Relationship="Self.DangKy" FromRole="LopTinChi" ToRole="SinhVien" />
+          <NavigationProperty Name="MonHoc" Relationship="Self.FK_LopTinChi_MonHoc" FromRole="LopTinChi" ToRole="MonHoc" />
+          <NavigationProperty Name="SinhViens" Relationship="Self.DangKyHoc" FromRole="LopTinChi" ToRole="SinhVien" />
           <NavigationProperty Name="GiangViens" Relationship="Self.GiangDay" FromRole="LopTinChi" ToRole="GiangVien" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMon" />
+          </Key>
+          <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenMon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SoTinChi" Type="Int16" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_MonHoc" FromRole="MonHoc" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="Nganh">
           <Key>
             <PropertyRef Name="MaNganh" />
           </Key>
-          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenNganh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenNganh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="HinhThucDaoTao" Relationship="Self.FK_Nganh_HinhThucDaoTao" FromRole="Nganh" ToRole="HinhThucDaoTao" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_Nganh_Khoa" FromRole="Nganh" ToRole="Khoa" />
           <NavigationProperty Name="Lops" Relationship="Self.FK_Lop_Nganh" FromRole="Nganh" ToRole="Lop" />
+        </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoangs" Relationship="Self.FK_TaiKhoang_Quyen" FromRole="Quyen" ToRole="TaiKhoang" />
         </EntityType>
         <EntityType Name="SinhVien">
           <Key>
             <PropertyRef Name="MSSV" />
           </Key>
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="HoLot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoLot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="MaLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
-          <Property Name="TenDangNhap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_SinhVien" FromRole="SinhVien" ToRole="ChiTietDiem" />
           <NavigationProperty Name="DiemHocKies" Relationship="Self.FK_DiemHocKy_SinhVien" FromRole="SinhVien" ToRole="DiemHocKy" />
+          <NavigationProperty Name="HinhThucDaoTao" Relationship="Self.FK_SinhVien_HinhThucDaoTao" FromRole="SinhVien" ToRole="HinhThucDaoTao" />
           <NavigationProperty Name="Lop" Relationship="Self.FK_SinhVien_Lop" FromRole="SinhVien" ToRole="Lop" />
           <NavigationProperty Name="TaiKhoang" Relationship="Self.FK_SinhVien_TaiKhoang" FromRole="SinhVien" ToRole="TaiKhoang" />
-          <NavigationProperty Name="LopTinChis" Relationship="Self.DangKy" FromRole="SinhVien" ToRole="LopTinChi" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="LopTinChis" Relationship="Self.DangKyHoc" FromRole="SinhVien" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="TaiKhoang">
           <Key>
             <PropertyRef Name="TenDangNhap" />
           </Key>
-          <Property Name="TenDangNhap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaQuyen" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaQuyen" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_TaiKhoang" FromRole="TaiKhoang" ToRole="GiangVien" />
-          <NavigationProperty Name="LoaiQuyen" Relationship="Self.FK__TaiKhoang__MaQuy__3B75D760" FromRole="TaiKhoang" ToRole="LoaiQuyen" />
+          <NavigationProperty Name="Quyen" Relationship="Self.FK_TaiKhoang_Quyen" FromRole="TaiKhoang" ToRole="Quyen" />
           <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_TaiKhoang" FromRole="TaiKhoang" ToRole="SinhVien" />
         </EntityType>
         <Association Name="FK_ChiTietDiem_DiemThanhPhan">
@@ -704,10 +687,10 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <End Role="ChiTietDiem" Type="Self.ChiTietDiem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DiemThanhPhan">
-              <PropertyRef Name="MaDiem" />
+              <PropertyRef Name="MaDiemTP" />
             </Principal>
             <Dependent Role="ChiTietDiem">
-              <PropertyRef Name="MaDiem" />
+              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -728,10 +711,10 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <End Role="DiemHocKy" Type="Self.DiemHocKy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaHocKy" />
             </Principal>
             <Dependent Role="DiemHocKy">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaHocKy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -747,20 +730,20 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DiemThanhPhan_LopTinChi">
-          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="1" />
-          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="*" />
+        <Association Name="FK_LopTinChi_DiemThanhPhan">
+          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="0..1" />
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LopTinChi">
-              <PropertyRef Name="MaLop" />
+            <Principal Role="DiemThanhPhan">
+              <PropertyRef Name="MaDiemTP" />
             </Principal>
-            <Dependent Role="DiemThanhPhan">
-              <PropertyRef Name="MaLop" />
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GiangVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -784,55 +767,55 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_GiangVien">
-          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiangVien">
               <PropertyRef Name="MaGV" />
             </Principal>
             <Dependent Role="Lop">
-              <PropertyRef Name="MaGiV" />
+              <PropertyRef Name="MaGV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Lop_HinhThucDaoTao">
-          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="1" />
-          <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
+        <Association Name="FK_Nganh_HinhThucDaoTao">
+          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="0..1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HinhThucDaoTao">
               <PropertyRef Name="MaDaoTao" />
             </Principal>
-            <Dependent Role="Lop">
+            <Dependent Role="Nganh">
+              <PropertyRef Name="MaDaoTao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinhVien_HinhThucDaoTao">
+          <End Role="HinhThucDaoTao" Type="Self.HinhThucDaoTao" Multiplicity="0..1" />
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhThucDaoTao">
+              <PropertyRef Name="MaDaoTao" />
+            </Principal>
+            <Dependent Role="SinhVien">
               <PropertyRef Name="MaDaoTao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_HocKy">
-          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
-              <PropertyRef Name="MaKy" />
+              <PropertyRef Name="MaHocKy" />
             </Principal>
             <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaKy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LopTinChi_HocPhan">
-          <End Role="HocPhan" Type="Self.HocPhan" Multiplicity="1" />
-          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HocPhan">
-              <PropertyRef Name="MaHP" />
-            </Principal>
-            <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaHP" />
+              <PropertyRef Name="MaHocKy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nganh_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
           <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -843,20 +826,8 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TaiKhoang__MaQuy__3B75D760">
-          <End Role="LoaiQuyen" Type="Self.LoaiQuyen" Multiplicity="0..1" />
-          <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiQuyen">
-              <PropertyRef Name="MaQuyen" />
-            </Principal>
-            <Dependent Role="TaiKhoang">
-              <PropertyRef Name="MaQuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Lop_Nganh">
-          <End Role="Nganh" Type="Self.Nganh" Multiplicity="1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="0..1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nganh">
@@ -879,6 +850,30 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LopTinChi_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoang_Quyen">
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoang">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SinhVien_TaiKhoang">
           <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="0..1" />
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
@@ -891,7 +886,7 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="DangKy">
+        <Association Name="DangKyHoc">
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
         </Association>
@@ -906,14 +901,13 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
           <EntitySet Name="HinhThucDaoTaos" EntityType="Self.HinhThucDaoTao" />
           <EntitySet Name="HocKies" EntityType="Self.HocKy" />
-          <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
           <EntitySet Name="Khoas" EntityType="Self.Khoa" />
-          <EntitySet Name="LoaiQuyens" EntityType="Self.LoaiQuyen" />
           <EntitySet Name="Lops" EntityType="Self.Lop" />
           <EntitySet Name="LopTinChis" EntityType="Self.LopTinChi" />
+          <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
           <EntitySet Name="Nganhs" EntityType="Self.Nganh" />
+          <EntitySet Name="Quyens" EntityType="Self.Quyen" />
           <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoangs" EntityType="Self.TaiKhoang" />
           <AssociationSet Name="FK_ChiTietDiem_DiemThanhPhan" Association="Self.FK_ChiTietDiem_DiemThanhPhan">
             <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
@@ -931,9 +925,9 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="SinhVien" EntitySet="SinhViens" />
             <End Role="DiemHocKy" EntitySet="DiemHocKies" />
           </AssociationSet>
-          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="Self.FK_DiemThanhPhan_LopTinChi">
-            <End Role="LopTinChi" EntitySet="LopTinChis" />
+          <AssociationSet Name="FK_LopTinChi_DiemThanhPhan" Association="Self.FK_LopTinChi_DiemThanhPhan">
             <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
           <AssociationSet Name="FK_GiangVien_Khoa" Association="Self.FK_GiangVien_Khoa">
             <End Role="Khoa" EntitySet="Khoas" />
@@ -947,25 +941,21 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="GiangVien" EntitySet="GiangViens" />
             <End Role="Lop" EntitySet="Lops" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lop_HinhThucDaoTao" Association="Self.FK_Lop_HinhThucDaoTao">
+          <AssociationSet Name="FK_Nganh_HinhThucDaoTao" Association="Self.FK_Nganh_HinhThucDaoTao">
             <End Role="HinhThucDaoTao" EntitySet="HinhThucDaoTaos" />
-            <End Role="Lop" EntitySet="Lops" />
+            <End Role="Nganh" EntitySet="Nganhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinhVien_HinhThucDaoTao" Association="Self.FK_SinhVien_HinhThucDaoTao">
+            <End Role="HinhThucDaoTao" EntitySet="HinhThucDaoTaos" />
+            <End Role="SinhVien" EntitySet="SinhViens" />
           </AssociationSet>
           <AssociationSet Name="FK_LopTinChi_HocKy" Association="Self.FK_LopTinChi_HocKy">
             <End Role="HocKy" EntitySet="HocKies" />
             <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopTinChi_HocPhan" Association="Self.FK_LopTinChi_HocPhan">
-            <End Role="HocPhan" EntitySet="HocPhans" />
-            <End Role="LopTinChi" EntitySet="LopTinChis" />
-          </AssociationSet>
           <AssociationSet Name="FK_Nganh_Khoa" Association="Self.FK_Nganh_Khoa">
             <End Role="Khoa" EntitySet="Khoas" />
             <End Role="Nganh" EntitySet="Nganhs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TaiKhoang__MaQuy__3B75D760" Association="Self.FK__TaiKhoang__MaQuy__3B75D760">
-            <End Role="LoaiQuyen" EntitySet="LoaiQuyens" />
-            <End Role="TaiKhoang" EntitySet="TaiKhoangs" />
           </AssociationSet>
           <AssociationSet Name="FK_Lop_Nganh" Association="Self.FK_Lop_Nganh">
             <End Role="Nganh" EntitySet="Nganhs" />
@@ -975,11 +965,19 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <End Role="Lop" EntitySet="Lops" />
             <End Role="SinhVien" EntitySet="SinhViens" />
           </AssociationSet>
+          <AssociationSet Name="FK_LopTinChi_MonHoc" Association="Self.FK_LopTinChi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoang_Quyen" Association="Self.FK_TaiKhoang_Quyen">
+            <End Role="Quyen" EntitySet="Quyens" />
+            <End Role="TaiKhoang" EntitySet="TaiKhoangs" />
+          </AssociationSet>
           <AssociationSet Name="FK_SinhVien_TaiKhoang" Association="Self.FK_SinhVien_TaiKhoang">
             <End Role="TaiKhoang" EntitySet="TaiKhoangs" />
             <End Role="SinhVien" EntitySet="SinhViens" />
           </AssociationSet>
-          <AssociationSet Name="DangKy" Association="Self.DangKy">
+          <AssociationSet Name="DangKyHoc" Association="Self.DangKyHoc">
             <End Role="LopTinChi" EntitySet="LopTinChis" />
             <End Role="SinhVien" EntitySet="SinhViens" />
           </AssociationSet>
@@ -997,8 +995,8 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <EntitySetMapping Name="ChiTietDiems">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.ChiTietDiem">
               <MappingFragment StoreEntitySet="ChiTietDiem">
+                <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
                 <ScalarProperty Name="MSSV" ColumnName="MSSV" />
-                <ScalarProperty Name="MaDiem" ColumnName="MaDiem" />
                 <ScalarProperty Name="Diem" ColumnName="Diem" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1006,8 +1004,8 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <EntitySetMapping Name="DiemHocKies">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.DiemHocKy">
               <MappingFragment StoreEntitySet="DiemHocKy">
+                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
                 <ScalarProperty Name="MSSV" ColumnName="MSSV" />
-                <ScalarProperty Name="MaKy" ColumnName="MaKy" />
                 <ScalarProperty Name="Diem" ColumnName="Diem" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1015,8 +1013,8 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
           <EntitySetMapping Name="DiemThanhPhans">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.DiemThanhPhan">
               <MappingFragment StoreEntitySet="DiemThanhPhan">
-                <ScalarProperty Name="MaDiem" ColumnName="MaDiem" />
-                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
+                <ScalarProperty Name="TenDiem" ColumnName="TenDiem" />
                 <ScalarProperty Name="PhanTram" ColumnName="PhanTram" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1027,10 +1025,12 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
                 <ScalarProperty Name="MaGV" ColumnName="MaGV" />
                 <ScalarProperty Name="HoLot" ColumnName="HoLot" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="HocHam" ColumnName="HocHam" />
                 <ScalarProperty Name="HocVi" ColumnName="HocVi" />
-                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
                 <ScalarProperty Name="ChuyenMon" ColumnName="ChuyenMon" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1039,28 +1039,16 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.HinhThucDaoTao">
               <MappingFragment StoreEntitySet="HinhThucDaoTao">
                 <ScalarProperty Name="MaDaoTao" ColumnName="MaDaoTao" />
-                <ScalarProperty Name="TenHinhThuc" ColumnName="TenHinhThuc" />
-                <ScalarProperty Name="SoNam" ColumnName="SoNam" />
+                <ScalarProperty Name="TenDaoTao" ColumnName="TenDaoTao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HocKies">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.HocKy">
               <MappingFragment StoreEntitySet="HocKy">
-                <ScalarProperty Name="MaKy" ColumnName="MaKy" />
-                <ScalarProperty Name="Ky" ColumnName="Ky" />
+                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
                 <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HocPhans">
-            <EntityTypeMapping TypeName="QLDiemSinhVienModel.HocPhan">
-              <MappingFragment StoreEntitySet="HocPhan">
-                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
-                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
-                <ScalarProperty Name="TenHocPhan" ColumnName="TenHocPhan" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="ISDelete" ColumnName="ISDelete" />
+                <ScalarProperty Name="TenKy" ColumnName="TenKy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1072,23 +1060,13 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiQuyens">
-            <EntityTypeMapping TypeName="QLDiemSinhVienModel.LoaiQuyen">
-              <MappingFragment StoreEntitySet="LoaiQuyen">
-                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
-                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Lops">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.Lop">
               <MappingFragment StoreEntitySet="Lop">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
                 <ScalarProperty Name="MaNganh" ColumnName="MaNganh" />
-                <ScalarProperty Name="MaDaoTao" ColumnName="MaDaoTao" />
-                <ScalarProperty Name="KhoaHoc" ColumnName="KhoaHoc" />
-                <ScalarProperty Name="MaGiV" ColumnName="MaGiV" />
+                <ScalarProperty Name="MaGV" ColumnName="MaGV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1096,13 +1074,23 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.LopTinChi">
               <MappingFragment StoreEntitySet="LopTinChi">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
-                <ScalarProperty Name="NgayBD" ColumnName="NgayBD" />
-                <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
-                <ScalarProperty Name="MaHP" ColumnName="MaHP" />
-                <ScalarProperty Name="SoLuongSV" ColumnName="SoLuongSV" />
-                <ScalarProperty Name="MaKy" ColumnName="MaKy" />
-                <ScalarProperty Name="SoLuongSVToiDa" ColumnName="SoLuongSVToiDa" />
-                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="SLSinhVien" ColumnName="SLSinhVien" />
+                <ScalarProperty Name="SLToiDa" ColumnName="SLToiDa" />
+                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
+                <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+                <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonHocs">
+            <EntityTypeMapping TypeName="QLDiemSinhVienModel.MonHoc">
+              <MappingFragment StoreEntitySet="MonHoc">
+                <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+                <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1111,7 +1099,16 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
               <MappingFragment StoreEntitySet="Nganh">
                 <ScalarProperty Name="MaNganh" ColumnName="MaNganh" />
                 <ScalarProperty Name="TenNganh" ColumnName="TenNganh" />
+                <ScalarProperty Name="MaDaoTao" ColumnName="MaDaoTao" />
                 <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quyens">
+            <EntityTypeMapping TypeName="QLDiemSinhVienModel.Quyen">
+              <MappingFragment StoreEntitySet="Quyen">
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1122,21 +1119,11 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
                 <ScalarProperty Name="HoLot" ColumnName="HoLot" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="MaDaoTao" ColumnName="MaDaoTao" />
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QLDiemSinhVienModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1149,7 +1136,7 @@ warning 6002: The table/view 'QLDiemSinhVien.dbo.GiangDay' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DangKy" TypeName="QLDiemSinhVienModel.DangKy" StoreEntitySet="DangKy">
+          <AssociationSetMapping Name="DangKyHoc" TypeName="QLDiemSinhVienModel.DangKyHoc" StoreEntitySet="DangKyHoc">
             <EndProperty Name="LopTinChi">
               <ScalarProperty Name="MaLop" ColumnName="MaLop" />
             </EndProperty>

@@ -25,9 +25,10 @@ namespace DTO
         public string MSSV { get; set; }
         public string HoLot { get; set; }
         public string Ten { get; set; }
-        public System.DateTime NgaySinh { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public Nullable<bool> GioiTinh { get; set; }
         public string DiaChi { get; set; }
-        public string GioiTinh { get; set; }
+        public string MaDaoTao { get; set; }
         public string MaLop { get; set; }
         public string TenDangNhap { get; set; }
     
@@ -35,6 +36,7 @@ namespace DTO
         public virtual ICollection<ChiTietDiem> ChiTietDiems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiemHocKy> DiemHocKies { get; set; }
+        public virtual HinhThucDaoTao HinhThucDaoTao { get; set; }
         public virtual Lop Lop { get; set; }
         public virtual TaiKhoang TaiKhoang { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

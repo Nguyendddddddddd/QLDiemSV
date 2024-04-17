@@ -21,9 +21,9 @@ namespace DTO
             this.LopTinChis = new HashSet<LopTinChi>();
         }
     
-        public string MaKy { get; set; }
-        public string Ky { get; set; }
+        public string MaHocKy { get; set; }
         public string NamHoc { get; set; }
+        public string TenKy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiemHocKy> DiemHocKies { get; set; }
