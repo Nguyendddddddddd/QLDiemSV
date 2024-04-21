@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FKhoa.Designer.cs">
+      <DependentUpon>FKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDangKyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +97,6 @@
     </Compile>
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormKhoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormKhoa.Designer.cs">
-      <DependentUpon>FormKhoa.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -110,6 +110,36 @@
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\AddKhoa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddKhoa.Designer.cs">
+      <DependentUpon>AddKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\AddNganh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddNganh.Designer.cs">
+      <DependentUpon>AddNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\KhoaContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\KhoaContainer.Designer.cs">
+      <DependentUpon>KhoaContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\UodateAndDeleteNganh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UodateAndDeleteNganh.Designer.cs">
+      <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteKhoa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteKhoa.Designer.cs">
+      <DependentUpon>UpdateAndDeleteKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -119,17 +149,29 @@
     <Compile Include="text.Designer.cs">
       <DependentUpon>text.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FKhoa.resx">
+      <DependentUpon>FKhoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormKhoa.resx">
-      <DependentUpon>FormKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddKhoa.resx">
+      <DependentUpon>AddKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddNganh.resx">
+      <DependentUpon>AddNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
+      <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteKhoa.resx">
+      <DependentUpon>UpdateAndDeleteKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -182,6 +224,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

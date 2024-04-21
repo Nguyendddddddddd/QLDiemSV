@@ -23,6 +23,15 @@ namespace DAO
                       ).FirstOrDefault();
             return khoa;
         }
+        public static List<Khoa> selectByTenKhoa(string tenKhoa)
+        {
+            var lstKhoa = QLDiemSinhVien.getInstance().Khoas.ToList();
+            var khoa = (from k in lstKhoa
+                        where k.TenKhoa.ToLower().Trim().Contains(tenKhoa.ToLower().Trim()) == true 
+                        select k
+                      ).ToList();
+            return khoa;
+        }
         public static bool insert(Khoa k)
         {
             try
@@ -57,6 +66,7 @@ namespace DAO
                 if (k != null)
                 {
                     k.TenKhoa = Khoa.TenKhoa;
+                    int sl = QLDiemSinhVien.getInstance().SaveChanges();
                 }
             }catch(Exception ex)
             {
@@ -64,11 +74,6 @@ namespace DAO
             }
             return true;
             
-        }
-        public static bool save()
-        {
-            int sl = QLDiemSinhVien.getInstance().SaveChanges();
-            return sl > 0;
         }
     }
 }

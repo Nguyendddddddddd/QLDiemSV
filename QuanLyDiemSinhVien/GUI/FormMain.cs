@@ -18,19 +18,6 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormSinhVien fSinhVien = new FormSinhVien();
-            fSinhVien.MdiParent = this;
-            fSinhVien.Show();
-        }
-
-        private void khoaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormKhoa fKhoa= new FormKhoa();
-            fKhoa.MdiParent = this;
-            fKhoa.Show();
-        }
         private void openChillForm(Form chillForm)
         {
             if (formHienTai != null)
@@ -49,7 +36,7 @@ namespace GUI
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            FormKhoa fKhoa = new FormKhoa();
+            FKhoa fKhoa = new FKhoa();
             openChillForm(fKhoa);
         }
     }
