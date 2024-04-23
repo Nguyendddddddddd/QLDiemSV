@@ -95,6 +95,7 @@
             this.btnDangNhap.Size = new System.Drawing.Size(249, 55);
             this.btnDangNhap.TabIndex = 4;
             this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // ckbHienThiMK
             // 
@@ -113,6 +114,7 @@
             this.ckbHienThiMK.UncheckedState.BorderRadius = 0;
             this.ckbHienThiMK.UncheckedState.BorderThickness = 0;
             this.ckbHienThiMK.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ckbHienThiMK.CheckedChanged += new System.EventHandler(this.ckbHienThiMK_CheckedChanged);
             // 
             // txtMatKhau
             // 
@@ -131,7 +133,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(31, 401);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '\0';
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.PlaceholderText = "Mật khẩu";
             this.txtMatKhau.SelectedText = "";
             this.txtMatKhau.Size = new System.Drawing.Size(364, 53);
@@ -231,10 +233,11 @@
             this.ClientSize = new System.Drawing.Size(1418, 754);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
-            this.Load += new System.EventHandler(this.FormDangNhap_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
