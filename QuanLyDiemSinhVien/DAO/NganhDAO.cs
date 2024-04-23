@@ -64,7 +64,8 @@ namespace DAO
                 var n = selectByID(maNganh);
                 if (n != null)
                 {
-                    n.TenNganh = n.TenNganh;
+                    n.TenNganh = nganh.TenNganh;
+                    n.MaKhoa = nganh.MaKhoa;
                     int sl = QLDiemSinhVien.getInstance().SaveChanges();
                 }
             }
