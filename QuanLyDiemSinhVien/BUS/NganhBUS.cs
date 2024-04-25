@@ -16,8 +16,12 @@ namespace BUS
         }
         public static Nganh selectByID(string maNganh)
         {
-           
+
             return NganhDAO.selectByID(maNganh);
+        }
+        public static List<Nganh> selectByIDKhoa(string maKhoa)
+        {
+            return NganhDAO.selectByIDKhoa(maKhoa);
         }
         public static List<Nganh> selectByTenNganh(string tenNganh)
         {
@@ -26,7 +30,7 @@ namespace BUS
         }
         public static bool insert(Nganh n)
         {
-            
+
             return NganhDAO.insert(n);
         }
         public static bool delete(string maNganh)

@@ -1,6 +1,7 @@
 ﻿using BUS;
 using DTO;
 using GUI.MyControl;
+using GUI.UI;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -29,32 +30,34 @@ namespace GUI
             InitializeComponent();
             addKhoa = new AddKhoa(() => { loadDataGridViewKhoa(); });
             updateAndDeleteKhoa = new UpdateAndDeleteKhoa();
+
             updateAndDeleteNganh = new UodateAndDeleteNganh();
             addNganh = new AddNganh();
+
+            addKhoa.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top );
+            addNganh.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top );
+
+
             updateAndDeleteKhoa.btnXoa.Click += btnXoa_Click;
             updateAndDeleteKhoa.btnSua.Click += btnSua_Click;
-            addKhoa.btnClose.Click += closepnlKhoa;
             updateAndDeleteKhoa.btnClose.Click += closepnlKhoa;
-            updateAndDeleteNganh.btnClose.Click += closepnlKhoa;
+
+            addKhoa.btnClose.Click += closepnlKhoa;
+
             addNganh.btnClose.Click += closepnlKhoa;
-
-
             addNganh.btnLuu.Click += btnLuuNganh_Click;
 
+            updateAndDeleteNganh.btnClose.Click += closepnlKhoa;
             updateAndDeleteNganh.btnSua.Click += btnSuaNganh_click;
             updateAndDeleteNganh.btnXoa.Click += btnXoaNganh_click;
-
-
-
         }
         // các hàm load
         private void FKhoa_Load(object sender, EventArgs e)
         {
             loadDataGridViewKhoa();
             loadDataGridViewNganh();
-            loadComboboxKhoa(addNganh.cboTenKhoa, KhoaBUS.selectAll());
-            loadComboboxKhoa(updateAndDeleteNganh.cboTenKhoa, KhoaBUS.selectAll());
-          
+            LoadData.loadCombobox<Khoa>(addNganh.cboTenKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
+            LoadData.loadCombobox<Khoa>(updateAndDeleteNganh.cboTenKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
         }
         private void loadDataGridViewKhoa()
         {
@@ -64,26 +67,12 @@ namespace GUI
                 dgvKhoa.Rows.Add(k.MaKhoa, k.TenKhoa);
             });
         }
-        private void loadComboboxKhoa(Guna2ComboBox cbo,List<Khoa> Khoas)
-        {
-            cbo.DataSource = Khoas;
-            cbo.ValueMember = "MaKhoa";
-            cbo.DisplayMember= "TenKhoa";
-        }
         private void loadDataGridViewNganh()
         {
             dgvNganh.Rows.Clear();
             NganhBUS.selectAll().ForEach(n =>
             {
                dgvNganh.Rows.Add(n.MaNganh,n.TenNganh,n.Khoa.TenKhoa);
-            });
-        }
-        private void loadDataGridView(List<Khoa> Khoas)
-        {
-            dgvKhoa.Rows.Clear();
-            Khoas.ForEach(k =>
-            {
-                dgvKhoa.Rows.Add(k.MaKhoa, k.TenKhoa);
             });
         }
         // các hàm sự kiện click
@@ -126,7 +115,6 @@ namespace GUI
         private void btnThemKhoa_Click(object sender, EventArgs e)
         {
             changeSize();
-            addKhoa.Anchor =  (AnchorStyles)(AnchorStyles.Right|AnchorStyles.Left);
             pnlAddKhoa.Controls.Add(addKhoa);
         }
         private void dgvKhoa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -151,7 +139,7 @@ namespace GUI
                 MessageBox.Show($"Không tim thấy khoa {txtTimKiemTenKhoa.Text}!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            loadDataGridView(kq);
+            loadDataGridViewKhoa();
         }
         
         private void btnLuuNganh_Click(object sender, EventArgs e)
@@ -216,8 +204,6 @@ namespace GUI
         private void btnThemNganh_Click(object sender, EventArgs e)
         {
             changeSize();
-
-            addNganh.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left);
             pnlAddKhoa.Controls.Add(addNganh);
         }
         private void dgvNganh_CellClick(object sender, DataGridViewCellEventArgs e)

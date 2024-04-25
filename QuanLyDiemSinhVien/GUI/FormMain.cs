@@ -13,6 +13,10 @@ namespace GUI
     public partial class FormMain : Form
     {
         private Form formHienTai;
+        private FKhoa fKhoa;
+        private FormSinhVien fSinhVien;
+        private FormLop fLop;
+
         public FormMain()
         {
             InitializeComponent();
@@ -36,8 +40,28 @@ namespace GUI
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            FKhoa fKhoa = new FKhoa();
+
+            fKhoa = new FKhoa();
+            fSinhVien = new FormSinhVien();
+            fLop = new FormLop();
+
+        }
+
+        private void btnSinhVien_Click(object sender, EventArgs e)
+        {
+            openChillForm(fSinhVien);
+        }
+
+        private void btnKhoaNganh_Click(object sender, EventArgs e)
+        {
+
             openChillForm(fKhoa);
+            
+        }
+
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            openChillForm(fLop);
         }
     }
 }
