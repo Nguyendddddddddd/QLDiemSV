@@ -16,19 +16,17 @@ namespace GUI
         private FKhoa fKhoa;
         private FormSinhVien fSinhVien;
         private FormLop fLop;
-
+        private FormMonHoc fMonHoc;
         public FormMain()
         {
             InitializeComponent();
         }
-
         private void openChillForm(Form chillForm)
         {
             if (formHienTai != null)
             {
                 formHienTai.Hide();
             }
-
             formHienTai = chillForm;
             chillForm.TopLevel = false;
             chillForm.FormBorderStyle = FormBorderStyle.None;
@@ -40,28 +38,26 @@ namespace GUI
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-
             fKhoa = new FKhoa();
             fSinhVien = new FormSinhVien();
             fLop = new FormLop();
-
+            fMonHoc = new FormMonHoc();
         }
-
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
             openChillForm(fSinhVien);
         }
-
         private void btnKhoaNganh_Click(object sender, EventArgs e)
         {
-
             openChillForm(fKhoa);
-            
         }
-
         private void btnLop_Click(object sender, EventArgs e)
         {
             openChillForm(fLop);
+        }
+        private void btnMonHoc_Click(object sender, EventArgs e)
+        {
+            openChillForm(fMonHoc);
         }
     }
 }

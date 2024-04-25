@@ -33,15 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDsLop = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvLop = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSoLuongSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnTimKiemLop = new Guna.UI2.WinForms.Guna2Button();
             this.txtTimKiemLop = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnThemLop = new Guna.UI2.WinForms.Guna2Button();
             this.pnlAddLop = new Guna.UI2.WinForms.Guna2Panel();
-            this.clMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSoLuongSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDsLop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -127,6 +127,30 @@
             this.dgvLop.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
+            // clMaLop
+            // 
+            this.clMaLop.HeaderText = "Mã lớp";
+            this.clMaLop.MinimumWidth = 6;
+            this.clMaLop.Name = "clMaLop";
+            // 
+            // clNganh
+            // 
+            this.clNganh.HeaderText = "Ngành";
+            this.clNganh.MinimumWidth = 6;
+            this.clNganh.Name = "clNganh";
+            // 
+            // clGiangVien
+            // 
+            this.clGiangVien.HeaderText = "Cố vấn học tập";
+            this.clGiangVien.MinimumWidth = 6;
+            this.clGiangVien.Name = "clGiangVien";
+            // 
+            // clSoLuongSV
+            // 
+            this.clSoLuongSV.HeaderText = "Số lượng sinh viên";
+            this.clSoLuongSV.MinimumWidth = 6;
+            this.clSoLuongSV.Name = "clSoLuongSV";
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -159,6 +183,7 @@
             this.btnTimKiemLop.Size = new System.Drawing.Size(80, 47);
             this.btnTimKiemLop.TabIndex = 1;
             this.btnTimKiemLop.Text = "Tìm";
+            this.btnTimKiemLop.Click += new System.EventHandler(this.btnTimKiemLop_Click);
             // 
             // txtTimKiemLop
             // 
@@ -178,10 +203,12 @@
             this.txtTimKiemLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTimKiemLop.Name = "txtTimKiemLop";
             this.txtTimKiemLop.PasswordChar = '\0';
-            this.txtTimKiemLop.PlaceholderText = "Nhập tên khoa để tìm";
+            this.txtTimKiemLop.PlaceholderText = "Nhập mã lớp để tìm";
             this.txtTimKiemLop.SelectedText = "";
             this.txtTimKiemLop.Size = new System.Drawing.Size(755, 56);
             this.txtTimKiemLop.TabIndex = 0;
+            this.txtTimKiemLop.TextChanged += new System.EventHandler(this.txtTimKiemLop_TextChanged);
+            this.txtTimKiemLop.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiemLop_KeyDown);
             // 
             // btnThemLop
             // 
@@ -215,30 +242,6 @@
             this.pnlAddLop.Size = new System.Drawing.Size(296, 655);
             this.pnlAddLop.TabIndex = 3;
             this.pnlAddLop.Visible = false;
-            // 
-            // clMaLop
-            // 
-            this.clMaLop.HeaderText = "Mã lớp";
-            this.clMaLop.MinimumWidth = 6;
-            this.clMaLop.Name = "clMaLop";
-            // 
-            // clNganh
-            // 
-            this.clNganh.HeaderText = "Ngành";
-            this.clNganh.MinimumWidth = 6;
-            this.clNganh.Name = "clNganh";
-            // 
-            // clGiangVien
-            // 
-            this.clGiangVien.HeaderText = "Cố vấn học tập";
-            this.clGiangVien.MinimumWidth = 6;
-            this.clGiangVien.Name = "clGiangVien";
-            // 
-            // clSoLuongSV
-            // 
-            this.clSoLuongSV.HeaderText = "Số lượng sinh viên";
-            this.clSoLuongSV.MinimumWidth = 6;
-            this.clSoLuongSV.Name = "clSoLuongSV";
             // 
             // FormLop
             // 

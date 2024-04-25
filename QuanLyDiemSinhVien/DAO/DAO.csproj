@@ -55,6 +55,7 @@
     <Compile Include="GiangVienDAO.cs" />
     <Compile Include="KhoaDAO.cs" />
     <Compile Include="LopDAO.cs" />
+    <Compile Include="MonHocDAO.cs" />
     <Compile Include="NganhDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVienDAO.cs" />

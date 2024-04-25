@@ -104,6 +104,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMonHoc.Designer.cs">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     </Compile>
     <Compile Include="MyControl\AddLop.Designer.cs">
       <DependentUpon>AddLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\AddMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddMonHoc.Designer.cs">
+      <DependentUpon>AddMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\AddNganh.cs">
       <SubType>UserControl</SubType>
@@ -158,6 +170,12 @@
     <Compile Include="MyControl\UpdateAndDeleteLop.Designer.cs">
       <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteMonHoc.Designer.cs">
+      <DependentUpon>UpdateAndDeleteMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\UpdateAndDeleteSinhVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +199,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMonHoc.resx">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddLop.resx">
       <DependentUpon>AddLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddMonHoc.resx">
+      <DependentUpon>AddMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddNganh.resx">
       <DependentUpon>AddNganh.cs</DependentUpon>
@@ -204,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteLop.resx">
       <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteMonHoc.resx">
+      <DependentUpon>UpdateAndDeleteMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteSinhVien.resx">
       <DependentUpon>UpdateAndDeleteSinhVien.cs</DependentUpon>

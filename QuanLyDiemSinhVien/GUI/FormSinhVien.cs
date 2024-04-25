@@ -24,26 +24,31 @@ namespace GUI
         public FormSinhVien()
         {
             InitializeComponent();
+           
             addSinhVien = new addSinhVien();
-            updateAndDeleteSinhVien = new UpdateAndDeleteSinhVien();
             addSinhVien.btnClose.Click += (object sender, EventArgs e) => { HandleUI.hideSidePanel(pnlDsSinhVien, pnlAddSinhVien); };
             addSinhVien.btnLuu.Click += btnLuu_Click;
+           
+            updateAndDeleteSinhVien = new UpdateAndDeleteSinhVien();
             updateAndDeleteSinhVien.btnClose.Click += (object sender, EventArgs e) => { HandleUI.hideSidePanel(pnlDsSinhVien, pnlAddSinhVien); };
             updateAndDeleteSinhVien.btnXoa.Click += btnXoa_Click;
             updateAndDeleteSinhVien.btnSua.Click += btnSua_Click;
+
+            LoadData.loadCombobox<Lop>(addSinhVien.cboLop, "MaLop", "MaLop", QLDiemSinhVien.getInstance().Lops.ToList());
+            LoadData.loadCombobox<Lop>(updateAndDeleteSinhVien.cboLop, "MaLop", "MaLop", QLDiemSinhVien.getInstance().Lops.ToList());
+            loadDataGirdView();
         }
         private bool ktNhapDuLieu()
         {
-            return  (addSinhVien.txtMSSV.Text.Trim().Length == 0 ||
+            return (addSinhVien.txtMSSV.Text.Trim().Length == 0 ||
                    addSinhVien.txtHoLot.Text.Trim().Length == 0 ||
                    addSinhVien.txtTen.Text.Trim().Length == 0 ||
                    addSinhVien.txtDiaChi.Text.Trim().Length == 0);
         }
+        //các hàm load dữ liệu
         private void FormMain_Load(object sender, EventArgs e)
         {
-            LoadData.loadCombobox<Lop>(addSinhVien.cboLop, "MaLop", "MaLop", QLDiemSinhVien.getInstance().Lops.ToList());
-            LoadData.loadCombobox<Lop>(updateAndDeleteSinhVien.cboLop, "MaLop", "MaLop", QLDiemSinhVien.getInstance().Lops.ToList());
-            loadDataGirdView();
+           
         }
         private void loadDataGirdView()
         {
@@ -55,6 +60,17 @@ namespace GUI
                 dgvSinhVien.Rows.Add(sv.MSSV, sv.HoLot, sv.Ten, gioiTinh, sv.NgaySinh.Value.ToShortTimeString(), sv.DiaChi, sv.MaLop);
             });
         }
+        private void loadDataGirdView(List<SinhVien> lstSV)
+        {
+            dgvSinhVien.Rows.Clear();
+            lstSV.ForEach(sv =>
+            {
+                string gioiTinh = bool.Parse(sv.GioiTinh.ToString()) ? "Nam" : "Nữ";
+                dgvSinhVien.Rows.Add(sv.MSSV, sv.HoLot, sv.Ten, gioiTinh, sv.NgaySinh.Value.ToShortTimeString(), sv.DiaChi, sv.MaLop);
+            });
+        }
+
+        //Các hàm sự kiện
         private void btnThemSinhVien_Click(object sender, EventArgs e)
         {
             HandleUI.showSidePanel(pnlDsSinhVien, pnlAddSinhVien);
@@ -106,7 +122,7 @@ namespace GUI
             };
             bool kq = SinhVienBUS.insert(sv);
             loadDataGirdView();
-            MessageBox.Show(kq ? "Thêm sinh viên thành công" : "Thêm sinh viên không thành công","Thông báo");
+            MessageBox.Show(kq ? "Thêm sinh viên thành công" : "Thêm sinh viên không thành công", "Thông báo");
 
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -149,6 +165,43 @@ namespace GUI
             loadDataGirdView();
             indexDgvSinhVien = -1;
             MessageBox.Show(kq ? "Xóa sinh viên thành công" : "Xóa sinh viên không thành công", "Thông báo");
+        }
+
+        private void btnTimKiemSinhVien_Click(object sender, EventArgs e)
+        {
+            timSinhVien();
+        }
+        private void txtTimKiemTenSinhVien_TextChanged(object sender, EventArgs e)
+        {
+            if(txtTimKiemTenSinhVien.Text.Length == 0)
+                loadDataGirdView();
+        }
+
+        private void txtTimKiemTenSinhVien_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                timSinhVien();
+        }
+
+        // các hàm tìm kiếm
+        public void timSinhVien()
+        {
+            var lstSinhVien = SinhVienBUS.selectByTenSinhVien(txtTimKiemTenSinhVien.Text);
+            if (lstSinhVien.Count == 0)
+            {
+                SinhVien sv = SinhVienBUS.selectByID(txtTimKiemTenSinhVien.Text);
+                lstSinhVien.Add(sv);
+                if (sv != null)
+                {
+                    loadDataGirdView(lstSinhVien);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
+            }
+            loadDataGirdView(lstSinhVien);
         }
     }
 }

@@ -31,6 +31,10 @@ namespace DTO
         public string MaDaoTao { get; set; }
         public string MaLop { get; set; }
         public string TenDangNhap { get; set; }
+        public string FullName
+        {
+            get { return this.HoLot.Trim()+" "+this.Ten.Trim(); }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDiem> ChiTietDiems { get; set; }

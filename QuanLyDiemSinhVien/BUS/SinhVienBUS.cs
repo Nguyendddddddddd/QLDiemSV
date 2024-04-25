@@ -33,6 +33,9 @@ namespace BUS
            
             return SinhVienDAO.update(mssv,sv);
         }
-
+        public static List<SinhVien> selectByTenSinhVien(string tenSV)
+        {
+            return SinhVienDAO.selectByTenSinhVien(tenSV);
+        }
     }
 }

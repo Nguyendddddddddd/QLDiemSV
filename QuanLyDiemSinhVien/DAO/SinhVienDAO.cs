@@ -22,6 +22,15 @@ namespace DAO
                       ).FirstOrDefault();
             return sv;
         }
+        public static List<SinhVien> selectByTenSinhVien(string tenSV)
+        {
+            var lstKhoa = QLDiemSinhVien.getInstance().SinhViens.ToList();
+            var sinhVien = (from k in lstKhoa
+                        where k.FullName.ToLower().Trim().Contains(tenSV.ToLower().Trim()) == true
+                        select k
+                      ).ToList();
+            return sinhVien;
+        }
 
         public static bool insert(SinhVien sv)
         {
@@ -48,5 +57,6 @@ namespace DAO
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
             return sl > 0;
         }
+        
     }
 }
