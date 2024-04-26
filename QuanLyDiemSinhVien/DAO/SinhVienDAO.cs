@@ -22,7 +22,6 @@ namespace DAO
                       ).FirstOrDefault();
             return sv;
         }
-
         public static bool insert(SinhVien sv)
         {
             QLDiemSinhVien.getInstance().SinhViens.Add(sv);
