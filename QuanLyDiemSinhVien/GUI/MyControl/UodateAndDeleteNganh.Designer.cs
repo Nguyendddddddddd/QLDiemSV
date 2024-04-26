@@ -48,7 +48,7 @@
             this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(10, 591);
+            this.btnXoa.Location = new System.Drawing.Point(10, 567);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(136, 45);
             this.btnXoa.TabIndex = 25;
@@ -66,7 +66,7 @@
             this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(68)))), ((int)(((byte)(52)))));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(248, 3);
+            this.btnClose.Location = new System.Drawing.Point(250, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 40);
             this.btnClose.TabIndex = 24;
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 250);
+            this.label3.Location = new System.Drawing.Point(10, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 23;
@@ -91,7 +91,7 @@
             this.cboTenKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTenKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTenKhoa.ItemHeight = 30;
-            this.cboTenKhoa.Location = new System.Drawing.Point(12, 276);
+            this.cboTenKhoa.Location = new System.Drawing.Point(10, 237);
             this.cboTenKhoa.Margin = new System.Windows.Forms.Padding(10);
             this.cboTenKhoa.Name = "cboTenKhoa";
             this.cboTenKhoa.Size = new System.Drawing.Size(276, 36);
@@ -100,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 166);
+            this.label2.Location = new System.Drawing.Point(10, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 21;
@@ -117,7 +117,7 @@
             this.txtTenNganh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenNganh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTenNganh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenNganh.Location = new System.Drawing.Point(9, 192);
+            this.txtTenNganh.Location = new System.Drawing.Point(10, 153);
             this.txtTenNganh.Margin = new System.Windows.Forms.Padding(10);
             this.txtTenNganh.Name = "txtTenNganh";
             this.txtTenNganh.PasswordChar = '\0';
@@ -129,7 +129,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 82);
+            this.label1.Location = new System.Drawing.Point(10, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 19;
@@ -146,7 +146,7 @@
             this.txtMaNganh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaNganh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaNganh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaNganh.Location = new System.Drawing.Point(9, 108);
+            this.txtMaNganh.Location = new System.Drawing.Point(10, 69);
             this.txtMaNganh.Margin = new System.Windows.Forms.Padding(10);
             this.txtMaNganh.Name = "txtMaNganh";
             this.txtMaNganh.PasswordChar = '\0';
@@ -164,7 +164,7 @@
             this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(152, 591);
+            this.btnSua.Location = new System.Drawing.Point(152, 567);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(134, 45);
             this.btnSua.TabIndex = 26;

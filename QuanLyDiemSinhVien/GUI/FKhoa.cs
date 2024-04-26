@@ -1,6 +1,7 @@
 ﻿using BUS;
 using DTO;
 using GUI.MyControl;
+using GUI.UI;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -29,32 +30,36 @@ namespace GUI
             InitializeComponent();
             addKhoa = new AddKhoa(() => { loadDataGridViewKhoa(); });
             updateAndDeleteKhoa = new UpdateAndDeleteKhoa();
+
             updateAndDeleteNganh = new UodateAndDeleteNganh();
             addNganh = new AddNganh();
+
+            addKhoa.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
+            addNganh.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
+
+
             updateAndDeleteKhoa.btnXoa.Click += btnXoa_Click;
             updateAndDeleteKhoa.btnSua.Click += btnSua_Click;
-            addKhoa.btnClose.Click += closepnlKhoa;
             updateAndDeleteKhoa.btnClose.Click += closepnlKhoa;
-            updateAndDeleteNganh.btnClose.Click += closepnlKhoa;
+
+            addKhoa.btnClose.Click += closepnlKhoa;
+
             addNganh.btnClose.Click += closepnlKhoa;
-
-
             addNganh.btnLuu.Click += btnLuuNganh_Click;
 
+            updateAndDeleteNganh.btnClose.Click += closepnlKhoa;
             updateAndDeleteNganh.btnSua.Click += btnSuaNganh_click;
             updateAndDeleteNganh.btnXoa.Click += btnXoaNganh_click;
 
-
-
+            loadDataGridViewKhoa();
+            loadDataGridViewNganh();
+            LoadData.loadCombobox<Khoa>(addNganh.cboTenKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
+            LoadData.loadCombobox<Khoa>(updateAndDeleteNganh.cboTenKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
         }
         // các hàm load
         private void FKhoa_Load(object sender, EventArgs e)
         {
-            loadDataGridViewKhoa();
-            loadDataGridViewNganh();
-            loadComboboxKhoa(addNganh.cboTenKhoa, KhoaBUS.selectAll());
-            loadComboboxKhoa(updateAndDeleteNganh.cboTenKhoa, KhoaBUS.selectAll());
-          
+
         }
         private void loadDataGridViewKhoa()
         {
@@ -64,26 +69,28 @@ namespace GUI
                 dgvKhoa.Rows.Add(k.MaKhoa, k.TenKhoa);
             });
         }
-        private void loadComboboxKhoa(Guna2ComboBox cbo,List<Khoa> Khoas)
+        private void loadDataGridViewKhoa(List<Khoa> lstKhoa)
         {
-            cbo.DataSource = Khoas;
-            cbo.ValueMember = "MaKhoa";
-            cbo.DisplayMember= "TenKhoa";
+            dgvKhoa.Rows.Clear();
+            lstKhoa.ForEach(k =>
+            {
+                dgvKhoa.Rows.Add(k.MaKhoa, k.TenKhoa);
+            });
         }
         private void loadDataGridViewNganh()
         {
             dgvNganh.Rows.Clear();
             NganhBUS.selectAll().ForEach(n =>
             {
-               dgvNganh.Rows.Add(n.MaNganh,n.TenNganh,n.Khoa.TenKhoa);
+                dgvNganh.Rows.Add(n.MaNganh, n.TenNganh, n.Khoa.TenKhoa);
             });
         }
-        private void loadDataGridView(List<Khoa> Khoas)
+        private void loadDataGridViewNganh(List<Nganh> lstNganh)
         {
-            dgvKhoa.Rows.Clear();
-            Khoas.ForEach(k =>
+            dgvNganh.Rows.Clear();
+            lstNganh.ForEach(n =>
             {
-                dgvKhoa.Rows.Add(k.MaKhoa, k.TenKhoa);
+                dgvNganh.Rows.Add(n.MaNganh, n.TenNganh, n.Khoa.TenKhoa);
             });
         }
         // các hàm sự kiện click
@@ -126,12 +133,11 @@ namespace GUI
         private void btnThemKhoa_Click(object sender, EventArgs e)
         {
             changeSize();
-            addKhoa.Anchor =  (AnchorStyles)(AnchorStyles.Right|AnchorStyles.Left);
             pnlAddKhoa.Controls.Add(addKhoa);
         }
         private void dgvKhoa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             indexDgvKhoa = e.RowIndex;
             changeSize();
             if (e.RowIndex == -1)
@@ -142,21 +148,14 @@ namespace GUI
             updateAndDeleteKhoa.txtMaKhoa.Text = rowSelect.Cells["clMaKhoa"].Value.ToString().Trim();
             updateAndDeleteKhoa.txtTenKhoa.Text = rowSelect.Cells["clTenKhoa"].Value.ToString().Trim();
         }
-
         private void btnTimKiemKhoa_Click(object sender, EventArgs e)
         {
-            var kq = KhoaBUS.selectByTenKhoa(txtTimKiemTenKhoa.Text);
-            if (kq.Count <= 0)
-            {
-                MessageBox.Show($"Không tim thấy khoa {txtTimKiemTenKhoa.Text}!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            loadDataGridView(kq);
+            timKiemKhoa();
         }
-        
+
         private void btnLuuNganh_Click(object sender, EventArgs e)
         {
-            if(addNganh.txtMaNganh.Text.Trim().Length == 0 || addNganh.txtTenNganh.Text.Trim().Length == 0)
+            if (addNganh.txtMaNganh.Text.Trim().Length == 0 || addNganh.txtTenNganh.Text.Trim().Length == 0)
             {
                 MessageBox.Show($"Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -216,8 +215,6 @@ namespace GUI
         private void btnThemNganh_Click(object sender, EventArgs e)
         {
             changeSize();
-
-            addNganh.Anchor = (AnchorStyles)(AnchorStyles.Right | AnchorStyles.Left);
             pnlAddKhoa.Controls.Add(addNganh);
         }
         private void dgvNganh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -233,6 +230,34 @@ namespace GUI
             updateAndDeleteNganh.cboTenKhoa.SelectedValue = NganhBUS.selectByID(maNganh).Khoa.MaKhoa;
 
 
+        }
+        private void txtTimKiemTenKhoa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiemTenKhoa.Text.Length == 0)
+                loadDataGridViewKhoa();
+        }
+
+        private void txtTimKiemTenKhoa_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                timKiemKhoa();
+        }
+
+        private void txtTimKiemNganh_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiemNganh.Text.Length == 0)
+                loadDataGridViewNganh();
+        }
+
+        private void txtTimKiemNganh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                timKiemNganh();
+        }
+
+        private void btnTimKiemNganh_Click(object sender, EventArgs e)
+        {
+            timKiemNganh();
         }
         // các hàm xử lý giao diện
         private void changeSize()
@@ -255,5 +280,45 @@ namespace GUI
                 pnlAddKhoa.Controls.Clear();
             }
         }
+        // các hàm tìm kiếm
+        private void timKiemKhoa()
+        {
+            var lstKhoa = KhoaBUS.selectByTenKhoa(txtTimKiemTenKhoa.Text);
+            if (lstKhoa.Count == 0)
+            {
+                Khoa k = KhoaBUS.selectByID(txtTimKiemTenKhoa.Text);
+                lstKhoa.Add(k);
+                if (k != null)
+                {
+                    loadDataGridViewKhoa(lstKhoa);
+                }
+                else
+                {
+                    MessageBox.Show($"Không tim thấy khoa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
+            }
+            loadDataGridViewKhoa(lstKhoa);
+        }
+        private void timKiemNganh()
+        {
+            var lstNganh = NganhBUS.selectByTenNganh(txtTimKiemNganh.Text);
+            if (lstNganh.Count == 0)
+            {
+                Nganh n = NganhBUS.selectByID(txtTimKiemNganh.Text);
+                lstNganh.Add(n);
+                if (n != null)
+                {
+                    loadDataGridViewNganh(lstNganh);
+                }
+                else
+                {
+                    MessageBox.Show($"Không tim thấy ngành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
+            }
+            loadDataGridViewNganh(lstNganh);
+        }
+
     }
 }

@@ -22,6 +22,15 @@ namespace DAO
                       ).FirstOrDefault();
             return nganh;
         }
+        public static List<Nganh> selectByIDKhoa(string maKhoa)
+        {
+            var lstNganh = QLDiemSinhVien.getInstance().Nganhs.ToList();
+            var nganh = (from n in lstNganh
+                         where n.MaKhoa.Trim() == maKhoa.Trim()
+                         select n
+                      ).ToList();
+            return nganh;
+        }
         public static List<Nganh> selectByTenNganh(string tenNganh)
         {
             var lstNganh = QLDiemSinhVien.getInstance().Nganhs.ToList();

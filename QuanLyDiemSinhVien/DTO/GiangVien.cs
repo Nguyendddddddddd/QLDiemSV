@@ -31,6 +31,10 @@ namespace DTO
         public string ChuyenMon { get; set; }
         public string MaKhoa { get; set; }
         public string TenDangNhap { get; set; }
+        public string FullName
+        {
+            get {  return this.HoLot.Trim() +" "+this.Ten.Trim(); }
+        }
     
         public virtual Khoa Khoa { get; set; }
         public virtual TaiKhoang TaiKhoang { get; set; }

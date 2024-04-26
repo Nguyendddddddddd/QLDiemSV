@@ -92,11 +92,23 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLop.Designer.cs">
+      <DependentUpon>FormLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMonHoc.Designer.cs">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSinhVien.cs">
       <SubType>Form</SubType>
@@ -110,11 +122,29 @@
     <Compile Include="MyControl\AddKhoa.Designer.cs">
       <DependentUpon>AddKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\AddLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddLop.Designer.cs">
+      <DependentUpon>AddLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\AddMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddMonHoc.Designer.cs">
+      <DependentUpon>AddMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\AddNganh.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyControl\AddNganh.Designer.cs">
       <DependentUpon>AddNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\addSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\addSinhVien.Designer.cs">
+      <DependentUpon>addSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\KhoaContainer.cs">
       <SubType>UserControl</SubType>
@@ -134,23 +164,43 @@
     <Compile Include="MyControl\UpdateAndDeleteKhoa.Designer.cs">
       <DependentUpon>UpdateAndDeleteKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteLop.Designer.cs">
+      <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteMonHoc.Designer.cs">
+      <DependentUpon>UpdateAndDeleteMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteSinhVien.Designer.cs">
+      <DependentUpon>UpdateAndDeleteSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="text.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="text.Designer.cs">
-      <DependentUpon>text.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\HandleUI.cs" />
+    <Compile Include="UI\LoadData.cs" />
     <EmbeddedResource Include="FKhoa.resx">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLop.resx">
+      <DependentUpon>FormLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMonHoc.resx">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
@@ -158,14 +208,32 @@
     <EmbeddedResource Include="MyControl\AddKhoa.resx">
       <DependentUpon>AddKhoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddLop.resx">
+      <DependentUpon>AddLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddMonHoc.resx">
+      <DependentUpon>AddMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddNganh.resx">
       <DependentUpon>AddNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\addSinhVien.resx">
+      <DependentUpon>addSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteKhoa.resx">
       <DependentUpon>UpdateAndDeleteKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteLop.resx">
+      <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteMonHoc.resx">
+      <DependentUpon>UpdateAndDeleteMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteSinhVien.resx">
+      <DependentUpon>UpdateAndDeleteSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -177,9 +245,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="text.resx">
-      <DependentUpon>text.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
