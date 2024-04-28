@@ -26,7 +26,7 @@ namespace DAO
         {
             var lstGV = QLDiemSinhVien.getInstance().GiangViens.ToList();
             var giangVien = (from g in lstGV
-                       where g.Ten.ToLower().Trim().Contains(tenGV.ToLower().Trim()) == true
+                       where g.FullName.ToLower().Trim().Contains(tenGV.ToLower().Trim()) == true
                        select g
                       ).ToList();
             return giangVien;
