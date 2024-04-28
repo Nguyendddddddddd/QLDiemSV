@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class DangNhapBUS
+    public class CapTaiKhoanBUS
     {
-        public static TaiKhoang selectByDangNhap(TaiKhoang tk)
+        public static bool insert(TaiKhoang tk)
         {
             MD5 md5 = MD5.Create();
-            tk.MatKhau = DangNhapBUS.GetMd5Hash(md5,tk.MatKhau);
-            return DangNhapDAO.selectByDangNhap(tk);
+            tk.MatKhau = CapTaiKhoanBUS.GetMd5Hash(md5,tk.MatKhau);
+            return CapTaiKhoanDAO.insert(tk);
         }
 
         public static string GetMd5Hash(MD5 md5Hash, string input)
@@ -28,5 +28,6 @@ namespace BUS
             }
             return sBuilder.ToString();
         }
+
     }
 }

@@ -15,7 +15,7 @@ namespace GUI
     public partial class FormDangNhap : Form
     {
         public FormMain formMain;
-        public List<TaiKhoang> list;
+        public TaiKhoang taiKhoang;
 
         public FormDangNhap()
         {
@@ -33,31 +33,35 @@ namespace GUI
 
         public void hienThiMenu()
         {
-            string quyen;
-            quyen = list[0].MaQuyen;
-
-            if (quyen == "QT")
+            string quyen = taiKhoang.MaQuyen.Trim();
+            switch (quyen)
             {
-                khoiTaoFormMain();
-            }
-            else if (quyen == "GV")
-            {
-                khoiTaoFormMain();
-            }
-            else
-            {
-                khoiTaoFormMain();
+                case "QT":
+                    MessageBox.Show("Tài khoản quản trị");
+                    break;
+                case "GV":
+                    MessageBox.Show("Tài khoản giáo viên");
+                    break;
+                case "SV":
+                    MessageBox.Show("Tài khoản sinh viên");
+                    break;
+                default:
+                    break;
             }
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            list = new List<TaiKhoang>();
-            list = DangNhapBUS.selectByDangNhap(txtTenDangNhap.Text);
-            if (list.Count > 0)
+            taiKhoang = new TaiKhoang()
+            {
+                TenDangNhap = txtTenDangNhap.Text,
+                MatKhau = txtMatKhau.Text,
+            };
+            taiKhoang = DangNhapBUS.selectByDangNhap(taiKhoang);
+            if (taiKhoang != null)
                 hienThiMenu();
             else
-                MessageBox.Show("Tài khoản không hợp lệ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Tài khoản không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void ckbHienThiMK_CheckedChanged(object sender, EventArgs e)
