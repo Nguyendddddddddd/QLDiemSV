@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLDiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLDiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDiem">
           <Key>
             <PropertyRef Name="MaDiemTP" />
@@ -27,7 +27,7 @@
             <PropertyRef Name="MaHocKy" />
             <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="MaHocKy" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHocKy" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
           <Property Name="Diem" Type="int" />
         </EntityType>
@@ -73,7 +73,7 @@
           <Key>
             <PropertyRef Name="MaHocKy" />
           </Key>
-          <Property Name="MaHocKy" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHocKy" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="NamHoc" Type="nvarchar" MaxLength="200" />
           <Property Name="TenKy" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -102,7 +102,7 @@
           <Property Name="NgayKetThuc" Type="date" />
           <Property Name="SLSinhVien" Type="int" />
           <Property Name="SLToiDa" Type="int" />
-          <Property Name="MaHocKy" Type="char" MaxLength="10" />
+          <Property Name="MaHocKy" Type="char" MaxLength="20" />
           <Property Name="MaMon" Type="char" MaxLength="10" />
           <Property Name="MaDiemTP" Type="char" MaxLength="10" />
         </EntityType>
@@ -507,8 +507,7 @@
             <End Role="TaiKhoang" EntitySet="TaiKhoang" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLDiemSinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -528,7 +527,7 @@
             <PropertyRef Name="MaHocKy" />
             <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Diem" Type="Int32" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_DiemHocKy_HocKy" FromRole="DiemHocKy" ToRole="HocKy" />
@@ -576,7 +575,7 @@
           <Key>
             <PropertyRef Name="MaHocKy" />
           </Key>
-          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="NamHoc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="TenKy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DiemHocKies" Relationship="Self.FK_DiemHocKy_HocKy" FromRole="HocKy" ToRole="DiemHocKy" />
@@ -612,7 +611,7 @@
           <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
           <Property Name="SLSinhVien" Type="Int32" />
           <Property Name="SLToiDa" Type="Int32" />
-          <Property Name="MaHocKy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="DiemThanhPhan" Relationship="Self.FK_LopTinChi_DiemThanhPhan" FromRole="LopTinChi" ToRole="DiemThanhPhan" />

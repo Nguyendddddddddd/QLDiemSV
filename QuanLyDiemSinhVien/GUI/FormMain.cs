@@ -17,6 +17,9 @@ namespace GUI
         private FormSinhVien fSinhVien;
         private FormLop fLop;
         private FormMonHoc fMonHoc;
+        private FormLopTinChi fLopMonHoc;
+        private FormHocKy fHocKy;
+
         public FormMain()
         {
             InitializeComponent();
@@ -42,6 +45,8 @@ namespace GUI
             fSinhVien = new FormSinhVien();
             fLop = new FormLop();
             fMonHoc = new FormMonHoc();
+            fLopMonHoc = new FormLopTinChi();
+            fHocKy = new FormHocKy();
         }
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
@@ -58,6 +63,16 @@ namespace GUI
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
             openChillForm(fMonHoc);
+        }
+
+        private void btnLopMonHoc_Click(object sender, EventArgs e)
+        {
+            openChillForm(fLopMonHoc);
+        }
+
+        private void btnHocKy_Click(object sender, EventArgs e)
+        {
+            openChillForm(fHocKy);
         }
     }
 }
