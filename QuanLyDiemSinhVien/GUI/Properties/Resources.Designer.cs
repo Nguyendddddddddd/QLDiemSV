@@ -63,9 +63,39 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap captaikhoan1 {
+            get {
+                object obj = ResourceManager.GetObject("captaikhoan1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap captaikhoan4 {
+            get {
+                object obj = ResourceManager.GetObject("captaikhoan4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lamviecnhom2 {
             get {
                 object obj = ResourceManager.GetObject("lamviecnhom2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lamviecnhom6 {
+            get {
+                object obj = ResourceManager.GetObject("lamviecnhom6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
