@@ -67,6 +67,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -92,11 +93,23 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHocKy.Designer.cs">
+      <DependentUpon>FormHocKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLop.Designer.cs">
       <DependentUpon>FormLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLopTinChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLopTinChi.Designer.cs">
+      <DependentUpon>FormLopTinChi.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -146,6 +159,12 @@
     <Compile Include="MyControl\addSinhVien.Designer.cs">
       <DependentUpon>addSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\ContainerLopTC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\ContainerLopTC.Designer.cs">
+      <DependentUpon>ContainerLopTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\KhoaContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,8 +212,14 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHocKy.resx">
+      <DependentUpon>FormHocKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLop.resx">
       <DependentUpon>FormLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLopTinChi.resx">
+      <DependentUpon>FormLopTinChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -219,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\addSinhVien.resx">
       <DependentUpon>addSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\ContainerLopTC.resx">
+      <DependentUpon>ContainerLopTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>

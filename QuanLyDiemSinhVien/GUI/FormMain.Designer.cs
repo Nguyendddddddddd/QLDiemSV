@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnHocKy = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLopMonHoc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMonHoc = new Guna.UI2.WinForms.Guna2Button();
             this.btnLop = new Guna.UI2.WinForms.Guna2Button();
             this.btnKhoaNganh = new Guna.UI2.WinForms.Guna2Button();
             this.btnSinhVien = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlMain = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnMonHoc = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.guna2Panel1.Controls.Add(this.btnHocKy);
+            this.guna2Panel1.Controls.Add(this.btnLopMonHoc);
             this.guna2Panel1.Controls.Add(this.btnMonHoc);
             this.guna2Panel1.Controls.Add(this.btnLop);
             this.guna2Panel1.Controls.Add(this.btnKhoaNganh);
@@ -50,6 +54,51 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(320, 763);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // btnHocKy
+            // 
+            this.btnHocKy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHocKy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHocKy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHocKy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHocKy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHocKy.ForeColor = System.Drawing.Color.White;
+            this.btnHocKy.Location = new System.Drawing.Point(36, 395);
+            this.btnHocKy.Name = "btnHocKy";
+            this.btnHocKy.Size = new System.Drawing.Size(249, 45);
+            this.btnHocKy.TabIndex = 5;
+            this.btnHocKy.Text = "Học kỳ";
+            this.btnHocKy.Click += new System.EventHandler(this.btnHocKy_Click);
+            // 
+            // btnLopMonHoc
+            // 
+            this.btnLopMonHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLopMonHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLopMonHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLopMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLopMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLopMonHoc.ForeColor = System.Drawing.Color.White;
+            this.btnLopMonHoc.Location = new System.Drawing.Point(36, 344);
+            this.btnLopMonHoc.Name = "btnLopMonHoc";
+            this.btnLopMonHoc.Size = new System.Drawing.Size(249, 45);
+            this.btnLopMonHoc.TabIndex = 4;
+            this.btnLopMonHoc.Text = "Lớp môn học";
+            this.btnLopMonHoc.Click += new System.EventHandler(this.btnLopMonHoc_Click);
+            // 
+            // btnMonHoc
+            // 
+            this.btnMonHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMonHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMonHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMonHoc.ForeColor = System.Drawing.Color.White;
+            this.btnMonHoc.Location = new System.Drawing.Point(36, 293);
+            this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.Size = new System.Drawing.Size(249, 45);
+            this.btnMonHoc.TabIndex = 3;
+            this.btnMonHoc.Text = "Môn học";
+            this.btnMonHoc.Click += new System.EventHandler(this.btnMonHoc_Click);
             // 
             // btnLop
             // 
@@ -114,21 +163,6 @@
             this.pnlMain.Size = new System.Drawing.Size(1102, 683);
             this.pnlMain.TabIndex = 2;
             // 
-            // btnMonHoc
-            // 
-            this.btnMonHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMonHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMonHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMonHoc.ForeColor = System.Drawing.Color.White;
-            this.btnMonHoc.Location = new System.Drawing.Point(36, 293);
-            this.btnMonHoc.Name = "btnMonHoc";
-            this.btnMonHoc.Size = new System.Drawing.Size(249, 45);
-            this.btnMonHoc.TabIndex = 3;
-            this.btnMonHoc.Text = "Môn học";
-            this.btnMonHoc.Click += new System.EventHandler(this.btnMonHoc_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -154,5 +188,7 @@
         private Guna.UI2.WinForms.Guna2Button btnKhoaNganh;
         private Guna.UI2.WinForms.Guna2Button btnLop;
         private Guna.UI2.WinForms.Guna2Button btnMonHoc;
+        private Guna.UI2.WinForms.Guna2Button btnLopMonHoc;
+        private Guna.UI2.WinForms.Guna2Button btnHocKy;
     }
 }
