@@ -86,11 +86,23 @@
     <Compile Include="FKhoa.Designer.cs">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCapTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCapTaiKhoan.Designer.cs">
+      <DependentUpon>FormCapTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien.Designer.cs">
+      <DependentUpon>FormGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLop.cs">
       <SubType>Form</SubType>
@@ -115,6 +127,12 @@
     </Compile>
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\AddGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddGiangVien.Designer.cs">
+      <DependentUpon>AddGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\AddKhoa.cs">
       <SubType>UserControl</SubType>
@@ -158,6 +176,12 @@
     <Compile Include="MyControl\UodateAndDeleteNganh.Designer.cs">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteGiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteGiangVien.Designer.cs">
+      <DependentUpon>UpdateAndDeleteGiangVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\UpdateAndDeleteKhoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,8 +214,14 @@
     <EmbeddedResource Include="FKhoa.resx">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCapTaiKhoan.resx">
+      <DependentUpon>FormCapTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien.resx">
+      <DependentUpon>FormGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLop.resx">
       <DependentUpon>FormLop.cs</DependentUpon>
@@ -204,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddGiangVien.resx">
+      <DependentUpon>AddGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddKhoa.resx">
       <DependentUpon>AddKhoa.cs</DependentUpon>
@@ -222,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteGiangVien.resx">
+      <DependentUpon>UpdateAndDeleteGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteKhoa.resx">
       <DependentUpon>UpdateAndDeleteKhoa.cs</DependentUpon>
@@ -262,6 +298,9 @@
   <ItemGroup>
     <None Include="Resources\student-icon.png" />
     <None Include="Resources\lamviecnhom2.png" />
+    <None Include="Resources\captaikhoan1.png" />
+    <None Include="Resources\captaikhoan4.png" />
+    <None Include="Resources\lamviecnhom6.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

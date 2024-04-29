@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapTaiKhoanDAO.cs" />
     <Compile Include="DangNhapDAO.cs" />
     <Compile Include="GiangVienDAO.cs" />
     <Compile Include="KhoaDAO.cs" />
