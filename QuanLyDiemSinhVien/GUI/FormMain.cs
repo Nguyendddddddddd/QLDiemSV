@@ -20,11 +20,18 @@ namespace GUI
         private FormLopTinChi fLopMonHoc;
         private FormHocKy fHocKy;
 
-        public FormMain()
+        private static FormMain instance;
+        private FormMain()
         {
             InitializeComponent();
         }
-        private void openChillForm(Form chillForm)
+        public static FormMain getInstance()
+        {
+            if(instance == null)
+                instance = new FormMain();
+            return instance;
+        }
+        public void openChillForm(Form chillForm)
         {
             if (formHienTai != null)
             {

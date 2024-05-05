@@ -18,6 +18,12 @@ namespace BUS
             
             return SinhVienDAO.selectByID(mssv);
         }
+        public static List<SinhVien> selectByMaLop(string maLop)
+        {
+          
+            return SinhVienDAO.selectByMaLop(maLop);
+        }
+
         public static bool insert(SinhVien sv)
         {
             

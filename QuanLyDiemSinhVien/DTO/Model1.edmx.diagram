@@ -38,6 +38,7 @@
         <AssociationConnector Association="QLDiemSinhVienModel.FK_SinhVien_TaiKhoang" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.DangKyHoc" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.GiangDay" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDiemSinhVienModel.FK_LopTinChi_Khoa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

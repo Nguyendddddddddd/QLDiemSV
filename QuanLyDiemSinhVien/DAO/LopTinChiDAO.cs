@@ -24,10 +24,10 @@ namespace DAO
         }
         public static bool insert(LopTinChi ltc)
         {
-            try
-            {
                 QLDiemSinhVien.getInstance().LopTinChis.Add(ltc);
                 int sl = QLDiemSinhVien.getInstance().SaveChanges();
+            try
+            {
             }
             catch (Exception ex)
             {
@@ -71,6 +71,25 @@ namespace DAO
             }
             return true;
         }
+        public static bool themSinhVienVaoLop(string maLop,SinhVien sv)
+        {
+            try
+            {
+                var ltc = selectByID(maLop);
+                if (ltc != null)
+                {
+                   ltc.SinhViens.Add(sv);
+
+                    int sl = QLDiemSinhVien.getInstance().SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
 

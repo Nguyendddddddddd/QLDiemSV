@@ -25,7 +25,7 @@ namespace GUI
         public void khoiTaoFormMain()
         {
             this.Hide();
-            formMain = new FormMain();
+            formMain = FormMain.getInstance();
             formMain.ShowDialog();
             formMain = null;
             this.Dispose();

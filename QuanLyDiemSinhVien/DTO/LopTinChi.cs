@@ -29,6 +29,7 @@ namespace DTO
         public string MaHocKy { get; set; }
         public string MaMon { get; set; }
         public string MaDiemTP { get; set; }
+        public string MaKhoa { get; set; }
     
         public virtual DiemThanhPhan DiemThanhPhan { get; set; }
         public virtual HocKy HocKy { get; set; }
@@ -37,5 +38,6 @@ namespace DTO
         public virtual ICollection<SinhVien> SinhViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiangVien> GiangViens { get; set; }
+        public virtual Khoa Khoa { get; set; }
     }
 }

@@ -93,6 +93,12 @@
     <Compile Include="FormCapTaiKhoan.Designer.cs">
       <DependentUpon>FormCapTaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChiTietLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiTietLopHoc.Designer.cs">
+      <DependentUpon>FormChiTietLopHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     <Compile Include="MyControl\AddLop.Designer.cs">
       <DependentUpon>AddLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\AddLopMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\AddLopMonHoc.Designer.cs">
+      <DependentUpon>AddLopMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\AddMonHoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     </Compile>
     <Compile Include="MyControl\ContainerLopTC.Designer.cs">
       <DependentUpon>ContainerLopTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\dsSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\dsSinhVien.Designer.cs">
+      <DependentUpon>dsSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\KhoaContainer.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +231,12 @@
     <Compile Include="MyControl\UpdateAndDeleteLop.Designer.cs">
       <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteLopMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\UpdateAndDeleteLopMonHoc.Designer.cs">
+      <DependentUpon>UpdateAndDeleteLopMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\UpdateAndDeleteMonHoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -235,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCapTaiKhoan.resx">
       <DependentUpon>FormCapTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChiTietLopHoc.resx">
+      <DependentUpon>FormChiTietLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
@@ -269,6 +296,9 @@
     <EmbeddedResource Include="MyControl\AddLop.resx">
       <DependentUpon>AddLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\AddLopMonHoc.resx">
+      <DependentUpon>AddLopMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddMonHoc.resx">
       <DependentUpon>AddMonHoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +311,9 @@
     <EmbeddedResource Include="MyControl\ContainerLopTC.resx">
       <DependentUpon>ContainerLopTC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\dsSinhVien.resx">
+      <DependentUpon>dsSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteLop.resx">
       <DependentUpon>UpdateAndDeleteLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\UpdateAndDeleteLopMonHoc.resx">
+      <DependentUpon>UpdateAndDeleteLopMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UpdateAndDeleteMonHoc.resx">
       <DependentUpon>UpdateAndDeleteMonHoc.cs</DependentUpon>

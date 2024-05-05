@@ -105,6 +105,7 @@
           <Property Name="MaHocKy" Type="char" MaxLength="20" />
           <Property Name="MaMon" Type="char" MaxLength="10" />
           <Property Name="MaDiemTP" Type="char" MaxLength="10" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -321,6 +322,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LopTinChi_Khoa">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LopTinChi_MonHoc">
           <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
@@ -478,6 +491,10 @@
             <End Role="HocKy" EntitySet="HocKy" />
             <End Role="LopTinChi" EntitySet="LopTinChi" />
           </AssociationSet>
+          <AssociationSet Name="FK_LopTinChi_Khoa" Association="Self.FK_LopTinChi_Khoa">
+            <End Role="Khoa" EntitySet="Khoa" />
+            <End Role="LopTinChi" EntitySet="LopTinChi" />
+          </AssociationSet>
           <AssociationSet Name="FK_LopTinChi_MonHoc" Association="Self.FK_LopTinChi_MonHoc">
             <End Role="MonHoc" EntitySet="MonHoc" />
             <End Role="LopTinChi" EntitySet="LopTinChi" />
@@ -589,6 +606,7 @@
           <Property Name="TenKhoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_Khoa" FromRole="Khoa" ToRole="GiangVien" />
           <NavigationProperty Name="Nganhs" Relationship="Self.FK_Nganh_Khoa" FromRole="Khoa" ToRole="Nganh" />
+          <NavigationProperty Name="LopTinChis" Relationship="QLDiemSinhVienModel.FK_LopTinChi_Khoa" FromRole="Khoa" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="Lop">
           <Key>
@@ -619,6 +637,8 @@
           <NavigationProperty Name="MonHoc" Relationship="Self.FK_LopTinChi_MonHoc" FromRole="LopTinChi" ToRole="MonHoc" />
           <NavigationProperty Name="SinhViens" Relationship="Self.DangKyHoc" FromRole="LopTinChi" ToRole="SinhVien" />
           <NavigationProperty Name="GiangViens" Relationship="Self.GiangDay" FromRole="LopTinChi" ToRole="GiangVien" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Khoa" Relationship="QLDiemSinhVienModel.FK_LopTinChi_Khoa" FromRole="LopTinChi" ToRole="Khoa" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -984,7 +1004,23 @@
             <End Role="GiangVien" EntitySet="GiangViens" />
             <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
+          <AssociationSet Name="FK_LopTinChi_Khoa" Association="QLDiemSinhVienModel.FK_LopTinChi_Khoa">
+            <End Role="Khoa" EntitySet="Khoas" />
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_LopTinChi_Khoa">
+          <End Type="QLDiemSinhVienModel.Khoa" Role="Khoa" Multiplicity="0..1" />
+          <End Type="QLDiemSinhVienModel.LopTinChi" Role="LopTinChi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1072,6 +1108,7 @@
           <EntitySetMapping Name="LopTinChis">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.LopTinChi">
               <MappingFragment StoreEntitySet="LopTinChi">
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />

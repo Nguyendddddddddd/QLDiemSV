@@ -31,6 +31,15 @@ namespace DAO
                       ).ToList();
             return sinhVien;
         }
+        public static List<SinhVien> selectByMaLop(string maLop)
+        {
+            var lstKhoa = QLDiemSinhVien.getInstance().SinhViens.ToList();
+            var sinhVien = (from k in lstKhoa
+                            where k.MaLop.Trim() == maLop.Trim()
+                            select k
+                      ).ToList();
+            return sinhVien;
+        }
 
         public static bool insert(SinhVien sv)
         {
