@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMain = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nudPhanTram = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTenCot = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvCotDiem = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clMaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTenCot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPhanTram = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnXoaCotDiem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThemCotDiem = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.dgvSinhVienLopHoc = new Guna.UI2.WinForms.Guna2DataGridView();
             this.clMaSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTenSinhVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,18 +60,12 @@
             this.txtTimKiemLop = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSide = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnXoaCotDiem = new Guna.UI2.WinForms.Guna2Button();
-            this.btnThemCotDiem = new Guna.UI2.WinForms.Guna2Button();
-            this.dgvCotDiem = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.clTenCot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPhanTram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMain.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhanTram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCotDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVienLopHoc)).BeginInit();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCotDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -84,6 +90,197 @@
             this.pnlMain.Size = new System.Drawing.Size(1074, 655);
             this.pnlMain.TabIndex = 6;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BorderColor = System.Drawing.Color.DimGray;
+            this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.label4);
+            this.guna2Panel2.Controls.Add(this.nudPhanTram);
+            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.txtTenCot);
+            this.guna2Panel2.Controls.Add(this.dgvCotDiem);
+            this.guna2Panel2.Controls.Add(this.btnXoaCotDiem);
+            this.guna2Panel2.Controls.Add(this.btnThemCotDiem);
+            this.guna2Panel2.Controls.Add(this.label2);
+            this.guna2Panel2.Location = new System.Drawing.Point(18, 15);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1039, 340);
+            this.guna2Panel2.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(326, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Phần trăm";
+            // 
+            // nudPhanTram
+            // 
+            this.nudPhanTram.BackColor = System.Drawing.Color.Transparent;
+            this.nudPhanTram.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nudPhanTram.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nudPhanTram.Location = new System.Drawing.Point(326, 157);
+            this.nudPhanTram.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudPhanTram.Name = "nudPhanTram";
+            this.nudPhanTram.Size = new System.Drawing.Size(300, 48);
+            this.nudPhanTram.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(326, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Tên cột";
+            // 
+            // txtTenCot
+            // 
+            this.txtTenCot.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenCot.DefaultText = "";
+            this.txtTenCot.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenCot.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenCot.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenCot.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenCot.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenCot.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenCot.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenCot.Location = new System.Drawing.Point(326, 59);
+            this.txtTenCot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenCot.Name = "txtTenCot";
+            this.txtTenCot.PasswordChar = '\0';
+            this.txtTenCot.PlaceholderText = "";
+            this.txtTenCot.SelectedText = "";
+            this.txtTenCot.Size = new System.Drawing.Size(300, 48);
+            this.txtTenCot.TabIndex = 17;
+            this.txtTenCot.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
+            // dgvCotDiem
+            // 
+            this.dgvCotDiem.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvCotDiem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCotDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCotDiem.ColumnHeadersHeight = 18;
+            this.dgvCotDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvCotDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clMaDiem,
+            this.clTenCot,
+            this.clPhanTram});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCotDiem.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCotDiem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCotDiem.Location = new System.Drawing.Point(16, 37);
+            this.dgvCotDiem.Name = "dgvCotDiem";
+            this.dgvCotDiem.RowHeadersVisible = false;
+            this.dgvCotDiem.RowHeadersWidth = 51;
+            this.dgvCotDiem.RowTemplate.Height = 24;
+            this.dgvCotDiem.Size = new System.Drawing.Size(304, 285);
+            this.dgvCotDiem.TabIndex = 16;
+            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvCotDiem.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCotDiem.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvCotDiem.ThemeStyle.HeaderStyle.Height = 18;
+            this.dgvCotDiem.ThemeStyle.ReadOnly = false;
+            this.dgvCotDiem.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCotDiem.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvCotDiem.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCotDiem.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCotDiem.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvCotDiem.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCotDiem.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCotDiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCotDiem_CellClick);
+            // 
+            // clMaDiem
+            // 
+            this.clMaDiem.HeaderText = "clMaDiem";
+            this.clMaDiem.MinimumWidth = 6;
+            this.clMaDiem.Name = "clMaDiem";
+            this.clMaDiem.Visible = false;
+            // 
+            // clTenCot
+            // 
+            this.clTenCot.HeaderText = "Tên cột điểm";
+            this.clTenCot.MinimumWidth = 6;
+            this.clTenCot.Name = "clTenCot";
+            // 
+            // clPhanTram
+            // 
+            this.clPhanTram.HeaderText = "Phần trăm";
+            this.clPhanTram.MinimumWidth = 6;
+            this.clPhanTram.Name = "clPhanTram";
+            // 
+            // btnXoaCotDiem
+            // 
+            this.btnXoaCotDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoaCotDiem.BorderRadius = 8;
+            this.btnXoaCotDiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaCotDiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaCotDiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoaCotDiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoaCotDiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaCotDiem.ForeColor = System.Drawing.Color.White;
+            this.btnXoaCotDiem.Location = new System.Drawing.Point(481, 219);
+            this.btnXoaCotDiem.Margin = new System.Windows.Forms.Padding(10);
+            this.btnXoaCotDiem.Name = "btnXoaCotDiem";
+            this.btnXoaCotDiem.Size = new System.Drawing.Size(145, 47);
+            this.btnXoaCotDiem.TabIndex = 15;
+            this.btnXoaCotDiem.Text = "Xóa cột điểm";
+            this.btnXoaCotDiem.Click += new System.EventHandler(this.btnXoaCotDiem_Click);
+            // 
+            // btnThemCotDiem
+            // 
+            this.btnThemCotDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThemCotDiem.BorderRadius = 8;
+            this.btnThemCotDiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemCotDiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemCotDiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemCotDiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemCotDiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemCotDiem.ForeColor = System.Drawing.Color.White;
+            this.btnThemCotDiem.Location = new System.Drawing.Point(326, 219);
+            this.btnThemCotDiem.Margin = new System.Windows.Forms.Padding(10);
+            this.btnThemCotDiem.Name = "btnThemCotDiem";
+            this.btnThemCotDiem.Size = new System.Drawing.Size(145, 47);
+            this.btnThemCotDiem.TabIndex = 14;
+            this.btnThemCotDiem.Text = "Thêm Cột điểm";
+            this.btnThemCotDiem.Click += new System.EventHandler(this.btnThemCotDiem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Cài đặt điểm thành phần";
             // 
             // dgvSinhVienLopHoc
             // 
@@ -143,6 +340,7 @@
             this.dgvSinhVienLopHoc.ThemeStyle.RowsStyle.Height = 24;
             this.dgvSinhVienLopHoc.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvSinhVienLopHoc.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvSinhVienLopHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVienLopHoc_CellClick);
             // 
             // clMaSV
             // 
@@ -293,132 +491,6 @@
             this.pnlSide.TabIndex = 5;
             this.pnlSide.Visible = false;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Panel2.BorderRadius = 20;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.dgvCotDiem);
-            this.guna2Panel2.Controls.Add(this.btnXoaCotDiem);
-            this.guna2Panel2.Controls.Add(this.btnThemCotDiem);
-            this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.Location = new System.Drawing.Point(18, 30);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1039, 325);
-            this.guna2Panel2.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Cài đặt điểm thành phần";
-            // 
-            // btnXoaCotDiem
-            // 
-            this.btnXoaCotDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoaCotDiem.BorderRadius = 8;
-            this.btnXoaCotDiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaCotDiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaCotDiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXoaCotDiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXoaCotDiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaCotDiem.ForeColor = System.Drawing.Color.White;
-            this.btnXoaCotDiem.Location = new System.Drawing.Point(164, 227);
-            this.btnXoaCotDiem.Margin = new System.Windows.Forms.Padding(10);
-            this.btnXoaCotDiem.Name = "btnXoaCotDiem";
-            this.btnXoaCotDiem.Size = new System.Drawing.Size(140, 47);
-            this.btnXoaCotDiem.TabIndex = 15;
-            this.btnXoaCotDiem.Text = "Xóa cột điểm";
-            // 
-            // btnThemCotDiem
-            // 
-            this.btnThemCotDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemCotDiem.BorderRadius = 8;
-            this.btnThemCotDiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemCotDiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemCotDiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemCotDiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemCotDiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemCotDiem.ForeColor = System.Drawing.Color.White;
-            this.btnThemCotDiem.Location = new System.Drawing.Point(16, 227);
-            this.btnThemCotDiem.Margin = new System.Windows.Forms.Padding(10);
-            this.btnThemCotDiem.Name = "btnThemCotDiem";
-            this.btnThemCotDiem.Size = new System.Drawing.Size(140, 47);
-            this.btnThemCotDiem.TabIndex = 14;
-            this.btnThemCotDiem.Text = "Thêm Cột điểm";
-            // 
-            // dgvCotDiem
-            // 
-            this.dgvCotDiem.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvCotDiem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCotDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCotDiem.ColumnHeadersHeight = 18;
-            this.dgvCotDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvCotDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clTenCot,
-            this.clPhanTram});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCotDiem.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvCotDiem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCotDiem.Location = new System.Drawing.Point(16, 37);
-            this.dgvCotDiem.Name = "dgvCotDiem";
-            this.dgvCotDiem.RowHeadersVisible = false;
-            this.dgvCotDiem.RowHeadersWidth = 51;
-            this.dgvCotDiem.RowTemplate.Height = 24;
-            this.dgvCotDiem.Size = new System.Drawing.Size(304, 177);
-            this.dgvCotDiem.TabIndex = 16;
-            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvCotDiem.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvCotDiem.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvCotDiem.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvCotDiem.ThemeStyle.HeaderStyle.Height = 18;
-            this.dgvCotDiem.ThemeStyle.ReadOnly = false;
-            this.dgvCotDiem.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvCotDiem.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvCotDiem.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCotDiem.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvCotDiem.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvCotDiem.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCotDiem.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // clTenCot
-            // 
-            this.clTenCot.HeaderText = "Tên cột điểm";
-            this.clTenCot.MinimumWidth = 6;
-            this.clTenCot.Name = "clTenCot";
-            // 
-            // clPhanTram
-            // 
-            this.clPhanTram.HeaderText = "Phần trăm";
-            this.clPhanTram.MinimumWidth = 6;
-            this.clPhanTram.Name = "clPhanTram";
-            // 
             // FormChiTietLopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,11 +503,12 @@
             this.Text = "FormChiTietLopHoc";
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVienLopHoc)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhanTram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCotDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVienLopHoc)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -460,6 +533,11 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvCotDiem;
         private Guna.UI2.WinForms.Guna2Button btnXoaCotDiem;
         private Guna.UI2.WinForms.Guna2Button btnThemCotDiem;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox txtTenCot;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2NumericUpDown nudPhanTram;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMaDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTenCot;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPhanTram;
     }

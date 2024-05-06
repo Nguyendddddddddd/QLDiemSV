@@ -87,6 +87,12 @@
     <Compile Include="FKhoa.Designer.cs">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCapNhatDiemHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCapNhatDiemHocKy.Designer.cs">
+      <DependentUpon>FormCapNhatDiemHocKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCapTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDiemHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDiemHocKy.Designer.cs">
+      <DependentUpon>FormDiemHocKy.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGiangVien.cs">
       <SubType>Form</SubType>
@@ -146,6 +158,12 @@
     </Compile>
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\addDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\addDiem.Designer.cs">
+      <DependentUpon>addDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\AddGiangVien.cs">
       <SubType>UserControl</SubType>
@@ -200,6 +218,12 @@
     </Compile>
     <Compile Include="MyControl\dsSinhVien.Designer.cs">
       <DependentUpon>dsSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\inputDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\inputDiem.Designer.cs">
+      <DependentUpon>inputDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\KhoaContainer.cs">
       <SubType>UserControl</SubType>
@@ -257,6 +281,9 @@
     <EmbeddedResource Include="FKhoa.resx">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCapNhatDiemHocKy.resx">
+      <DependentUpon>FormCapNhatDiemHocKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCapTaiKhoan.resx">
       <DependentUpon>FormCapTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDiemHocKy.resx">
+      <DependentUpon>FormDiemHocKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien.resx">
       <DependentUpon>FormGiangVien.cs</DependentUpon>
@@ -286,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\addDiem.resx">
+      <DependentUpon>addDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\AddGiangVien.resx">
       <DependentUpon>AddGiangVien.cs</DependentUpon>
@@ -313,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\dsSinhVien.resx">
       <DependentUpon>dsSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\inputDiem.resx">
+      <DependentUpon>inputDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\UodateAndDeleteNganh.resx">
       <DependentUpon>UodateAndDeleteNganh.cs</DependentUpon>

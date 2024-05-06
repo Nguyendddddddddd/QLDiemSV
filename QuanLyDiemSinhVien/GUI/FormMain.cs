@@ -20,6 +20,7 @@ namespace GUI
         private FormLopTinChi fLopMonHoc;
         private FormHocKy fHocKy;
         private FormGiangVien fGiangVien;
+        private FormDiemHocKy fDiemHocKy;
 
         private static FormMain instance;
         private FormMain()
@@ -36,7 +37,7 @@ namespace GUI
         {
             if (formHienTai != null)
             {
-                formHienTai.Hide();
+                formHienTai.Close();
             }
             formHienTai = chillForm;
             chillForm.TopLevel = false;
@@ -49,44 +50,50 @@ namespace GUI
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            fKhoa = new FKhoa();
-            fSinhVien = new FormSinhVien();
-            fLop = new FormLop();
-            fMonHoc = new FormMonHoc();
-            fLopMonHoc = new FormLopTinChi();
-            fHocKy = new FormHocKy();
-            fGiangVien = new FormGiangVien();
         }
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
+            fSinhVien = new FormSinhVien();
             openChillForm(fSinhVien);
         }
         private void btnKhoaNganh_Click(object sender, EventArgs e)
         {
+            fKhoa = new FKhoa();
             openChillForm(fKhoa);
         }
         private void btnLop_Click(object sender, EventArgs e)
         {
+            fLop = new FormLop();
             openChillForm(fLop);
         }
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
+            fMonHoc = new FormMonHoc();
             openChillForm(fMonHoc);
         }
 
         private void btnLopMonHoc_Click(object sender, EventArgs e)
         {
+            fLopMonHoc = new FormLopTinChi();
             openChillForm(fLopMonHoc);
         }
 
         private void btnHocKy_Click(object sender, EventArgs e)
         {
+            fHocKy = new FormHocKy();
             openChillForm(fHocKy);
         }
 
         private void btnGiangVien_Click(object sender, EventArgs e)
         {
+            fGiangVien = new FormGiangVien();
             openChillForm(fGiangVien);
+        }
+
+        private void btnDiemHocKy_Click(object sender, EventArgs e)
+        {
+            fDiemHocKy = new FormDiemHocKy();
+            openChillForm(fDiemHocKy);
         }
     }
 }

@@ -49,9 +49,15 @@ namespace DAO
         }
         public static bool delete(string mssv)
         {
+            try{
+
             QLDiemSinhVien.getInstance().SinhViens.Remove(selectByID(mssv));
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
             return sl > 0;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
         public static bool update(string mssv,SinhVien sv)
         {

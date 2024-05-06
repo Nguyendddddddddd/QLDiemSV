@@ -39,6 +39,10 @@ namespace BUS
         { 
             return LopTinChiDAO.xoaSinhVienVaoLop(maLop,sv);
         }
+        public static bool themDiemThanhPhan(string maLop, DiemThanhPhan dtp)
+        {
+            return LopTinChiDAO.themDiemThanhPhan(maLop,dtp);
+        }
 
     }
 }

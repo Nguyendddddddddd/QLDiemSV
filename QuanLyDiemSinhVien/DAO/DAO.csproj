@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapTaiKhoanDAO.cs" />
+    <Compile Include="ChiTietDiemDAO.cs" />
     <Compile Include="DangNhapDAO.cs" />
+    <Compile Include="DiemHocKyDAO.cs" />
+    <Compile Include="DiemThanhPhanDAO.cs" />
     <Compile Include="GiangVienDAO.cs" />
     <Compile Include="HocKyDAO.cs" />
     <Compile Include="KhoaDAO.cs" />

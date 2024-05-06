@@ -10,9 +10,9 @@
             <PropertyRef Name="MaDiemTP" />
             <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="MaDiemTP" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaDiemTP" Type="uniqueidentifier" Nullable="false" />
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="Diem" Type="int" />
+          <Property Name="Diem" Type="float" />
         </EntityType>
         <EntityType Name="DangKyHoc">
           <Key>
@@ -29,13 +29,13 @@
           </Key>
           <Property Name="MaHocKy" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="MSSV" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="Diem" Type="int" />
+          <Property Name="Diem" Type="float" />
         </EntityType>
         <EntityType Name="DiemThanhPhan">
           <Key>
             <PropertyRef Name="MaDiemTP" />
           </Key>
-          <Property Name="MaDiemTP" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaDiemTP" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TenDiem" Type="nvarchar" MaxLength="50" />
           <Property Name="PhanTram" Type="int" />
           <Property Name="MaLop" Type="char" MaxLength="10" />
@@ -60,7 +60,7 @@
           <Property Name="HocHam" Type="nvarchar" MaxLength="50" />
           <Property Name="HocVi" Type="nvarchar" MaxLength="50" />
           <Property Name="ChuyenMon" Type="nchar" MaxLength="200" />
-          <Property Name="MaKhoa" Type="char" MaxLength="10" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="HinhThucDaoTao">
@@ -91,8 +91,8 @@
           </Key>
           <Property Name="MaLop" Type="char" MaxLength="7" Nullable="false" />
           <Property Name="TenLop" Type="nchar" MaxLength="10" />
-          <Property Name="MaNganh" Type="char" MaxLength="10" />
-          <Property Name="MaGV" Type="char" MaxLength="10" />
+          <Property Name="MaNganh" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaGV" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="LopTinChi">
           <Key>
@@ -103,9 +103,9 @@
           <Property Name="NgayKetThuc" Type="date" />
           <Property Name="SLSinhVien" Type="int" />
           <Property Name="SLToiDa" Type="int" />
-          <Property Name="MaHocKy" Type="char" MaxLength="20" />
-          <Property Name="MaMon" Type="char" MaxLength="10" />
-          <Property Name="MaKhoa" Type="char" MaxLength="10" />
+          <Property Name="MaHocKy" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaMon" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -123,7 +123,7 @@
           <Property Name="MaNganh" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="TenNganh" Type="nvarchar" MaxLength="200" />
           <Property Name="MaDaoTao" Type="char" MaxLength="10" />
-          <Property Name="MaKhoa" Type="char" MaxLength="10" />
+          <Property Name="MaKhoa" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Quyen">
           <Key>
@@ -143,8 +143,18 @@
           <Property Name="GioiTinh" Type="bit" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="MaDaoTao" Type="char" MaxLength="10" />
-          <Property Name="MaLop" Type="char" MaxLength="7" />
+          <Property Name="MaLop" Type="char" MaxLength="7" Nullable="false" />
           <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TaiKhoang">
           <Key>
@@ -152,7 +162,7 @@
           </Key>
           <Property Name="TenDangNhap" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="MatKhau" Type="nvarchar(max)" />
-          <Property Name="MaQuyen" Type="char" MaxLength="10" />
+          <Property Name="MaQuyen" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_ChiTietDiem_DiemThanhPhan">
           <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="1" />
@@ -263,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GiangVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -287,7 +297,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_GiangVien">
-          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiangVien">
@@ -299,7 +309,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_Nganh">
-          <End Role="Nganh" Type="Self.Nganh" Multiplicity="0..1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nganh">
@@ -311,7 +321,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_HocKy">
-          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
@@ -323,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -335,7 +345,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_MonHoc">
-          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonHoc">
@@ -359,7 +369,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nganh_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
           <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -383,7 +393,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SinhVien_Lop">
-          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lop">
@@ -407,7 +417,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaiKhoang_Quyen">
-          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
           <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Quyen">
@@ -418,6 +428,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="getTongSoTinChiSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mssv" Type="char" Mode="In" />
+          <Parameter Name="mahk" Type="char" Mode="In" />
+        </Function>
         <EntityContainer Name="QLDiemSinhVienModelStoreContainer">
           <EntitySet Name="ChiTietDiem" EntityType="Self.ChiTietDiem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DangKyHoc" EntityType="Self.DangKyHoc" Schema="dbo" store:Type="Tables" />
@@ -434,6 +448,7 @@
           <EntitySet Name="Nganh" EntityType="Self.Nganh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoang" EntityType="Self.TaiKhoang" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ChiTietDiem_DiemThanhPhan" Association="Self.FK_ChiTietDiem_DiemThanhPhan">
             <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
@@ -533,9 +548,9 @@
             <PropertyRef Name="MaDiemTP" />
             <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaDiemTP" Type="Guid" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Diem" Type="Int32" />
+          <Property Name="Diem" Type="Double" />
           <NavigationProperty Name="DiemThanhPhan" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="ChiTietDiem" ToRole="DiemThanhPhan" />
           <NavigationProperty Name="SinhVien" Relationship="Self.FK_ChiTietDiem_SinhVien" FromRole="ChiTietDiem" ToRole="SinhVien" />
         </EntityType>
@@ -546,7 +561,7 @@
           </Key>
           <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Diem" Type="Int32" />
+          <Property Name="Diem" Type="Double" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_DiemHocKy_HocKy" FromRole="DiemHocKy" ToRole="HocKy" />
           <NavigationProperty Name="SinhVien" Relationship="Self.FK_DiemHocKy_SinhVien" FromRole="DiemHocKy" ToRole="SinhVien" />
         </EntityType>
@@ -554,12 +569,12 @@
           <Key>
             <PropertyRef Name="MaDiemTP" />
           </Key>
-          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaDiemTP" Type="Guid" Nullable="false" />
           <Property Name="TenDiem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhanTram" Type="Int32" />
-          <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="ChiTietDiem" />
           <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="LopTinChi" Relationship="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
+          <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="ChiTietDiem" />
+          <NavigationProperty Name="LopTinChi" Relationship="Self.FK_DiemThanhPhan_LopTinChi" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="GiangVien">
           <Key>
@@ -573,7 +588,7 @@
           <Property Name="HocHam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HocVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ChuyenMon" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_GiangVien_Khoa" FromRole="GiangVien" ToRole="Khoa" />
           <NavigationProperty Name="TaiKhoang" Relationship="Self.FK_GiangVien_TaiKhoang" FromRole="GiangVien" ToRole="TaiKhoang" />
@@ -606,8 +621,8 @@
           <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenKhoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_Khoa" FromRole="Khoa" ToRole="GiangVien" />
+          <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_Khoa" FromRole="Khoa" ToRole="LopTinChi" />
           <NavigationProperty Name="Nganhs" Relationship="Self.FK_Nganh_Khoa" FromRole="Khoa" ToRole="Nganh" />
-          <NavigationProperty Name="LopTinChis" Relationship="QLDiemSinhVienModel.FK_LopTinChi_Khoa" FromRole="Khoa" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="Lop">
           <Key>
@@ -615,8 +630,8 @@
           </Key>
           <Property Name="MaLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenLop" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="GiangVien" Relationship="Self.FK_Lop_GiangVien" FromRole="Lop" ToRole="GiangVien" />
           <NavigationProperty Name="Nganh" Relationship="Self.FK_Lop_Nganh" FromRole="Lop" ToRole="Nganh" />
           <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_Lop" FromRole="Lop" ToRole="SinhVien" />
@@ -630,15 +645,15 @@
           <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
           <Property Name="SLSinhVien" Type="Int32" />
           <Property Name="SLToiDa" Type="Int32" />
-          <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DiemThanhPhans" Relationship="Self.FK_DiemThanhPhan_LopTinChi" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_LopTinChi_HocKy" FromRole="LopTinChi" ToRole="HocKy" />
+          <NavigationProperty Name="Khoa" Relationship="Self.FK_LopTinChi_Khoa" FromRole="LopTinChi" ToRole="Khoa" />
           <NavigationProperty Name="MonHoc" Relationship="Self.FK_LopTinChi_MonHoc" FromRole="LopTinChi" ToRole="MonHoc" />
           <NavigationProperty Name="SinhViens" Relationship="Self.DangKyHoc" FromRole="LopTinChi" ToRole="SinhVien" />
           <NavigationProperty Name="GiangViens" Relationship="Self.GiangDay" FromRole="LopTinChi" ToRole="GiangVien" />
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Khoa" Relationship="QLDiemSinhVienModel.FK_LopTinChi_Khoa" FromRole="LopTinChi" ToRole="Khoa" />
-          <NavigationProperty Name="DiemThanhPhans" Relationship="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -657,7 +672,7 @@
           <Property Name="MaNganh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenNganh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="HinhThucDaoTao" Relationship="Self.FK_Nganh_HinhThucDaoTao" FromRole="Nganh" ToRole="HinhThucDaoTao" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_Nganh_Khoa" FromRole="Nganh" ToRole="Khoa" />
           <NavigationProperty Name="Lops" Relationship="Self.FK_Lop_Nganh" FromRole="Nganh" ToRole="Lop" />
@@ -681,7 +696,7 @@
           <Property Name="GioiTinh" Type="Boolean" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaDaoTao" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="MaLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_SinhVien" FromRole="SinhVien" ToRole="ChiTietDiem" />
           <NavigationProperty Name="DiemHocKies" Relationship="Self.FK_DiemHocKy_SinhVien" FromRole="SinhVien" ToRole="DiemHocKy" />
@@ -690,13 +705,23 @@
           <NavigationProperty Name="TaiKhoang" Relationship="Self.FK_SinhVien_TaiKhoang" FromRole="SinhVien" ToRole="TaiKhoang" />
           <NavigationProperty Name="LopTinChis" Relationship="Self.DangKyHoc" FromRole="SinhVien" ToRole="LopTinChi" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="TaiKhoang">
           <Key>
             <PropertyRef Name="TenDangNhap" />
           </Key>
           <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MaQuyen" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaQuyen" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_TaiKhoang" FromRole="TaiKhoang" ToRole="GiangVien" />
           <NavigationProperty Name="Quyen" Relationship="Self.FK_TaiKhoang_Quyen" FromRole="TaiKhoang" ToRole="Quyen" />
           <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_TaiKhoang" FromRole="TaiKhoang" ToRole="SinhVien" />
@@ -749,8 +774,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DiemThanhPhan_LopTinChi">
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="0..1" />
+          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopTinChi">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="DiemThanhPhan">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GiangVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -774,7 +811,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_GiangVien">
-          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+          <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiangVien">
@@ -810,7 +847,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_HocKy">
-          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
@@ -821,8 +858,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LopTinChi_Khoa">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="LopTinChi">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Nganh_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="1" />
           <End Role="Nganh" Type="Self.Nganh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
@@ -834,7 +883,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Lop_Nganh">
-          <End Role="Nganh" Type="Self.Nganh" Multiplicity="0..1" />
+          <End Role="Nganh" Type="Self.Nganh" Multiplicity="1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nganh">
@@ -846,7 +895,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SinhVien_Lop">
-          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lop">
@@ -858,7 +907,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopTinChi_MonHoc">
-          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
           <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonHoc">
@@ -870,7 +919,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaiKhoang_Quyen">
-          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
           <End Role="TaiKhoang" Type="Self.TaiKhoang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Quyen">
@@ -915,6 +964,7 @@
           <EntitySet Name="Nganhs" EntityType="Self.Nganh" />
           <EntitySet Name="Quyens" EntityType="Self.Quyen" />
           <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoangs" EntityType="Self.TaiKhoang" />
           <AssociationSet Name="FK_ChiTietDiem_DiemThanhPhan" Association="Self.FK_ChiTietDiem_DiemThanhPhan">
             <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
@@ -931,6 +981,10 @@
           <AssociationSet Name="FK_DiemHocKy_SinhVien" Association="Self.FK_DiemHocKy_SinhVien">
             <End Role="SinhVien" EntitySet="SinhViens" />
             <End Role="DiemHocKy" EntitySet="DiemHocKies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="Self.FK_DiemThanhPhan_LopTinChi">
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
+            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
           </AssociationSet>
           <AssociationSet Name="FK_GiangVien_Khoa" Association="Self.FK_GiangVien_Khoa">
             <End Role="Khoa" EntitySet="Khoas" />
@@ -954,6 +1008,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_LopTinChi_HocKy" Association="Self.FK_LopTinChi_HocKy">
             <End Role="HocKy" EntitySet="HocKies" />
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopTinChi_Khoa" Association="Self.FK_LopTinChi_Khoa">
+            <End Role="Khoa" EntitySet="Khoas" />
             <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
           <AssociationSet Name="FK_Nganh_Khoa" Association="Self.FK_Nganh_Khoa">
@@ -988,39 +1046,15 @@
             <End Role="GiangVien" EntitySet="GiangViens" />
             <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopTinChi_Khoa" Association="QLDiemSinhVienModel.FK_LopTinChi_Khoa">
-            <End Role="Khoa" EntitySet="Khoas" />
-            <End Role="LopTinChi" EntitySet="LopTinChis" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi">
-            <End Role="LopTinChi" EntitySet="LopTinChis" />
-            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
-          </AssociationSet>
+          <FunctionImport Name="getTongSoTinChi">
+            <Parameter Name="mssv" Mode="In" Type="String" />
+            <Parameter Name="mahk" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getTongSoTinChiSinhVien">
+            <Parameter Name="mssv" Mode="In" Type="String" />
+            <Parameter Name="mahk" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
-        <Association Name="FK_LopTinChi_Khoa">
-          <End Type="QLDiemSinhVienModel.Khoa" Role="Khoa" Multiplicity="0..1" />
-          <End Type="QLDiemSinhVienModel.LopTinChi" Role="LopTinChi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Khoa">
-              <PropertyRef Name="MaKhoa" />
-            </Principal>
-            <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaKhoa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DiemThanhPhan_LopTinChi">
-          <End Type="QLDiemSinhVienModel.LopTinChi" Role="LopTinChi" Multiplicity="0..1" />
-          <End Type="QLDiemSinhVienModel.DiemThanhPhan" Role="DiemThanhPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LopTinChi">
-              <PropertyRef Name="MaLop" />
-            </Principal>
-            <Dependent Role="DiemThanhPhan">
-              <PropertyRef Name="MaLop" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1048,10 +1082,10 @@
           <EntitySetMapping Name="DiemThanhPhans">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.DiemThanhPhan">
               <MappingFragment StoreEntitySet="DiemThanhPhan">
-                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
                 <ScalarProperty Name="TenDiem" ColumnName="TenDiem" />
                 <ScalarProperty Name="PhanTram" ColumnName="PhanTram" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1109,7 +1143,6 @@
           <EntitySetMapping Name="LopTinChis">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.LopTinChi">
               <MappingFragment StoreEntitySet="LopTinChi">
-                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
@@ -1117,6 +1150,7 @@
                 <ScalarProperty Name="SLToiDa" ColumnName="SLToiDa" />
                 <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
                 <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1163,6 +1197,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QLDiemSinhVienModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoangs">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.TaiKhoang">
               <MappingFragment StoreEntitySet="TaiKhoang">
@@ -1188,6 +1233,7 @@
               <ScalarProperty Name="MaLop" ColumnName="MaLop" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="getTongSoTinChiSinhVien" FunctionName="QLDiemSinhVienModel.Store.getTongSoTinChiSinhVien" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1202,8 +1248,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnGiangVien = new Guna.UI2.WinForms.Guna2Button();
             this.btnHocKy = new Guna.UI2.WinForms.Guna2Button();
             this.btnLopMonHoc = new Guna.UI2.WinForms.Guna2Button();
             this.btnMonHoc = new Guna.UI2.WinForms.Guna2Button();
@@ -37,13 +38,14 @@
             this.btnSinhVien = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlMain = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnGiangVien = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDiemHocKy = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.guna2Panel1.Controls.Add(this.btnDiemHocKy);
             this.guna2Panel1.Controls.Add(this.btnGiangVien);
             this.guna2Panel1.Controls.Add(this.btnHocKy);
             this.guna2Panel1.Controls.Add(this.btnLopMonHoc);
@@ -56,6 +58,21 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(320, 763);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // btnGiangVien
+            // 
+            this.btnGiangVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiangVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiangVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGiangVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGiangVien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGiangVien.ForeColor = System.Drawing.Color.White;
+            this.btnGiangVien.Location = new System.Drawing.Point(36, 446);
+            this.btnGiangVien.Name = "btnGiangVien";
+            this.btnGiangVien.Size = new System.Drawing.Size(249, 45);
+            this.btnGiangVien.TabIndex = 6;
+            this.btnGiangVien.Text = "Giảng viên";
+            this.btnGiangVien.Click += new System.EventHandler(this.btnGiangVien_Click);
             // 
             // btnHocKy
             // 
@@ -165,20 +182,20 @@
             this.pnlMain.Size = new System.Drawing.Size(1102, 683);
             this.pnlMain.TabIndex = 2;
             // 
-            // btnGiangVien
+            // btnDiemHocKy
             // 
-            this.btnGiangVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiangVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiangVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGiangVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGiangVien.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnGiangVien.ForeColor = System.Drawing.Color.White;
-            this.btnGiangVien.Location = new System.Drawing.Point(36, 446);
-            this.btnGiangVien.Name = "btnGiangVien";
-            this.btnGiangVien.Size = new System.Drawing.Size(249, 45);
-            this.btnGiangVien.TabIndex = 6;
-            this.btnGiangVien.Text = "Giảng viên";
-            this.btnGiangVien.Click += new System.EventHandler(this.btnGiangVien_Click);
+            this.btnDiemHocKy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDiemHocKy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDiemHocKy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDiemHocKy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDiemHocKy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDiemHocKy.ForeColor = System.Drawing.Color.White;
+            this.btnDiemHocKy.Location = new System.Drawing.Point(36, 497);
+            this.btnDiemHocKy.Name = "btnDiemHocKy";
+            this.btnDiemHocKy.Size = new System.Drawing.Size(249, 45);
+            this.btnDiemHocKy.TabIndex = 7;
+            this.btnDiemHocKy.Text = "Điểm học kỳ";
+            this.btnDiemHocKy.Click += new System.EventHandler(this.btnDiemHocKy_Click);
             // 
             // FormMain
             // 
@@ -208,5 +225,6 @@
         private Guna.UI2.WinForms.Guna2Button btnLopMonHoc;
         private Guna.UI2.WinForms.Guna2Button btnHocKy;
         private Guna.UI2.WinForms.Guna2Button btnGiangVien;
+        private Guna.UI2.WinForms.Guna2Button btnDiemHocKy;
     }
 }

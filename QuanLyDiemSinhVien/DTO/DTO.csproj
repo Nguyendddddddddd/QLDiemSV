@@ -108,6 +108,9 @@
     <Compile Include="SinhVien.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TaiKhoang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -14,9 +14,9 @@ namespace DTO
     
     public partial class ChiTietDiem
     {
-        public string MaDiemTP { get; set; }
+        public System.Guid MaDiemTP { get; set; }
         public string MSSV { get; set; }
-        public Nullable<int> Diem { get; set; }
+        public Nullable<double> Diem { get; set; }
     
         public virtual DiemThanhPhan DiemThanhPhan { get; set; }
         public virtual SinhVien SinhVien { get; set; }

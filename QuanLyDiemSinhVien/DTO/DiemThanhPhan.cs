@@ -20,7 +20,7 @@ namespace DTO
             this.ChiTietDiems = new HashSet<ChiTietDiem>();
         }
     
-        public string MaDiemTP { get; set; }
+        public System.Guid MaDiemTP { get; set; }
         public string TenDiem { get; set; }
         public Nullable<int> PhanTram { get; set; }
         public string MaLop { get; set; }

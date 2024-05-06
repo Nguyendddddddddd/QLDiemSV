@@ -18,8 +18,8 @@ namespace DTO
         public Khoa()
         {
             this.GiangViens = new HashSet<GiangVien>();
-            this.Nganhs = new HashSet<Nganh>();
             this.LopTinChis = new HashSet<LopTinChi>();
+            this.Nganhs = new HashSet<Nganh>();
         }
     
         public string MaKhoa { get; set; }
@@ -28,8 +28,8 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiangVien> GiangViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Nganh> Nganhs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopTinChi> LopTinChis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nganh> Nganhs { get; set; }
     }
 }

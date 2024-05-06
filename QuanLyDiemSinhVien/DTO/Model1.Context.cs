@@ -12,6 +12,8 @@ namespace DTO
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QLDiemSinhVien : DbContext
     {
@@ -46,6 +48,21 @@ namespace DTO
         public virtual DbSet<Nganh> Nganhs { get; set; }
         public virtual DbSet<Quyen> Quyens { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoang> TaiKhoangs { get; set; }
+    
+       
+        public virtual int getTongSoTinChiSinhVien(string mssv, string mahk)
+        {
+            var mssvParameter = mssv != null ?
+                new ObjectParameter("mssv", mssv) :
+                new ObjectParameter("mssv", typeof(string));
+    
+            var mahkParameter = mahk != null ?
+                new ObjectParameter("mahk", mahk) :
+                new ObjectParameter("mahk", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("getTongSoTinChiSinhVien", mssvParameter, mahkParameter);
+        }
     }
 }

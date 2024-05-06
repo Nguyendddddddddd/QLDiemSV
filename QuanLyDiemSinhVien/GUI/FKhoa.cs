@@ -103,7 +103,8 @@ namespace GUI
             }
 
             var maKhoa = dgvKhoa.Rows[indexDgvKhoa].Cells["clMaKhoa"].Value.ToString();
-            KhoaBUS.delete(maKhoa);
+            bool kq = KhoaBUS.delete(maKhoa);
+            MessageBox.Show(kq?"Xóa khoa thành công":"Lỗi","Thông báo");
             loadDataGridViewKhoa();
             indexDgvKhoa = -1;
         }

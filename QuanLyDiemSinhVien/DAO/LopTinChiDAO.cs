@@ -40,6 +40,7 @@ namespace DAO
             LopTinChi ltc = selectByID(maLopTC);
             ltc.SinhViens.Clear();
             ltc.GiangViens.Clear();
+            ltc.DiemThanhPhans.Clear();
             QLDiemSinhVien.getInstance().LopTinChis.Remove(ltc);
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
             try
@@ -111,7 +112,42 @@ namespace DAO
             }
             return true;
         }
+        public static bool themDiemThanhPhan(string maLop, DiemThanhPhan dtp)
+        {
+            try
+            {
+                var ltc = selectByID(maLop);
+                if (ltc != null)
+                {
+                    ltc.DiemThanhPhans.Add(dtp);
 
+                    int sl = QLDiemSinhVien.getInstance().SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool xoaDiemThanhPhan(string maLop, DiemThanhPhan dtp)
+        {
+            try
+            {
+                var ltc = selectByID(maLop);
+                if (ltc != null)
+                {
+                    ltc.DiemThanhPhans.Remove(dtp);
+
+                    int sl = QLDiemSinhVien.getInstance().SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
 
