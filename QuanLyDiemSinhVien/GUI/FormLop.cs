@@ -49,7 +49,11 @@ namespace GUI
             dgvLop.Rows.Clear();
             LopBUS.selectAll().ForEach(l =>
             {
+                if(l.GiangVien != null)
                 dgvLop.Rows.Add(l.MaLop, l.Nganh.TenNganh, l.GiangVien.FullName, l.SinhViens.Count);
+                else
+                dgvLop.Rows.Add(l.MaLop, l.Nganh.TenNganh, "", l.SinhViens.Count);
+
             });
         }
         public void loadDataGridViewLop(List<Lop> lstLop)
@@ -145,6 +149,7 @@ namespace GUI
             pnlAddLop.Controls.Add(updateAndDeleteLop);
             var rowSelect = dgvLop.Rows[indexDgvLop].Cells;
             var maLop = updateAndDeleteLop.txtMaLop.Text = rowSelect[clMaLop.Index].Value.ToString();
+            if (LopBUS.selectByID(maLop).GiangVien!=null)
             updateAndDeleteLop.cboGiangVien.SelectedValue = LopBUS.selectByID(maLop).GiangVien.MaGV;
             updateAndDeleteLop.cboNganh.SelectedValue = LopBUS.selectByID(maLop).Nganh.MaNganh;
             updateAndDeleteLop.cboKhoa.SelectedValue = LopBUS.selectByID(maLop).Nganh.Khoa.MaKhoa;

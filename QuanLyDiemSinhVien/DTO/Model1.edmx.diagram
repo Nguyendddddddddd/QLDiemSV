@@ -23,7 +23,6 @@
         <AssociationConnector Association="QLDiemSinhVienModel.FK_ChiTietDiem_SinhVien" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_DiemHocKy_HocKy" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_DiemHocKy_SinhVien" ManuallyRouted="false" />
-        <AssociationConnector Association="QLDiemSinhVienModel.FK_LopTinChi_DiemThanhPhan" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_GiangVien_Khoa" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_GiangVien_TaiKhoang" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_Lop_GiangVien" ManuallyRouted="false" />
@@ -39,6 +38,7 @@
         <AssociationConnector Association="QLDiemSinhVienModel.DangKyHoc" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.GiangDay" ManuallyRouted="false" />
         <AssociationConnector Association="QLDiemSinhVienModel.FK_LopTinChi_Khoa" />
+        <AssociationConnector Association="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

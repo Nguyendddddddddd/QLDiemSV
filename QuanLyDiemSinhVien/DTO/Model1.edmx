@@ -38,6 +38,7 @@
           <Property Name="MaDiemTP" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="TenDiem" Type="nvarchar" MaxLength="50" />
           <Property Name="PhanTram" Type="int" />
+          <Property Name="MaLop" Type="char" MaxLength="10" />
         </EntityType>
         <EntityType Name="GiangDay">
           <Key>
@@ -104,7 +105,6 @@
           <Property Name="SLToiDa" Type="int" />
           <Property Name="MaHocKy" Type="char" MaxLength="20" />
           <Property Name="MaMon" Type="char" MaxLength="10" />
-          <Property Name="MaDiemTP" Type="char" MaxLength="10" />
           <Property Name="MaKhoa" Type="char" MaxLength="10" />
         </EntityType>
         <EntityType Name="MonHoc">
@@ -226,6 +226,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DiemThanhPhan_LopTinChi">
+          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="0..1" />
+          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopTinChi">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="DiemThanhPhan">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GiangDay_GiangVien1">
           <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
           <End Role="GiangDay" Type="Self.GiangDay" Multiplicity="*" />
@@ -295,18 +307,6 @@
             </Principal>
             <Dependent Role="Lop">
               <PropertyRef Name="MaNganh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LopTinChi_DiemThanhPhan">
-          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="0..1" />
-          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DiemThanhPhan">
-              <PropertyRef Name="MaDiemTP" />
-            </Principal>
-            <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -459,6 +459,10 @@
             <End Role="SinhVien" EntitySet="SinhVien" />
             <End Role="DiemHocKy" EntitySet="DiemHocKy" />
           </AssociationSet>
+          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="Self.FK_DiemThanhPhan_LopTinChi">
+            <End Role="LopTinChi" EntitySet="LopTinChi" />
+            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
+          </AssociationSet>
           <AssociationSet Name="FK_GiangDay_GiangVien1" Association="Self.FK_GiangDay_GiangVien1">
             <End Role="GiangVien" EntitySet="GiangVien" />
             <End Role="GiangDay" EntitySet="GiangDay" />
@@ -482,10 +486,6 @@
           <AssociationSet Name="FK_Lop_Nganh" Association="Self.FK_Lop_Nganh">
             <End Role="Nganh" EntitySet="Nganh" />
             <End Role="Lop" EntitySet="Lop" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LopTinChi_DiemThanhPhan" Association="Self.FK_LopTinChi_DiemThanhPhan">
-            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhan" />
-            <End Role="LopTinChi" EntitySet="LopTinChi" />
           </AssociationSet>
           <AssociationSet Name="FK_LopTinChi_HocKy" Association="Self.FK_LopTinChi_HocKy">
             <End Role="HocKy" EntitySet="HocKy" />
@@ -558,7 +558,8 @@
           <Property Name="TenDiem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhanTram" Type="Int32" />
           <NavigationProperty Name="ChiTietDiems" Relationship="Self.FK_ChiTietDiem_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="ChiTietDiem" />
-          <NavigationProperty Name="LopTinChis" Relationship="Self.FK_LopTinChi_DiemThanhPhan" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
+          <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="LopTinChi" Relationship="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi" FromRole="DiemThanhPhan" ToRole="LopTinChi" />
         </EntityType>
         <EntityType Name="GiangVien">
           <Key>
@@ -631,14 +632,13 @@
           <Property Name="SLToiDa" Type="Int32" />
           <Property Name="MaHocKy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaDiemTP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="DiemThanhPhan" Relationship="Self.FK_LopTinChi_DiemThanhPhan" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
           <NavigationProperty Name="HocKy" Relationship="Self.FK_LopTinChi_HocKy" FromRole="LopTinChi" ToRole="HocKy" />
           <NavigationProperty Name="MonHoc" Relationship="Self.FK_LopTinChi_MonHoc" FromRole="LopTinChi" ToRole="MonHoc" />
           <NavigationProperty Name="SinhViens" Relationship="Self.DangKyHoc" FromRole="LopTinChi" ToRole="SinhVien" />
           <NavigationProperty Name="GiangViens" Relationship="Self.GiangDay" FromRole="LopTinChi" ToRole="GiangVien" />
           <Property Name="MaKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Khoa" Relationship="QLDiemSinhVienModel.FK_LopTinChi_Khoa" FromRole="LopTinChi" ToRole="Khoa" />
+          <NavigationProperty Name="DiemThanhPhans" Relationship="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi" FromRole="LopTinChi" ToRole="DiemThanhPhan" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -746,18 +746,6 @@
             </Principal>
             <Dependent Role="DiemHocKy">
               <PropertyRef Name="MSSV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LopTinChi_DiemThanhPhan">
-          <End Role="DiemThanhPhan" Type="Self.DiemThanhPhan" Multiplicity="0..1" />
-          <End Role="LopTinChi" Type="Self.LopTinChi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DiemThanhPhan">
-              <PropertyRef Name="MaDiemTP" />
-            </Principal>
-            <Dependent Role="LopTinChi">
-              <PropertyRef Name="MaDiemTP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -944,10 +932,6 @@
             <End Role="SinhVien" EntitySet="SinhViens" />
             <End Role="DiemHocKy" EntitySet="DiemHocKies" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopTinChi_DiemThanhPhan" Association="Self.FK_LopTinChi_DiemThanhPhan">
-            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
-            <End Role="LopTinChi" EntitySet="LopTinChis" />
-          </AssociationSet>
           <AssociationSet Name="FK_GiangVien_Khoa" Association="Self.FK_GiangVien_Khoa">
             <End Role="Khoa" EntitySet="Khoas" />
             <End Role="GiangVien" EntitySet="GiangViens" />
@@ -1008,6 +992,10 @@
             <End Role="Khoa" EntitySet="Khoas" />
             <End Role="LopTinChi" EntitySet="LopTinChis" />
           </AssociationSet>
+          <AssociationSet Name="FK_DiemThanhPhan_LopTinChi" Association="QLDiemSinhVienModel.FK_DiemThanhPhan_LopTinChi">
+            <End Role="LopTinChi" EntitySet="LopTinChis" />
+            <End Role="DiemThanhPhan" EntitySet="DiemThanhPhans" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_LopTinChi_Khoa">
           <End Type="QLDiemSinhVienModel.Khoa" Role="Khoa" Multiplicity="0..1" />
@@ -1018,6 +1006,18 @@
             </Principal>
             <Dependent Role="LopTinChi">
               <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiemThanhPhan_LopTinChi">
+          <End Type="QLDiemSinhVienModel.LopTinChi" Role="LopTinChi" Multiplicity="0..1" />
+          <End Type="QLDiemSinhVienModel.DiemThanhPhan" Role="DiemThanhPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopTinChi">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="DiemThanhPhan">
+              <PropertyRef Name="MaLop" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1048,6 +1048,7 @@
           <EntitySetMapping Name="DiemThanhPhans">
             <EntityTypeMapping TypeName="QLDiemSinhVienModel.DiemThanhPhan">
               <MappingFragment StoreEntitySet="DiemThanhPhan">
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
                 <ScalarProperty Name="TenDiem" ColumnName="TenDiem" />
                 <ScalarProperty Name="PhanTram" ColumnName="PhanTram" />
@@ -1116,7 +1117,6 @@
                 <ScalarProperty Name="SLToiDa" ColumnName="SLToiDa" />
                 <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
                 <ScalarProperty Name="MaMon" ColumnName="MaMon" />
-                <ScalarProperty Name="MaDiemTP" ColumnName="MaDiemTP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

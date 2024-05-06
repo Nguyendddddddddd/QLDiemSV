@@ -37,12 +37,14 @@
             this.btnSinhVien = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlMain = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnGiangVien = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.guna2Panel1.Controls.Add(this.btnGiangVien);
             this.guna2Panel1.Controls.Add(this.btnHocKy);
             this.guna2Panel1.Controls.Add(this.btnLopMonHoc);
             this.guna2Panel1.Controls.Add(this.btnMonHoc);
@@ -163,6 +165,21 @@
             this.pnlMain.Size = new System.Drawing.Size(1102, 683);
             this.pnlMain.TabIndex = 2;
             // 
+            // btnGiangVien
+            // 
+            this.btnGiangVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiangVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiangVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGiangVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGiangVien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGiangVien.ForeColor = System.Drawing.Color.White;
+            this.btnGiangVien.Location = new System.Drawing.Point(36, 446);
+            this.btnGiangVien.Name = "btnGiangVien";
+            this.btnGiangVien.Size = new System.Drawing.Size(249, 45);
+            this.btnGiangVien.TabIndex = 6;
+            this.btnGiangVien.Text = "Giảng viên";
+            this.btnGiangVien.Click += new System.EventHandler(this.btnGiangVien_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,5 +207,6 @@
         private Guna.UI2.WinForms.Guna2Button btnMonHoc;
         private Guna.UI2.WinForms.Guna2Button btnLopMonHoc;
         private Guna.UI2.WinForms.Guna2Button btnHocKy;
+        private Guna.UI2.WinForms.Guna2Button btnGiangVien;
     }
 }

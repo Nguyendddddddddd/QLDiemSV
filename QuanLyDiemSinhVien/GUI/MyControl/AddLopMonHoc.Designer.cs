@@ -42,6 +42,8 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cboGiangVien = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboKhoa = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudSLToiDa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,7 +201,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 372);
+            this.label6.Location = new System.Drawing.Point(14, 438);
             this.label6.Margin = new System.Windows.Forms.Padding(4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
@@ -216,15 +218,42 @@
             this.cboGiangVien.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboGiangVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboGiangVien.ItemHeight = 30;
-            this.cboGiangVien.Location = new System.Drawing.Point(14, 395);
+            this.cboGiangVien.Location = new System.Drawing.Point(14, 461);
             this.cboGiangVien.Name = "cboGiangVien";
             this.cboGiangVien.Size = new System.Drawing.Size(269, 36);
             this.cboGiangVien.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 372);
+            this.label7.Margin = new System.Windows.Forms.Padding(4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Khoa";
+            // 
+            // cboKhoa
+            // 
+            this.cboKhoa.BackColor = System.Drawing.Color.Transparent;
+            this.cboKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboKhoa.ItemHeight = 30;
+            this.cboKhoa.Location = new System.Drawing.Point(14, 395);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.Size = new System.Drawing.Size(269, 36);
+            this.cboKhoa.TabIndex = 24;
             // 
             // AddLopMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cboKhoa);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cboGiangVien);
             this.Controls.Add(this.btnClose);
@@ -263,5 +292,7 @@
         public Guna.UI2.WinForms.Guna2Button btnClose;
         private System.Windows.Forms.Label label6;
         public Guna.UI2.WinForms.Guna2ComboBox cboGiangVien;
+        private System.Windows.Forms.Label label7;
+        public Guna.UI2.WinForms.Guna2ComboBox cboKhoa;
     }
 }

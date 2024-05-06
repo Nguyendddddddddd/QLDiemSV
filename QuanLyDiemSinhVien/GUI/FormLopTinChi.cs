@@ -2,6 +2,7 @@
 using DTO;
 using GUI.MyControl;
 using GUI.UI;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,15 +25,19 @@ namespace GUI
         public FormLopTinChi()
         {
             InitializeComponent();
+
+           
             addLopMonHoc = new AddLopMonHoc();
             updateAndDeleteLMH = new UpdateAndDeleteLopMonHoc();
+            loadData();
             addLopMonHoc.btnThem.Click += (sender, e) => { ThemLop(); };
             updateAndDeleteLMH.btnSua.Click += (sender, e) => { SuaLop(); };
             updateAndDeleteLMH.btnXoa.Click += (sender, e) => { xoaLop(); };
             updateAndDeleteLMH.lbDenLopHoc.Click += (sender, e) => { openFormChiTietLopHoc(); };
-
-            loadData();
+            addLopMonHoc.cboKhoa.SelectedIndexChanged += (sender, e) => { loadCboGiangVien(((Guna2ComboBox)sender).SelectedValue.ToString()); };
         }
+
+
         public void openFormChiTietLopHoc()
         {
             FormChiTietLopHoc formChiTietLH = new FormChiTietLopHoc(LopTinChiSelect.MaLop);
@@ -45,6 +50,7 @@ namespace GUI
             loadCboHocKy();
             loadCboMonHoc();
             loadCboGiangVien();
+            loadCboKhoa();
         }
         private void loadDataGridview()
         {
@@ -71,7 +77,16 @@ namespace GUI
         {
             LoadData.loadCombobox<GiangVien>(addLopMonHoc.cboGiangVien, "FullName", "MaGV", GiangVienBUS.selectAll());
         }
-       
+        private void loadCboGiangVien(string maKhoa)
+        {
+            LoadData.loadCombobox<GiangVien>(addLopMonHoc.cboGiangVien, "FullName", "MaGV", GiangVienBUS.selectByMaKhoa(maKhoa));
+        }
+        private void loadCboKhoa()
+        {
+            LoadData.loadCombobox<Khoa>(addLopMonHoc.cboKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
+            LoadData.loadCombobox<Khoa>(updateAndDeleteLMH.cboKhoa, "TenKhoa", "MaKhoa", KhoaBUS.selectAll());
+        }
+
 
         private void FormLopTinChi_Load(object sender, EventArgs e)
         {
@@ -99,7 +114,6 @@ namespace GUI
                 return;
             }
 
-            MessageBox.Show(MaLop);
             LopTinChi lopTinChi = new LopTinChi()
             {
                 MaLop = MaLop,
@@ -108,6 +122,7 @@ namespace GUI
                 SLToiDa = (int)addLopMonHoc.nudSLToiDa.Value,
                 MaHocKy = addLopMonHoc.cboHocKy.SelectedValue.ToString(),
                 MaMon = addLopMonHoc.cboMonHoc.SelectedValue.ToString(),
+                MaKhoa = addLopMonHoc.cboKhoa.SelectedValue.ToString(),
                 SLSinhVien = 0,
             };
             lopTinChi.GiangViens.Add(gv);
@@ -134,6 +149,7 @@ namespace GUI
                 MaHocKy = updateAndDeleteLMH.cboHocKy.SelectedValue.ToString(),
                 MaMon = updateAndDeleteLMH.cboMonHoc.SelectedValue.ToString(),
                 SLSinhVien = 0,
+                MaKhoa = updateAndDeleteLMH.cboKhoa.SelectedValue.ToString(),
             };
             LopTinChiBUS.update(LopTinChiSelect.MaLop, lopTinChi);
             loadDataGridview();
@@ -166,6 +182,7 @@ namespace GUI
             updateAndDeleteLMH.cboHocKy.SelectedValue = LopTinChiSelect.MaHocKy;
             updateAndDeleteLMH.dtpNgayBD.Value = LopTinChiSelect.NgayBatDau.Value;
             updateAndDeleteLMH.dtpNgayKT.Value = LopTinChiSelect.NgayKetThuc.Value;
+            updateAndDeleteLMH.cboKhoa.SelectedValue= LopTinChiSelect.MaKhoa;
             updateAndDeleteLMH.nudSLToiDa.Value = decimal.Parse(LopTinChiSelect.SLToiDa.ToString());
 
 

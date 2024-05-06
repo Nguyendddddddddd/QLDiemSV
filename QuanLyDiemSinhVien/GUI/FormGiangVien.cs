@@ -164,7 +164,7 @@ namespace GUI
             updateAndDeleteGiangVien.txtHocHam.Text = cell[clHocHam.Index].Value.ToString();
             updateAndDeleteGiangVien.txtHocVi.Text = cell[clHocVi.Index].Value.ToString();
             updateAndDeleteGiangVien.txtChuyenMon.Text = cell[CLChuyenMon.Index].Value.ToString();
-            updateAndDeleteGiangVien.cboKhoa.SelectedValue = GiangVienBUS.selectByID(magv).MaKhoa;
+            //updateAndDeleteGiangVien.cboKhoa.SelectedValue = GiangVienBUS.selectByID(magv).MaKhoa;
             HandleUI.showSidePanel(pnlDsGiangVien, pnlAddGiangVien);
             pnlAddGiangVien.Controls.Add(updateAndDeleteGiangVien);
         }

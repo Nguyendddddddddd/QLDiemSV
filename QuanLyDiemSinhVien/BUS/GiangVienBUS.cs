@@ -18,6 +18,11 @@ namespace BUS
         {
             return GiangVienDAO.selectByID(maGV);
         }
+        public static List<GiangVien> selectByMaKhoa(string maKhoa)
+        {
+           
+            return GiangVienDAO.selectByMaKhoa(maKhoa);
+        }
         public static List<GiangVien> selectByTenGV(string tenGV)
         {
             return GiangVienDAO.selectByTenGV(tenGV);

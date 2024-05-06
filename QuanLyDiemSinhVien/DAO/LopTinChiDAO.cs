@@ -37,7 +37,10 @@ namespace DAO
         }
         public static bool delete(string maLopTC)
         {
-            QLDiemSinhVien.getInstance().LopTinChis.Remove(selectByID(maLopTC));
+            LopTinChi ltc = selectByID(maLopTC);
+            ltc.SinhViens.Clear();
+            ltc.GiangViens.Clear();
+            QLDiemSinhVien.getInstance().LopTinChis.Remove(ltc);
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
             try
             {
@@ -71,6 +74,7 @@ namespace DAO
             }
             return true;
         }
+
         public static bool themSinhVienVaoLop(string maLop,SinhVien sv)
         {
             try
@@ -79,6 +83,24 @@ namespace DAO
                 if (ltc != null)
                 {
                    ltc.SinhViens.Add(sv);
+
+                    int sl = QLDiemSinhVien.getInstance().SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool xoaSinhVienVaoLop(string maLop, SinhVien sv)
+        {
+            try
+            {
+                var ltc = selectByID(maLop);
+                if (ltc != null)
+                {
+                    ltc.SinhViens.Remove(sv);
 
                     int sl = QLDiemSinhVien.getInstance().SaveChanges();
                 }

@@ -18,16 +18,15 @@ namespace DTO
         public DiemThanhPhan()
         {
             this.ChiTietDiems = new HashSet<ChiTietDiem>();
-            this.LopTinChis = new HashSet<LopTinChi>();
         }
     
         public string MaDiemTP { get; set; }
         public string TenDiem { get; set; }
         public Nullable<int> PhanTram { get; set; }
+        public string MaLop { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDiem> ChiTietDiems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopTinChi> LopTinChis { get; set; }
+        public virtual LopTinChi LopTinChi { get; set; }
     }
 }

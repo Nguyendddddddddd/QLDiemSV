@@ -22,6 +22,15 @@ namespace DAO
                       ).FirstOrDefault();
             return giangVien;
         }
+        public static List<GiangVien> selectByMaKhoa(string maKhoa)
+        {
+            var lstGiangVien = QLDiemSinhVien.getInstance().GiangViens.ToList();
+            var giangVien = (from g in lstGiangVien
+                             where g.MaKhoa.Trim() == maKhoa.Trim()
+                             select g
+                      ).ToList();
+            return giangVien;
+        }
         public static List<GiangVien> selectByTenGV(string tenGV)
         {
             var lstGV = QLDiemSinhVien.getInstance().GiangViens.ToList();
