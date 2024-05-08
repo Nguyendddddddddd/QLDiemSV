@@ -34,12 +34,6 @@
             this.pnlDsLopTC = new Guna.UI2.WinForms.Guna2Panel();
             this.cboHocKy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvLopTinChi = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnThemLop = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnTimKiemLop = new Guna.UI2.WinForms.Guna2Button();
-            this.txtTimKiemLop = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlAddLopTC = new Guna.UI2.WinForms.Guna2Panel();
             this.clMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clSoLuongToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +42,12 @@
             this.clNgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThemLop = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTimKiemLop = new Guna.UI2.WinForms.Guna2Button();
+            this.txtTimKiemLop = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlAddLopTC = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlDsLopTC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopTinChi)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -156,6 +156,54 @@
             this.dgvLopTinChi.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvLopTinChi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLopTinChi_CellClick);
             // 
+            // clMaLop
+            // 
+            this.clMaLop.HeaderText = "Mã lớp";
+            this.clMaLop.MinimumWidth = 6;
+            this.clMaLop.Name = "clMaLop";
+            // 
+            // clMonHoc
+            // 
+            this.clMonHoc.HeaderText = "Môn học";
+            this.clMonHoc.MinimumWidth = 6;
+            this.clMonHoc.Name = "clMonHoc";
+            // 
+            // clSoLuongToiDa
+            // 
+            this.clSoLuongToiDa.HeaderText = "SLTD";
+            this.clSoLuongToiDa.MinimumWidth = 6;
+            this.clSoLuongToiDa.Name = "clSoLuongToiDa";
+            // 
+            // clSoLuongSV
+            // 
+            this.clSoLuongSV.HeaderText = "SLSV";
+            this.clSoLuongSV.MinimumWidth = 6;
+            this.clSoLuongSV.Name = "clSoLuongSV";
+            // 
+            // clNgayBD
+            // 
+            this.clNgayBD.HeaderText = "Ngày bắt đầu";
+            this.clNgayBD.MinimumWidth = 6;
+            this.clNgayBD.Name = "clNgayBD";
+            // 
+            // clNgayKT
+            // 
+            this.clNgayKT.HeaderText = "Ngày kết thúc";
+            this.clNgayKT.MinimumWidth = 6;
+            this.clNgayKT.Name = "clNgayKT";
+            // 
+            // clHocKy
+            // 
+            this.clHocKy.HeaderText = "Học kỳ";
+            this.clHocKy.MinimumWidth = 6;
+            this.clHocKy.Name = "clHocKy";
+            // 
+            // clGiangVien
+            // 
+            this.clGiangVien.HeaderText = "Giảng viên";
+            this.clGiangVien.MinimumWidth = 6;
+            this.clGiangVien.Name = "clGiangVien";
+            // 
             // btnThemLop
             // 
             this.btnThemLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -260,58 +308,11 @@
             this.pnlAddLopTC.TabIndex = 3;
             this.pnlAddLopTC.Visible = false;
             // 
-            // clMaLop
-            // 
-            this.clMaLop.HeaderText = "Mã lớp";
-            this.clMaLop.MinimumWidth = 6;
-            this.clMaLop.Name = "clMaLop";
-            // 
-            // clMonHoc
-            // 
-            this.clMonHoc.HeaderText = "Môn học";
-            this.clMonHoc.MinimumWidth = 6;
-            this.clMonHoc.Name = "clMonHoc";
-            // 
-            // clSoLuongToiDa
-            // 
-            this.clSoLuongToiDa.HeaderText = "SLTD";
-            this.clSoLuongToiDa.MinimumWidth = 6;
-            this.clSoLuongToiDa.Name = "clSoLuongToiDa";
-            // 
-            // clSoLuongSV
-            // 
-            this.clSoLuongSV.HeaderText = "SLSV";
-            this.clSoLuongSV.MinimumWidth = 6;
-            this.clSoLuongSV.Name = "clSoLuongSV";
-            // 
-            // clNgayBD
-            // 
-            this.clNgayBD.HeaderText = "Ngày bắt đầu";
-            this.clNgayBD.MinimumWidth = 6;
-            this.clNgayBD.Name = "clNgayBD";
-            // 
-            // clNgayKT
-            // 
-            this.clNgayKT.HeaderText = "Ngày kết thúc";
-            this.clNgayKT.MinimumWidth = 6;
-            this.clNgayKT.Name = "clNgayKT";
-            // 
-            // clHocKy
-            // 
-            this.clHocKy.HeaderText = "Học kỳ";
-            this.clHocKy.MinimumWidth = 6;
-            this.clHocKy.Name = "clHocKy";
-            // 
-            // clGiangVien
-            // 
-            this.clGiangVien.HeaderText = "Giảng viên";
-            this.clGiangVien.MinimumWidth = 6;
-            this.clGiangVien.Name = "clGiangVien";
-            // 
             // FormLopTinChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1102, 683);
             this.Controls.Add(this.pnlDsLopTC);
             this.Controls.Add(this.pnlAddLopTC);

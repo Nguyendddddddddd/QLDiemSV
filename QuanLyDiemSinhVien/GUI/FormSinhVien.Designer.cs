@@ -59,10 +59,10 @@
             this.pnlAddSinhVien.BorderRadius = 14;
             this.pnlAddSinhVien.BorderThickness = 1;
             this.pnlAddSinhVien.FillColor = System.Drawing.Color.White;
-            this.pnlAddSinhVien.Location = new System.Drawing.Point(950, 17);
-            this.pnlAddSinhVien.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlAddSinhVien.Location = new System.Drawing.Point(792, 14);
+            this.pnlAddSinhVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pnlAddSinhVien.Name = "pnlAddSinhVien";
-            this.pnlAddSinhVien.Size = new System.Drawing.Size(355, 786);
+            this.pnlAddSinhVien.Size = new System.Drawing.Size(296, 655);
             this.pnlAddSinhVien.TabIndex = 1;
             this.pnlAddSinhVien.Visible = false;
             // 
@@ -78,10 +78,10 @@
             this.pnlDsSinhVien.Controls.Add(this.guna2Panel1);
             this.pnlDsSinhVien.Controls.Add(this.btnThemSinhVien);
             this.pnlDsSinhVien.FillColor = System.Drawing.Color.White;
-            this.pnlDsSinhVien.Location = new System.Drawing.Point(17, 17);
-            this.pnlDsSinhVien.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlDsSinhVien.Location = new System.Drawing.Point(14, 14);
+            this.pnlDsSinhVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pnlDsSinhVien.Name = "pnlDsSinhVien";
-            this.pnlDsSinhVien.Size = new System.Drawing.Size(1289, 786);
+            this.pnlDsSinhVien.Size = new System.Drawing.Size(1074, 655);
             this.pnlDsSinhVien.TabIndex = 2;
             // 
             // dgvSinhVien
@@ -118,13 +118,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSinhVien.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSinhVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvSinhVien.Location = new System.Drawing.Point(26, 104);
-            this.dgvSinhVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSinhVien.Location = new System.Drawing.Point(22, 87);
             this.dgvSinhVien.Name = "dgvSinhVien";
             this.dgvSinhVien.RowHeadersVisible = false;
             this.dgvSinhVien.RowHeadersWidth = 51;
             this.dgvSinhVien.RowTemplate.Height = 24;
-            this.dgvSinhVien.Size = new System.Drawing.Size(1244, 652);
+            this.dgvSinhVien.Size = new System.Drawing.Size(1037, 543);
             this.dgvSinhVien.TabIndex = 7;
             this.dgvSinhVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSinhVien.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -201,10 +200,10 @@
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.btnTimKiemSinhVien);
             this.guna2Panel1.Controls.Add(this.txtTimKiemTenSinhVien);
-            this.guna2Panel1.Location = new System.Drawing.Point(26, 12);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.guna2Panel1.Location = new System.Drawing.Point(22, 10);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1033, 77);
+            this.guna2Panel1.Size = new System.Drawing.Size(861, 64);
             this.guna2Panel1.TabIndex = 6;
             // 
             // btnTimKiemSinhVien
@@ -217,10 +216,10 @@
             this.btnTimKiemSinhVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnTimKiemSinhVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiemSinhVien.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiemSinhVien.Location = new System.Drawing.Point(925, 11);
-            this.btnTimKiemSinhVien.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.btnTimKiemSinhVien.Location = new System.Drawing.Point(771, 9);
+            this.btnTimKiemSinhVien.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.btnTimKiemSinhVien.Name = "btnTimKiemSinhVien";
-            this.btnTimKiemSinhVien.Size = new System.Drawing.Size(96, 56);
+            this.btnTimKiemSinhVien.Size = new System.Drawing.Size(80, 47);
             this.btnTimKiemSinhVien.TabIndex = 1;
             this.btnTimKiemSinhVien.Text = "Tìm";
             this.btnTimKiemSinhVien.Click += new System.EventHandler(this.btnTimKiemSinhVien_Click);
@@ -239,13 +238,13 @@
             this.txtTimKiemTenSinhVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimKiemTenSinhVien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTimKiemTenSinhVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiemTenSinhVien.Location = new System.Drawing.Point(19, 5);
-            this.txtTimKiemTenSinhVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTimKiemTenSinhVien.Location = new System.Drawing.Point(16, 4);
+            this.txtTimKiemTenSinhVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTimKiemTenSinhVien.Name = "txtTimKiemTenSinhVien";
             this.txtTimKiemTenSinhVien.PasswordChar = '\0';
             this.txtTimKiemTenSinhVien.PlaceholderText = "Nhập tên sinh viên hoặc mã số sinh viên để tìm";
             this.txtTimKiemTenSinhVien.SelectedText = "";
-            this.txtTimKiemTenSinhVien.Size = new System.Drawing.Size(906, 67);
+            this.txtTimKiemTenSinhVien.Size = new System.Drawing.Size(755, 56);
             this.txtTimKiemTenSinhVien.TabIndex = 0;
             this.txtTimKiemTenSinhVien.TextChanged += new System.EventHandler(this.txtTimKiemTenSinhVien_TextChanged);
             this.txtTimKiemTenSinhVien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiemTenSinhVien_KeyDown);
@@ -260,23 +259,22 @@
             this.btnThemSinhVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThemSinhVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnThemSinhVien.ForeColor = System.Drawing.Color.White;
-            this.btnThemSinhVien.Location = new System.Drawing.Point(1075, 12);
-            this.btnThemSinhVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemSinhVien.Location = new System.Drawing.Point(896, 10);
             this.btnThemSinhVien.Name = "btnThemSinhVien";
-            this.btnThemSinhVien.Size = new System.Drawing.Size(196, 77);
+            this.btnThemSinhVien.Size = new System.Drawing.Size(163, 64);
             this.btnThemSinhVien.TabIndex = 0;
             this.btnThemSinhVien.Text = "Thêm sinh viên";
             this.btnThemSinhVien.Click += new System.EventHandler(this.btnThemSinhVien_Click);
             // 
             // FormSinhVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1322, 820);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1102, 683);
             this.Controls.Add(this.pnlDsSinhVien);
             this.Controls.Add(this.pnlAddSinhVien);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSinhVien";
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);

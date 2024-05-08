@@ -82,7 +82,7 @@ namespace GUI
             dgvNganh.Rows.Clear();
             NganhBUS.selectAll().ForEach(n =>
             {
-                dgvNganh.Rows.Add(n.MaNganh, n.TenNganh, n.Khoa.TenKhoa);
+                dgvNganh.Rows.Add(n.MaNganh, n.TenNganh,"");
             });
         }
         private void loadDataGridViewNganh(List<Nganh> lstNganh)
@@ -209,7 +209,8 @@ namespace GUI
             }
 
             var maNganh = dgvNganh.Rows[indexDgvNganh].Cells["clMaNganh"].Value.ToString();
-            NganhBUS.delete(maNganh);
+            bool kq = NganhBUS.delete(maNganh);
+            MessageBox.Show(kq ? "Xóa ngành thành công" : "Xóa ngành không thành công");
             loadDataGridViewNganh();
             indexDgvNganh = -1;
         }

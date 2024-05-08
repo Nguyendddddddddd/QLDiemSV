@@ -24,6 +24,8 @@ namespace GUI
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             capNhatDiem();
+            ((FormDiemHocKy)this.Tag).loadGgv();
+            // this.Close();
         }
 
         private void FormCapNhatDiemHocKy_Load(object sender, EventArgs e)
@@ -34,10 +36,46 @@ namespace GUI
         private void capNhatDiem()
         {
             string maHK = cboHocKy.SelectedValue.ToString();
-            float diem =0;
             int tongsotc = 0;
-            int kq = QLDiemSinhVien.getInstance().getTongSoTinChiSinhVien("2", "HKI2023-2024");
-            MessageBox.Show(kq +"");
+            float kq = 0;
+            //int kq = QLDiemSinhVien.getInstance().getTongSoTinChiSinhVien("2", "HKI2023-2024");
+
+
+
+            //MessageBox.Show(kq +"");
+            SinhVienBUS.selectAll().ForEach(sv =>
+            {
+                tongsotc = procBUS.getTongSoTC(sv.MSSV, maHK);
+                List<LopTinChi> ltc = sv.LopTinChis.Where(l => l.MaHocKy == maHK).ToList();
+
+               
+                if(ltc.Count != 0)
+                {
+                    ltc.ToList().ForEach(l =>
+                    {
+                        kq += (float)procBUS.getDiemKTMonNhanSoTC(sv.MSSV, l.MaLop);
+                    });
+
+                    if (DiemHocKyBUS.selectByID(maHK, sv.MSSV) != null)
+                    {
+                        DiemHocKyBUS.update(maHK, sv.MSSV, kq / tongsotc);
+                        kq = 0;
+                        tongsotc = 0;
+                        return;
+                    }
+                    DiemHocKy diemHocKy = new DiemHocKy()
+                    {
+                        MaHocKy = maHK,
+                        MSSV = sv.MSSV,
+                        Diem = kq / tongsotc,
+                    };
+
+                    DiemHocKyBUS.insert(diemHocKy);
+                    kq = 0;
+                    tongsotc = 0;
+                }
+            });
+
         }
 
     }

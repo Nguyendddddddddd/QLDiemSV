@@ -76,6 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(474, 339);
             this.Controls.Add(this.cboHocKy);
             this.Controls.Add(this.btnCapNhat);

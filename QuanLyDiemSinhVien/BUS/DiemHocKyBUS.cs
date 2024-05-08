@@ -22,5 +22,15 @@ namespace BUS
         {
                 return DiemHocKyDAO.insert(dhk);
         }
+        public static bool update(string maHocKy, string maSV, double diem)
+        {
+           
+                return DiemHocKyDAO.update(maHocKy,maSV,diem);
+        }
+        public static List<DiemHocKy> selectByMSSV(string mssv)
+        {
+            return DiemHocKyDAO.selectByMSSV(mssv);
+        }
+
     }
 }

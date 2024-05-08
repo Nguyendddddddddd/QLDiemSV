@@ -202,6 +202,7 @@ namespace GUI
             if (index == -1)
                 return;
             var maDiemTP = Guid.Parse(dgvCotDiem.Rows[index].Cells[clMaDiem.Index].Value.ToString());
+            DiemThanhPhanBUS.selectByID(maDiemTP).ChiTietDiems.Clear();
             ltc.DiemThanhPhans.Remove(DiemThanhPhanBUS.selectByID(maDiemTP));
             loadCotDiem();
         }

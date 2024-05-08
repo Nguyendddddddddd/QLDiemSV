@@ -264,6 +264,9 @@ namespace GUI
             loadDataGirdView(listGiangVien);
         }
 
-       
+        private void FormGiangVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

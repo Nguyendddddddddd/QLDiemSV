@@ -58,11 +58,6 @@ namespace GUI.MyControl
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (ChiTietDiemBUS.selectByMaSvAndMaLop(mssv, malop).Count > 0)
-            {
-                MessageBox.Show("Sinh viên đã có điểm", "Thông báo");
-                return;
-            }
             try 
             {
                 for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
@@ -80,6 +75,10 @@ namespace GUI.MyControl
                     {
                         MessageBox.Show("Bạn phải nhập số", "Thông báo");
                         return;
+                    }
+                    if(ChiTietDiemBUS.selectByMaSvAndMaDiem(mssv, dtp.MaDiemTP) != null)
+                    {
+                        continue;
                     }
                     ChiTietDiem chiTietDiem = new ChiTietDiem()
                     {

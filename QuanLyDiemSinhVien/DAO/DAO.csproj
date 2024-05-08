@@ -63,6 +63,7 @@
     <Compile Include="LopTinChiDAO.cs" />
     <Compile Include="MonHocDAO.cs" />
     <Compile Include="NganhDAO.cs" />
+    <Compile Include="procDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVienDAO.cs" />
   </ItemGroup>

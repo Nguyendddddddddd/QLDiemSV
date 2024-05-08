@@ -68,12 +68,13 @@ namespace GUI
         public void addLopCboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             Guna2ComboBox cbo = sender as Guna2ComboBox;
-            changeSelectedNganhFromKhoa(cbo.SelectedValue.ToString(), addLop.cboNganh);
+            changeSelectedNganhFromKhoa(cbo.SelectedValue?.ToString(), addLop.cboNganh);
         }
         public void updateAndDeleteLopCboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             Guna2ComboBox cbo = sender as Guna2ComboBox;
-            changeSelectedNganhFromKhoa(cbo.SelectedValue.ToString(), updateAndDeleteLop.cboNganh);
+
+            changeSelectedNganhFromKhoa(cbo.SelectedValue?.ToString(), updateAndDeleteLop.cboNganh);
         }
         public void addLopBtnXoa_Click(object sender, EventArgs e)
         {
