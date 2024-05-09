@@ -153,7 +153,7 @@ namespace GUI
             if (LopBUS.selectByID(maLop).GiangVien!=null)
             updateAndDeleteLop.cboGiangVien.SelectedValue = LopBUS.selectByID(maLop).GiangVien.MaGV;
             updateAndDeleteLop.cboNganh.SelectedValue = LopBUS.selectByID(maLop).Nganh.MaNganh;
-            updateAndDeleteLop.cboKhoa.SelectedValue = LopBUS.selectByID(maLop).Nganh.Khoa.MaKhoa;
+            updateAndDeleteLop.cboKhoa.SelectedValue = LopBUS.selectByID(maLop).Nganh.Khoa?.MaKhoa;
 
         }
         private void btnTimKiemLop_Click(object sender, EventArgs e)

@@ -35,6 +35,8 @@ namespace GUI
             updateAndDeleteLMH.btnXoa.Click += (sender, e) => { xoaLop(); };
             updateAndDeleteLMH.lbDenLopHoc.Click += (sender, e) => { openFormChiTietLopHoc(); };
             addLopMonHoc.cboKhoa.SelectedIndexChanged += (sender, e) => { loadCboGiangVien(((Guna2ComboBox)sender).SelectedValue.ToString()); };
+            addLopMonHoc.btnClose.Click += (sender, e) => { HandleUI.hideSidePanel(pnlDsLopTC, pnlAddLopTC); };
+            updateAndDeleteLMH.btnClose.Click += (sender, e) => { HandleUI.hideSidePanel(pnlDsLopTC, pnlAddLopTC); };
         }
 
 

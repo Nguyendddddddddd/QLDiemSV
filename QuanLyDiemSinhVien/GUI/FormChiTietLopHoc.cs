@@ -43,6 +43,7 @@ namespace GUI
                 loadDgvDSSinhVien(SinhVienBUS.selectByMaLop(cbo.SelectedValue.ToString()));
             };
             addSinhVien.dgvSinhVien.CellClick += addSinhVien_dgvSinhVien_CellClick;
+            addSinhVien.btnClose.Click += (sender, e) => { HandleUI.hideSidePanel(pnlMain, pnlSide); };
         }
 
         private void addSinhVien_dgvSinhVien_CellClick(object sender, EventArgs e)
@@ -134,6 +135,11 @@ namespace GUI
             }
             for (int i = 0; i < addSinhVien.dgvSinhVien.SelectedRows.Count; i++)
             {
+                if (ltc.SinhViens.Count >= ltc.SLToiDa)
+                {
+                    MessageBox.Show("Đã đủ sinh viên!");
+                    break;
+                }
                 var mssv = addSinhVien.dgvSinhVien.SelectedRows[i].Cells[0].Value.ToString();
                 LopTinChiBUS.themSinhVienVaoLop(ltc.MaLop, SinhVienBUS.selectByID(mssv));
 
@@ -204,6 +210,7 @@ namespace GUI
             var maDiemTP = Guid.Parse(dgvCotDiem.Rows[index].Cells[clMaDiem.Index].Value.ToString());
             DiemThanhPhanBUS.selectByID(maDiemTP).ChiTietDiems.Clear();
             ltc.DiemThanhPhans.Remove(DiemThanhPhanBUS.selectByID(maDiemTP));
+            QLDiemSinhVien.getInstance().SaveChanges();
             loadCotDiem();
         }
 
@@ -211,10 +218,17 @@ namespace GUI
         {
             HandleUI.showSidePanel(pnlMain, pnlSide);
             var mssv = dgvSinhVienLopHoc.Rows[e.RowIndex].Cells[0].Value.ToString();
-            addDiem adiem = new addDiem(mssv,maLop);
+            addDiem adiem = new addDiem(mssv, maLop);
+            adiem.btnClose.Click += btnClose;
             adiem.Tag = ltc.DiemThanhPhans.ToList();
             pnlSide.Controls.Add(adiem);
 
         }
+
+        private void btnClose(object sender, EventArgs e)
+        {
+           HandleUI.hideSidePanel(pnlMain, pnlSide);
+        }
+
     }
 }

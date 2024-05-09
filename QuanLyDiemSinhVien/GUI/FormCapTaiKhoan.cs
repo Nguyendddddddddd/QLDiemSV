@@ -16,10 +16,12 @@ namespace GUI
     public partial class FormCapTaiKhoan : Form
     {
         public TaiKhoang taiKhoang;
+        public SinhVien sinhVien;
+        public GiangVien giangVien;
         public FormCapTaiKhoan()
         {
             InitializeComponent();
-            LoadData.loadCombobox<Quyen>(cboLoaiTK, "TenQuyen", "MaQuyen", QLDiemSinhVien.getInstance().Quyens.ToList());
+            LoadData.loadCombobox<Quyen>(cboLoaiTK, "TenQuyen", "MaQuyen", QLDiemSinhVien.getInstance().Quyens.ToList());;
         }
 
        public void xoaDuLieu()
@@ -29,16 +31,20 @@ namespace GUI
             txtNhapLaiMK.Clear();
             txtTenDangNhap.Focus();
             ckbHienMK.Checked = false;
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "SV")
+                LoadData.loadCombobox<SinhVien>(cboDanhSach, "MSSV", "MSSV", CapTaiKhoanBUS.selectByTenDangNhapSVRong());
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "GV")
+                LoadData.loadCombobox<GiangVien>(cboDanhSach, "MaGV", "MaGV", CapTaiKhoanBUS.selectByTenDangNhapGVRong());
         }
 
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
-            if (txtTenDangNhap.Text==""||txtMatKhau.Text==""||txtNhapLaiMK.Text=="")
+            if (txtTenDangNhap.Text.Trim()==""||txtMatKhau.Text.Trim()==""||txtNhapLaiMK.Text.Trim() =="")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (txtMatKhau.Text != txtNhapLaiMK.Text)
+            if (txtMatKhau.Text.Trim() != txtNhapLaiMK.Text.Trim())
             {
                 MessageBox.Show("Mật khẩu không khớp","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
@@ -50,6 +56,13 @@ namespace GUI
                 MaQuyen = cboLoaiTK.SelectedValue.ToString(),
             };
             bool kq = CapTaiKhoanBUS.insert(taiKhoang);
+
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "SV")
+                CapTaiKhoanBUS.updateTaiKhoanSV(cboDanhSach.SelectedValue.ToString().Trim(), txtTenDangNhap.Text.Trim());
+
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "GV")
+                CapTaiKhoanBUS.updateTaiKhoanGV(cboDanhSach.SelectedValue.ToString().Trim(), txtTenDangNhap.Text.Trim());
+
             if (kq)
             {
                 MessageBox.Show("Cấp tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -71,6 +84,21 @@ namespace GUI
                 txtMatKhau.PasswordChar = '*';
                 txtNhapLaiMK.PasswordChar = '*';
             }   
+        }
+
+        private void cboLoaiTK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "SV")
+                LoadData.loadCombobox<SinhVien>(cboDanhSach, "MSSV", "MSSV", CapTaiKhoanBUS.selectByTenDangNhapSVRong());
+        
+            if (cboLoaiTK.SelectedValue.ToString().Trim() == "GV")
+                LoadData.loadCombobox<GiangVien>(cboDanhSach, "MaGV", "MaGV", CapTaiKhoanBUS.selectByTenDangNhapGVRong());
+
+            if(cboLoaiTK.SelectedValue.ToString().Trim() == "QT")
+            {
+                List<string> lstRong = new List<string>();
+                LoadData.loadCombobox<string>(cboDanhSach, "", "", lstRong);
+            }
         }
     }
 }

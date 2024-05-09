@@ -1,8 +1,11 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +24,16 @@ namespace GUI
         private FormHocKy fHocKy;
         private FormGiangVien fGiangVien;
         private FormDiemHocKy fDiemHocKy;
-
+        private FormBCDanhSachSinhVien fBCSinhVien;
         private static FormMain instance;
+        private FormCapTaiKhoan fCapTaiKhoang;
         private FormMain()
         {
             InitializeComponent();
         }
         public static FormMain getInstance()
         {
-            if(instance == null)
+            if (instance == null)
                 instance = new FormMain();
             return instance;
         }
@@ -95,5 +99,24 @@ namespace GUI
             fDiemHocKy = new FormDiemHocKy();
             openChillForm(fDiemHocKy);
         }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            fBCSinhVien = new FormBCDanhSachSinhVien();
+            openChillForm(fBCSinhVien);
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCapTaiKhoang_Click(object sender, EventArgs e)
+        {
+            fCapTaiKhoang = new FormCapTaiKhoan();
+            openChillForm(fCapTaiKhoang);
+        }
+
+       
     }
 }

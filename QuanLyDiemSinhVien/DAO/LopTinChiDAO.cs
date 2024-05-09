@@ -17,17 +17,17 @@ namespace DAO
         {
             var lstLopTC = QLDiemSinhVien.getInstance().LopTinChis.ToList();
             var LopTC = (from l in lstLopTC
-                      where l.MaLop.Trim() == maLop.Trim()
-                      select l
+                         where l.MaLop.Trim() == maLop.Trim()
+                         select l
                       ).FirstOrDefault();
             return LopTC;
         }
         public static bool insert(LopTinChi ltc)
         {
-                QLDiemSinhVien.getInstance().LopTinChis.Add(ltc);
-                int sl = QLDiemSinhVien.getInstance().SaveChanges();
             try
             {
+                QLDiemSinhVien.getInstance().LopTinChis.Add(ltc);
+                int sl = QLDiemSinhVien.getInstance().SaveChanges();
             }
             catch (Exception ex)
             {
@@ -37,17 +37,18 @@ namespace DAO
         }
         public static bool delete(string maLopTC)
         {
-            LopTinChi ltc = selectByID(maLopTC);
-            ltc.SinhViens.Clear();
-            ltc.GiangViens.Clear();
-            ltc.DiemThanhPhans.Clear();
-            QLDiemSinhVien.getInstance().LopTinChis.Remove(ltc);
-            int sl = QLDiemSinhVien.getInstance().SaveChanges();
             try
             {
+                LopTinChi ltc = selectByID(maLopTC);
+                ltc.SinhViens.Clear();
+                ltc.GiangViens.Clear();
+                ltc.DiemThanhPhans.Clear();
+                QLDiemSinhVien.getInstance().LopTinChis.Remove(ltc);
+                int sl = QLDiemSinhVien.getInstance().SaveChanges();
             }
             catch (Exception ex)
             {
+                HuyThayDoiDAO.huythaydoi();
                 return false;
             }
             return true;
@@ -63,9 +64,9 @@ namespace DAO
                     ltc.NgayBatDau = lopTC.NgayBatDau;
                     ltc.NgayKetThuc = lopTC.NgayKetThuc;
                     ltc.SLToiDa = lopTC.SLToiDa;
-                    ltc.MaMon= lopTC.MaMon;
+                    ltc.MaMon = lopTC.MaMon;
                     ltc.GiangViens = lopTC.GiangViens;
-                    
+
                     int sl = QLDiemSinhVien.getInstance().SaveChanges();
                 }
             }
@@ -76,14 +77,14 @@ namespace DAO
             return true;
         }
 
-        public static bool themSinhVienVaoLop(string maLop,SinhVien sv)
+        public static bool themSinhVienVaoLop(string maLop, SinhVien sv)
         {
             try
             {
                 var ltc = selectByID(maLop);
                 if (ltc != null)
                 {
-                   ltc.SinhViens.Add(sv);
+                    ltc.SinhViens.Add(sv);
 
                     int sl = QLDiemSinhVien.getInstance().SaveChanges();
                 }
@@ -104,6 +105,7 @@ namespace DAO
                     ltc.SinhViens.Remove(sv);
 
                     int sl = QLDiemSinhVien.getInstance().SaveChanges();
+
                 }
             }
             catch (Exception ex)

@@ -87,6 +87,12 @@
     <Compile Include="FKhoa.Designer.cs">
       <DependentUpon>FKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBCDanhSachSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBCDanhSachSinhVien.Designer.cs">
+      <DependentUpon>FormBCDanhSachSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCapNhatDiemHocKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDanhSachSVTrongLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDanhSachSVTrongLop.designer.cs">
+      <DependentUpon>FormDanhSachSVTrongLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDiemHocKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,12 @@
     </Compile>
     <Compile Include="FormGiangVien.Designer.cs">
       <DependentUpon>FormGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVienXemDSLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVienXemDSLop.designer.cs">
+      <DependentUpon>FormGiangVienXemDSLop.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHocKy.cs">
       <SubType>Form</SubType>
@@ -147,6 +165,18 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMainGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainGV.Designer.cs">
+      <DependentUpon>FormMainGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainSV.Designer.cs">
+      <DependentUpon>FormMainSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +188,12 @@
     </Compile>
     <Compile Include="FormSinhVien.Designer.cs">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXemDiemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXemDiemSinhVien.Designer.cs">
+      <DependentUpon>FormXemDiemSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\addDiem.cs">
       <SubType>UserControl</SubType>
@@ -212,6 +248,12 @@
     </Compile>
     <Compile Include="MyControl\ContainerLopTC.Designer.cs">
       <DependentUpon>ContainerLopTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\DiemMon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\DiemMon.Designer.cs">
+      <DependentUpon>DiemMon.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\dsSinhVien.cs">
       <SubType>UserControl</SubType>
@@ -275,11 +317,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\BangDiem.cs" />
+    <Compile Include="Report\QLDiemSinhVienDataSet.cs">
+      <DependentUpon>QLDiemSinhVienDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\QLDiemSinhVienDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDiemSinhVienDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UI\HandleUI.cs" />
     <Compile Include="UI\LoadData.cs" />
     <EmbeddedResource Include="FKhoa.resx">
       <DependentUpon>FKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBCDanhSachSinhVien.resx">
+      <DependentUpon>FormBCDanhSachSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCapNhatDiemHocKy.resx">
       <DependentUpon>FormCapNhatDiemHocKy.cs</DependentUpon>
@@ -293,11 +347,17 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDanhSachSVTrongLop.resx">
+      <DependentUpon>FormDanhSachSVTrongLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDiemHocKy.resx">
       <DependentUpon>FormDiemHocKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien.resx">
       <DependentUpon>FormGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVienXemDSLop.resx">
+      <DependentUpon>FormGiangVienXemDSLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHocKy.resx">
       <DependentUpon>FormHocKy.cs</DependentUpon>
@@ -311,11 +371,20 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMainGV.resx">
+      <DependentUpon>FormMainGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainSV.resx">
+      <DependentUpon>FormMainSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMonHoc.resx">
       <DependentUpon>FormMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXemDiemSinhVien.resx">
+      <DependentUpon>FormXemDiemSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\addDiem.resx">
       <DependentUpon>addDiem.cs</DependentUpon>
@@ -343,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\ContainerLopTC.resx">
       <DependentUpon>ContainerLopTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\DiemMon.resx">
+      <DependentUpon>DiemMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\dsSinhVien.resx">
       <DependentUpon>dsSinhVien.cs</DependentUpon>
@@ -381,6 +453,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\BangDiemMonHoc.rdlc" />
+    <EmbeddedResource Include="Report\BCBangDiemSinhVien.rdlc" />
+    <EmbeddedResource Include="Report\BCDanhSachSinhVien.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -396,6 +471,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report\QLDiemSinhVienDataSet.xsc">
+      <DependentUpon>QLDiemSinhVienDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\QLDiemSinhVienDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDiemSinhVienDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\QLDiemSinhVienDataSet.xss">
+      <DependentUpon>QLDiemSinhVienDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\student-icon.png" />
     <None Include="Resources\lamviecnhom2.png" />
     <None Include="Resources\captaikhoan1.png" />

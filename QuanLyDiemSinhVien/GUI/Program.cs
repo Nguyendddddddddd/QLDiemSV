@@ -22,8 +22,8 @@ namespace GUI
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(FormMain.getInstance());
-
+           // Application.Run(FormMain.getInstance());
+            Application.Run(new FormDangNhap());
         }
     }
 }

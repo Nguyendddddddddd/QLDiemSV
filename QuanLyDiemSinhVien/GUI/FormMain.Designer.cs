@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCapTaiKhoang = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBaoCao = new Guna.UI2.WinForms.Guna2Button();
             this.btnDiemHocKy = new Guna.UI2.WinForms.Guna2Button();
             this.btnGiangVien = new Guna.UI2.WinForms.Guna2Button();
             this.btnHocKy = new Guna.UI2.WinForms.Guna2Button();
@@ -47,6 +49,8 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.BorderColor = System.Drawing.Color.DimGray;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.btnCapTaiKhoang);
+            this.guna2Panel1.Controls.Add(this.btnBaoCao);
             this.guna2Panel1.Controls.Add(this.btnDiemHocKy);
             this.guna2Panel1.Controls.Add(this.btnGiangVien);
             this.guna2Panel1.Controls.Add(this.btnHocKy);
@@ -61,6 +65,38 @@
             this.guna2Panel1.Size = new System.Drawing.Size(320, 763);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // btnCapTaiKhoang
+            // 
+            this.btnCapTaiKhoang.BorderRadius = 12;
+            this.btnCapTaiKhoang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCapTaiKhoang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCapTaiKhoang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCapTaiKhoang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCapTaiKhoang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapTaiKhoang.ForeColor = System.Drawing.Color.White;
+            this.btnCapTaiKhoang.Location = new System.Drawing.Point(36, 647);
+            this.btnCapTaiKhoang.Name = "btnCapTaiKhoang";
+            this.btnCapTaiKhoang.Size = new System.Drawing.Size(249, 45);
+            this.btnCapTaiKhoang.TabIndex = 9;
+            this.btnCapTaiKhoang.Text = "Cấp tài khoảng";
+            this.btnCapTaiKhoang.Click += new System.EventHandler(this.btnCapTaiKhoang_Click);
+            // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.BorderRadius = 12;
+            this.btnBaoCao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBaoCao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBaoCao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBaoCao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBaoCao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCao.ForeColor = System.Drawing.Color.White;
+            this.btnBaoCao.Location = new System.Drawing.Point(36, 584);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(249, 45);
+            this.btnBaoCao.TabIndex = 8;
+            this.btnBaoCao.Text = "Báo cáo";
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // btnDiemHocKy
             // 
             this.btnDiemHocKy.BorderRadius = 12;
@@ -70,7 +106,7 @@
             this.btnDiemHocKy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDiemHocKy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiemHocKy.ForeColor = System.Drawing.Color.White;
-            this.btnDiemHocKy.Location = new System.Drawing.Point(36, 535);
+            this.btnDiemHocKy.Location = new System.Drawing.Point(36, 521);
             this.btnDiemHocKy.Name = "btnDiemHocKy";
             this.btnDiemHocKy.Size = new System.Drawing.Size(249, 45);
             this.btnDiemHocKy.TabIndex = 7;
@@ -86,7 +122,7 @@
             this.btnGiangVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnGiangVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGiangVien.ForeColor = System.Drawing.Color.White;
-            this.btnGiangVien.Location = new System.Drawing.Point(36, 470);
+            this.btnGiangVien.Location = new System.Drawing.Point(36, 458);
             this.btnGiangVien.Name = "btnGiangVien";
             this.btnGiangVien.Size = new System.Drawing.Size(249, 45);
             this.btnGiangVien.TabIndex = 6;
@@ -102,7 +138,7 @@
             this.btnHocKy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHocKy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHocKy.ForeColor = System.Drawing.Color.White;
-            this.btnHocKy.Location = new System.Drawing.Point(36, 405);
+            this.btnHocKy.Location = new System.Drawing.Point(36, 395);
             this.btnHocKy.Name = "btnHocKy";
             this.btnHocKy.Size = new System.Drawing.Size(249, 45);
             this.btnHocKy.TabIndex = 5;
@@ -118,7 +154,7 @@
             this.btnLopMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLopMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLopMonHoc.ForeColor = System.Drawing.Color.White;
-            this.btnLopMonHoc.Location = new System.Drawing.Point(36, 340);
+            this.btnLopMonHoc.Location = new System.Drawing.Point(36, 332);
             this.btnLopMonHoc.Name = "btnLopMonHoc";
             this.btnLopMonHoc.Size = new System.Drawing.Size(249, 45);
             this.btnLopMonHoc.TabIndex = 4;
@@ -134,7 +170,7 @@
             this.btnMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonHoc.ForeColor = System.Drawing.Color.White;
-            this.btnMonHoc.Location = new System.Drawing.Point(36, 275);
+            this.btnMonHoc.Location = new System.Drawing.Point(36, 269);
             this.btnMonHoc.Name = "btnMonHoc";
             this.btnMonHoc.Size = new System.Drawing.Size(249, 45);
             this.btnMonHoc.TabIndex = 3;
@@ -150,7 +186,7 @@
             this.btnLop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLop.ForeColor = System.Drawing.Color.White;
-            this.btnLop.Location = new System.Drawing.Point(36, 210);
+            this.btnLop.Location = new System.Drawing.Point(36, 206);
             this.btnLop.Name = "btnLop";
             this.btnLop.Size = new System.Drawing.Size(249, 45);
             this.btnLop.TabIndex = 2;
@@ -166,7 +202,7 @@
             this.btnKhoaNganh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKhoaNganh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKhoaNganh.ForeColor = System.Drawing.Color.White;
-            this.btnKhoaNganh.Location = new System.Drawing.Point(36, 145);
+            this.btnKhoaNganh.Location = new System.Drawing.Point(36, 143);
             this.btnKhoaNganh.Name = "btnKhoaNganh";
             this.btnKhoaNganh.Size = new System.Drawing.Size(249, 45);
             this.btnKhoaNganh.TabIndex = 1;
@@ -238,5 +274,7 @@
         private Guna.UI2.WinForms.Guna2Button btnHocKy;
         private Guna.UI2.WinForms.Guna2Button btnGiangVien;
         private Guna.UI2.WinForms.Guna2Button btnDiemHocKy;
+        private Guna.UI2.WinForms.Guna2Button btnBaoCao;
+        private Guna.UI2.WinForms.Guna2Button btnCapTaiKhoang;
     }
 }

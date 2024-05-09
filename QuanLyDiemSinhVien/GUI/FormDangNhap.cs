@@ -30,20 +30,38 @@ namespace GUI
             formMain = null;
             this.Dispose();
         }
+        public void khoiTaoFormMainGV()
+        {
+            this.Hide();
+            GiangVien giangVien = taiKhoang.GiangViens.ToList().First();
 
+            FormMainGV formMainGV = new FormMainGV(giangVien);
+            formMainGV.ShowDialog();
+            formMainGV = null;
+            this.Dispose();
+        }
+        public void khoiTaoFormMainSV()
+        {
+            this.Hide();
+            SinhVien sv = taiKhoang.SinhViens.ToList().First();
+            FormMainSV formMainSV = new FormMainSV(sv.MSSV);
+            formMainSV.ShowDialog();
+            formMainSV = null;
+            this.Dispose();
+        }
         public void hienThiMenu()
         {
             string quyen = taiKhoang.MaQuyen.Trim();
             switch (quyen)
             {
                 case "QT":
-                    MessageBox.Show("Tài khoản quản trị");
-                    break;
+                        khoiTaoFormMain();
+                        break;
                 case "GV":
-                    MessageBox.Show("Tài khoản giáo viên");
+                    khoiTaoFormMainGV();
                     break;
                 case "SV":
-                    MessageBox.Show("Tài khoản sinh viên");
+                    khoiTaoFormMainSV();
                     break;
                 default:
                     break;

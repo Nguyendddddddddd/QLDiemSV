@@ -53,6 +53,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
+                HuyThayDoiDAO.huythaydoi();
                 return false;
             }
             return true;

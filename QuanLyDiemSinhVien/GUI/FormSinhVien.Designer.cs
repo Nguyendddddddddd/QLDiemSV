@@ -60,7 +60,7 @@
             this.pnlAddSinhVien.BorderThickness = 1;
             this.pnlAddSinhVien.FillColor = System.Drawing.Color.White;
             this.pnlAddSinhVien.Location = new System.Drawing.Point(792, 14);
-            this.pnlAddSinhVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlAddSinhVien.Margin = new System.Windows.Forms.Padding(5);
             this.pnlAddSinhVien.Name = "pnlAddSinhVien";
             this.pnlAddSinhVien.Size = new System.Drawing.Size(296, 655);
             this.pnlAddSinhVien.TabIndex = 1;
@@ -68,7 +68,8 @@
             // 
             // pnlDsSinhVien
             // 
-            this.pnlDsSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlDsSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDsSinhVien.BackColor = System.Drawing.Color.Transparent;
             this.pnlDsSinhVien.BorderColor = System.Drawing.Color.DimGray;
@@ -79,7 +80,7 @@
             this.pnlDsSinhVien.Controls.Add(this.btnThemSinhVien);
             this.pnlDsSinhVien.FillColor = System.Drawing.Color.White;
             this.pnlDsSinhVien.Location = new System.Drawing.Point(14, 14);
-            this.pnlDsSinhVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlDsSinhVien.Margin = new System.Windows.Forms.Padding(5);
             this.pnlDsSinhVien.Name = "pnlDsSinhVien";
             this.pnlDsSinhVien.Size = new System.Drawing.Size(1074, 655);
             this.pnlDsSinhVien.TabIndex = 2;
@@ -88,7 +89,8 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSinhVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -201,7 +203,7 @@
             this.guna2Panel1.Controls.Add(this.btnTimKiemSinhVien);
             this.guna2Panel1.Controls.Add(this.txtTimKiemTenSinhVien);
             this.guna2Panel1.Location = new System.Drawing.Point(22, 10);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(10);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(861, 64);
             this.guna2Panel1.TabIndex = 6;
@@ -217,7 +219,7 @@
             this.btnTimKiemSinhVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiemSinhVien.ForeColor = System.Drawing.Color.White;
             this.btnTimKiemSinhVien.Location = new System.Drawing.Point(771, 9);
-            this.btnTimKiemSinhVien.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btnTimKiemSinhVien.Margin = new System.Windows.Forms.Padding(10);
             this.btnTimKiemSinhVien.Name = "btnTimKiemSinhVien";
             this.btnTimKiemSinhVien.Size = new System.Drawing.Size(80, 47);
             this.btnTimKiemSinhVien.TabIndex = 1;

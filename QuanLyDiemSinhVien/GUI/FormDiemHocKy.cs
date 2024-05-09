@@ -32,7 +32,7 @@ namespace GUI
             dgvDiemHK.Rows.Clear();
             DiemHocKyBUS.selectAll().ForEach(d =>
             {
-                dgvDiemHK.Rows.Add(d.SinhVien.MSSV, d.SinhVien.FullName, d.HocKy.TenKy, d.HocKy.NamHoc, d.Diem);
+                dgvDiemHK.Rows.Add(d.SinhVien.MSSV, d.SinhVien.FullName, d.HocKy.TenKy, d.HocKy.NamHoc, Math.Round(d.Diem.Value,2),Math.Round(chuyenHe10SangHe4(d.Diem.Value),2),chuyenSoSangHeChu(d.Diem.Value));
             });
         }
 
@@ -86,6 +86,49 @@ namespace GUI
         {
             List<DiemHocKy> lstDhk = DiemHocKyBUS.selectAll().Where(dhk => dhk.SinhVien.MaLop == cboLop.SelectedValue.ToString()).ToList();
             loadGgv(lstDhk);
+        }
+
+        private double chuyenHe10SangHe4(double diemHe10)
+        {
+            return (diemHe10 / 10) * 4;
+        }
+        private string chuyenSoSangHeChu(double diemHe10)
+        {
+            string Diem = "";
+            if (diemHe10 >= 9)
+                Diem = "A+";
+            else if(diemHe10>=8)
+                Diem = "A";
+            else if (diemHe10 >= 7)
+                Diem = "B+";
+            else if (diemHe10 >= 6)
+                Diem = "B";
+            else if (diemHe10 >= 5 )
+                Diem = "C";
+            else if (diemHe10 >= 4)
+                Diem = "D+";
+            else if (diemHe10 >= 3)
+                Diem = "D";
+            else
+                Diem = "F";
+            return Diem;
+        }
+        private string chuyenSoSangXepLoai(double diemHe10)
+        {
+            string Diem = "";
+            if (diemHe10 >= 9)
+                Diem = "Xuất sắc";
+            else if (diemHe10 >= 8)
+                Diem = "Giỏi";
+            else if (diemHe10 >= 6)
+                Diem = "Khá";
+            else if (diemHe10 >= 5)
+                Diem = "Trung bình";
+            else if (diemHe10 >= 4)
+                Diem = "Yếu";
+            else
+                Diem = "Kém";
+            return Diem;
         }
     }
 }

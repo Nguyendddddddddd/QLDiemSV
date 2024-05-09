@@ -53,10 +53,12 @@
   <ItemGroup>
     <Compile Include="CapTaiKhoanBUS.cs" />
     <Compile Include="ChiTietDiemBUS.cs" />
+    <Compile Include="CSDLBUS.cs" />
     <Compile Include="DangNhapBUS.cs" />
     <Compile Include="DiemHocKyBUS.cs" />
     <Compile Include="DiemThanhPhanBUS.cs" />
     <Compile Include="GiangVienBUS.cs" />
+    <Compile Include="GiangVienXemDSLopBUS.cs" />
     <Compile Include="HocKyBUS.cs" />
     <Compile Include="KhoaBUS.cs" />
     <Compile Include="LopBUS.cs" />

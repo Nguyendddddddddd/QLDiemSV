@@ -46,13 +46,14 @@ namespace DAO
         }
         public static bool delete(string maHK)
         {
-                QLDiemSinhVien.getInstance().HocKies.Remove(selectByID(maHK));
-                int sl = QLDiemSinhVien.getInstance().SaveChanges();
             try
             {
+                QLDiemSinhVien.getInstance().HocKies.Remove(selectByID(maHK));
+                int sl = QLDiemSinhVien.getInstance().SaveChanges();
             }
             catch (Exception ex)
             {
+                HuyThayDoiDAO.huythaydoi();
                 return false;
             }
             return true;

@@ -14,7 +14,7 @@ namespace BUS
         public static bool insert(TaiKhoang tk)
         {
             MD5 md5 = MD5.Create();
-            tk.MatKhau = CapTaiKhoanBUS.GetMd5Hash(md5,tk.MatKhau);
+            tk.MatKhau = CapTaiKhoanBUS.GetMd5Hash(md5, tk.MatKhau);
             return CapTaiKhoanDAO.insert(tk);
         }
 
@@ -29,5 +29,26 @@ namespace BUS
             return sBuilder.ToString();
         }
 
+        public static bool updateTaiKhoanSV(string mssv, string tenDangNhap)
+        {
+
+            return CapTaiKhoanDAO.updateTaiKhoanSV(mssv, tenDangNhap);
+        }
+
+        public static bool updateTaiKhoanGV(string mssv, string tenDangNhap)
+        {
+
+            return CapTaiKhoanDAO.updateTaiKhoanGV(mssv, tenDangNhap);
+        }
+
+        public static List<SinhVien> selectByTenDangNhapSVRong()
+        {
+            return CapTaiKhoanDAO.selectByTenDangNhapSVRong();
+        }
+
+        public static List<GiangVien> selectByTenDangNhapGVRong()
+        {
+            return CapTaiKhoanDAO.selectByTenDangNhapGVRong();
+        }
     }
 }

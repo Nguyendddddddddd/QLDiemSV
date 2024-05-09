@@ -9,7 +9,7 @@ namespace DAO
 {
     public class SinhVienDAO
     {
-        public static List<SinhVien> selectAll() 
+        public static List<SinhVien> selectAll()
         {
             return QLDiemSinhVien.getInstance().SinhViens.ToList();
         }
@@ -26,8 +26,8 @@ namespace DAO
         {
             var lstKhoa = QLDiemSinhVien.getInstance().SinhViens.ToList();
             var sinhVien = (from k in lstKhoa
-                        where k.FullName.ToLower().Trim().Contains(tenSV.ToLower().Trim()) == true
-                        select k
+                            where k.FullName.ToLower().Trim().Contains(tenSV.ToLower().Trim()) == true
+                            select k
                       ).ToList();
             return sinhVien;
         }
@@ -45,25 +45,29 @@ namespace DAO
         {
             QLDiemSinhVien.getInstance().SinhViens.Add(sv);
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
-            return sl>0;
+            return sl > 0;
         }
         public static bool delete(string mssv)
         {
-            try{
-
-            QLDiemSinhVien.getInstance().SinhViens.Remove(selectByID(mssv));
-            int sl = QLDiemSinhVien.getInstance().SaveChanges();
-            return sl > 0;
-            }catch(Exception e)
+            try
             {
+
+                QLDiemSinhVien.getInstance().SinhViens.Remove(selectByID(mssv));
+                int sl = QLDiemSinhVien.getInstance().SaveChanges();
+                return sl > 0;
+            }
+            catch (Exception e)
+            {
+                HuyThayDoiDAO.huythaydoi();
                 return false;
             }
         }
-        public static bool update(string mssv,SinhVien sv)
+        public static bool update(string mssv, SinhVien sv)
         {
-           var sinhVien = selectByID(mssv);
-            if(sinhVien != null)
-            {   sinhVien.HoLot =sv.HoLot;
+            var sinhVien = selectByID(mssv);
+            if (sinhVien != null)
+            {
+                sinhVien.HoLot = sv.HoLot;
                 sinhVien.Ten = sv.Ten;
                 sinhVien.NgaySinh = sv.NgaySinh;
                 sinhVien.DiaChi = sv.DiaChi;
@@ -72,6 +76,6 @@ namespace DAO
             int sl = QLDiemSinhVien.getInstance().SaveChanges();
             return sl > 0;
         }
-        
+
     }
 }

@@ -17,8 +17,8 @@ namespace DAO
         {
             var lstNganh = QLDiemSinhVien.getInstance().Nganhs.ToList();
             var nganh = (from n in lstNganh
-                        where n.MaNganh.Trim() == maNganh.Trim()
-                        select n
+                         where n.MaNganh.Trim() == maNganh.Trim()
+                         select n
                       ).FirstOrDefault();
             return nganh;
         }
@@ -26,7 +26,7 @@ namespace DAO
         {
             var lstNganh = QLDiemSinhVien.getInstance().Nganhs.ToList();
             var nganh = (from n in lstNganh
-                         where n.MaKhoa.Trim() == maKhoa.Trim()
+                         where n.MaKhoa?.Trim() == maKhoa.Trim()
                          select n
                       ).ToList();
             return nganh;
@@ -35,8 +35,8 @@ namespace DAO
         {
             var lstNganh = QLDiemSinhVien.getInstance().Nganhs.ToList();
             var nganh = (from n in lstNganh
-                        where n.TenNganh.ToLower().Trim().Contains(tenNganh.ToLower().Trim()) == true
-                        select n
+                         where n.TenNganh.ToLower().Trim().Contains(tenNganh.ToLower().Trim()) == true
+                         select n
                       ).ToList();
             return nganh;
         }
@@ -62,6 +62,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
+                HuyThayDoiDAO.huythaydoi();
                 return false;
             }
             return true;

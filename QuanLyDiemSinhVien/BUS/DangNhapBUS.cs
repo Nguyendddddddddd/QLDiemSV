@@ -28,5 +28,9 @@ namespace BUS
             }
             return sBuilder.ToString();
         }
+        public static GiangVien selectGVTuTenDangNhap(string tenDangNhap)
+        {
+            return DangNhapDAO.selectGVTuTenDangNhap(tenDangNhap);
+        }
     }
 }

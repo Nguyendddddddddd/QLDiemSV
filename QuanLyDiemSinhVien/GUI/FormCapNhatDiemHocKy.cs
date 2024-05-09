@@ -48,9 +48,10 @@ namespace GUI
                 tongsotc = procBUS.getTongSoTC(sv.MSSV, maHK);
                 List<LopTinChi> ltc = sv.LopTinChis.Where(l => l.MaHocKy == maHK).ToList();
 
-               
-                if(ltc.Count != 0)
+
+                if (ltc.Count != 0)
                 {
+                    // sv.DiemHocKies.Clear();
                     ltc.ToList().ForEach(l =>
                     {
                         kq += (float)procBUS.getDiemKTMonNhanSoTC(sv.MSSV, l.MaLop);
@@ -61,18 +62,21 @@ namespace GUI
                         DiemHocKyBUS.update(maHK, sv.MSSV, kq / tongsotc);
                         kq = 0;
                         tongsotc = 0;
-                        return;
+                        // return;
                     }
-                    DiemHocKy diemHocKy = new DiemHocKy()
+                    else
                     {
-                        MaHocKy = maHK,
-                        MSSV = sv.MSSV,
-                        Diem = kq / tongsotc,
-                    };
+                        DiemHocKy diemHocKy = new DiemHocKy()
+                        {
+                            MaHocKy = maHK,
+                            MSSV = sv.MSSV,
+                            Diem = kq / tongsotc,
+                        };
 
-                    DiemHocKyBUS.insert(diemHocKy);
-                    kq = 0;
-                    tongsotc = 0;
+                        DiemHocKyBUS.insert(diemHocKy);
+                        kq = 0;
+                    }
+
                 }
             });
 

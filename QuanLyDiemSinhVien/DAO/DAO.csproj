@@ -53,11 +53,15 @@
   <ItemGroup>
     <Compile Include="CapTaiKhoanDAO.cs" />
     <Compile Include="ChiTietDiemDAO.cs" />
+    <Compile Include="CSDLDAO.cs" />
     <Compile Include="DangNhapDAO.cs" />
+    <Compile Include="DataProvider.cs" />
     <Compile Include="DiemHocKyDAO.cs" />
     <Compile Include="DiemThanhPhanDAO.cs" />
     <Compile Include="GiangVienDAO.cs" />
+    <Compile Include="GiangVienXemDSLopDAO.cs" />
     <Compile Include="HocKyDAO.cs" />
+    <Compile Include="HuyThayDoiDAO.cs" />
     <Compile Include="KhoaDAO.cs" />
     <Compile Include="LopDAO.cs" />
     <Compile Include="LopTinChiDAO.cs" />
@@ -65,6 +69,7 @@
     <Compile Include="NganhDAO.cs" />
     <Compile Include="procDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLDSVConnection.cs" />
     <Compile Include="SinhVienDAO.cs" />
   </ItemGroup>
   <ItemGroup>

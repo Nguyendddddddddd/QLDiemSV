@@ -18,5 +18,13 @@ namespace DAO
                       ).FirstOrDefault();
             return taikhoan;
         }
+        public static GiangVien selectGVTuTenDangNhap(string tenDangNhap)
+        {
+            var lstGiangVien = QLDiemSinhVien.getInstance().GiangViens.ToList();
+            var giangVien = (from g in lstGiangVien
+                             where g.TenDangNhap == tenDangNhap
+                             select g).FirstOrDefault();
+            return giangVien;
+        }
     }
 }
